@@ -3,7 +3,9 @@
 	function loadFlexslider() {
 		$( '.flex-viewport-wrapper' ).flexslider( {
 			animation: "fade",
-			slideshow: false,
+			slideshow: true,
+			slideshowSpeed: 4000,
+			randomize: true,
 			animationLoop: true,
 			controlNav: false,
 			directionNav: $('.flexslider .slides > .hero-content-wrapper').length > 1, //Hide navigation controls when we only have 1 post.
