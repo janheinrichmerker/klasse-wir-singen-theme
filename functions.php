@@ -47,7 +47,7 @@ if ( ! function_exists( 'dara_setup' ) ) :
 		// Post thumbnails
 		add_image_size( 'dara-featured-image', 880, 312, true );
 		// Hero Image on the front page slider
-		add_image_size( 'dara-hero-thumbnail', 1180, 600, true );
+		add_image_size( 'dara-hero-thumbnail', 1180, 400, true );
 		// Full width and grid page template
 		add_image_size( 'dara-page-thumbnail', 1180, 435, true );
 		// Grid child page thumbnail

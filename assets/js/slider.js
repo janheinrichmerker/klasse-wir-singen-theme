@@ -10,7 +10,7 @@
 			carousel: false,
 			itemMargin: 0,
 			itemWidth: 1180,
-			itemHeight: 600,
+			itemHeight: 400,
 			smoothHeight: true,
 			selector: '.slides > .hero-content-wrapper',
 			start: function(){
