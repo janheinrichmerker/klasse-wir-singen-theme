@@ -5,7 +5,7 @@ Theme URI: https://github.com/heinrichreimer/klasse-wir-singen-theme
 Author: Jan Heinrich Reimer
 Author URI: https://reimer.dev
 Description: Klasse! Wir singen theme, based on the Dara theme.
-Version: 2.0.0
+Version: 2.0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: klasse-wir-singen
@@ -47,14 +47,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 /*--------------------------------------------------------------
 1.0 Reset
 --------------------------------------------------------------*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
   font-family: inherit;
   font-size: 100%;
   font-weight: inherit;
@@ -76,55 +69,36 @@ html {
   /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */ }
 
 body {
-  background: #FFC60DFF; }
+  background: #FFC60D; }
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-main,
-nav,
-section {
+article, aside, details, figcaption, figure, footer, header, main, nav, section {
   display: block; }
 
-ol,
-ul {
+ol, ul {
   list-style: none; }
 
 table {
   border-spacing: 0;
   border-collapse: separate; }
 
-caption,
-th,
-td {
+caption, th, td {
   text-align: left; }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote:before, blockquote:after, q:before, q:after {
   content: ""; }
 
-blockquote,
-q {
+blockquote, q {
   quotes: "" ""; }
 
 a {
   color: #1a4c8b;
   text-decoration: none; }
 
-a:hover,
-a:focus,
-a:active {
+a:hover, a:focus, a:active {
   color: #a8a6a1;
   text-decoration: none; }
 
-a:hover,
-a:active {
+a:hover, a:active {
   outline: 0; }
 
 a:focus {
@@ -248,7 +222,7 @@ textarea {
   line-height: 1.6; }
 
 body {
-  background: #444340; }
+  background: #FFC60D; }
 
 h1,
 h2,

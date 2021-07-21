@@ -2,7 +2,7 @@
 /* Custom Colors: Dara */
 
 //Background
-add_color_rule( 'bg', '#444340', array(
+add_color_rule( 'bg', '#FFC60D', array(
     array( 'body', 'background-color' ),
     array( '.site-footer', 'background-color', '+0.3' ),
 ) );

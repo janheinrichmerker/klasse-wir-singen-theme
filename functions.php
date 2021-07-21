@@ -68,9 +68,9 @@ if ( ! function_exists( 'dara_setup' ) ) :
 					'color' => '#404040',
 				),
 				array(
-					'name'  => esc_html__( 'Dark Gray', 'dara' ),
-					'slug'  => 'dark-gray',
-					'color' => '#444340',
+					'name'  => esc_html__( 'Bright Yellow', 'dara' ),
+					'slug'  => 'bright-yellow',
+					'color' => '#FFC60D',
 				),
 				array(
 					'name'  => esc_html__( 'Medium Gray', 'dara' ),
@@ -131,7 +131,7 @@ if ( ! function_exists( 'dara_setup' ) ) :
 			apply_filters(
 				'dara_custom_background_args',
 				array(
-					'default-color' => '444340',
+					'default-color' => 'FFC60D',
 				)
 			)
 		);
