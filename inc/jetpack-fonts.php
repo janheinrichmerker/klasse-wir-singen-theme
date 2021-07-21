@@ -243,15 +243,7 @@ add_filter( 'typekit_add_font_category_rules', function( $category_rules ) {
 		button,
 		input[type="button"],
 		input[type="reset"],
-		input[type="submit"],
-		.woocommerce #respond input#submit,
-		.woocommerce a.button,
-		.woocommerce button.button,
-		.woocommerce input.button,
-		.woocommerce #respond input#submit.alt,
-		.woocommerce a.button.alt,
-		.woocommerce button.button.alt,
-		.woocommerce input.button.alt',
+		input[type="submit"]',
 		array(
 			array( 'property' => 'font-size', 'value' => '15px' ),
 			array( 'property' => 'font-weight', 'value' => 'bold' ),
@@ -393,8 +385,7 @@ add_filter( 'typekit_add_font_category_rules', function( $category_rules ) {
 	TypekitTheme::add_font_category_rule( $category_rules, 'headings',
 		'.entry-title,
 		.entry-title a,
-		.page-title,
-		.woocommerce .page-title',
+		.page-title',
 		array(
 			array( 'property' => 'font-size', 'value' => '29px' ),
 		)
@@ -403,8 +394,7 @@ add_filter( 'typekit_add_font_category_rules', function( $category_rules ) {
 	TypekitTheme::add_font_category_rule( $category_rules, 'headings',
 		'.entry-title,
 		.entry-title a,
-		.page-title,
-		.woocommerce .page-title',
+		.page-title',
 		array(
 			array( 'property' => 'font-size', 'value' => '32px' ),
 		),

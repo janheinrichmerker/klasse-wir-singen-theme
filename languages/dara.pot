@@ -246,17 +246,6 @@ msgstr ""
 msgid "% Comments"
 msgstr ""
 
-#: inc/woocommerce.php:270
-msgid "View your shopping cart"
-msgstr ""
-
-#. translators: number of items in the mini cart.
-#: inc/woocommerce.php:272
-msgid "%d item"
-msgid_plural "%d items"
-msgstr[0] ""
-msgstr[1] ""
-
 #: search.php:19
 msgid "Search Results for: %s"
 msgstr ""
