@@ -11,6 +11,8 @@ else :
 
 get_header(); ?>
 
+    <?php dara_featured_pages(); ?>
+
 	<div id="primary" class="content-area front-page-content-area">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php get_template_part( 'components/page/content', 'page' ); ?>
@@ -21,8 +23,6 @@ get_header(); ?>
 					endif; ?>
 		<?php endwhile; ?>
 	</div><!-- #primary -->
-
-	<?php dara_featured_pages(); ?>
 
 	<?php
 		$orderby = get_theme_mod( 'dara_testimonials', false );
