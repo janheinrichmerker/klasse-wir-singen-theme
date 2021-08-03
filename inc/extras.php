@@ -36,6 +36,11 @@ function dara_body_classes( $classes ) {
 		$classes[] = 'comments-closed';
 	}
 
+    $tags = get_the_tags();
+    foreach ( $tags as $tag ) {
+        $classes[] = 'tag-' . $tag->slug;
+    }
+
 	return $classes;
 }
 add_filter( 'body_class', 'dara_body_classes' );
