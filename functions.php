@@ -199,43 +199,7 @@ function dara_the_custom_logo() {
  * Returns the Google font stylesheet URL, if available.
  */
 function dara_fonts_url() {
-	$fonts_url = '';
-
-	/* translators: If there are characters in your language that are not supported
-	 * by Source Sans Pro, translate this to 'off'. Do not translate into your own language.
-	 */
-	$source_sans_pro = esc_html_x( 'on', 'Source Sans Pro font: on or off', 'dara' );
-
-	/* translators: If there are characters in your language that are not supported
-	 * by Yrsa, translate this to 'off'. Do not translate into your own language.
-	 */
-	$yrsa = esc_html_x( 'on', 'Yrsa font: on or off', 'dara' );
-
-	if ( 'off' !== $source_sans_pro || 'off' !== $merriweather || 'off' !== $Yrsa ) {
-		$font_families = array();
-
-		if ( 'off' !== $source_sans_pro ) {
-			$font_families[] = 'Source Sans Pro:300,300italic,400,400italic,600';
-		}
-		if ( 'off' !== $yrsa ) {
-			$font_families[] = 'Yrsa:300,400,700';
-		}
-
-		/**
-		 * A filter to enable child themes to add/change/omit font families.
-		 * 
-		 * @param array $font_families An array of font families to be imploded for the Google Font API
-		 */
-		$font_families = apply_filters( 'included_google_font_families', $font_families );
-
-		$query_args = array(
-			'family' => urlencode( implode( '|', $font_families ) ),
-			'subset' => urlencode( 'latin,latin-ext' ),
-		);
-		$fonts_url  = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
-	}
-
-	return $fonts_url;
+	return "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap";
 }
 
 /**
