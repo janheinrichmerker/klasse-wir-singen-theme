@@ -24,14 +24,6 @@ function dara_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
-	// Add a class of no-sidebar when there is no sidebar present
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[] = 'no-sidebar';
-	}
-
-	if ( is_page_template( 'full-width-page.php' ) || is_page_template( 'grid-page.php' ) )
-		$classes[] = 'full-width-page';
-
 	if ( ! is_multi_author() ) {
 		$classes[] = 'not-multi-author';
 	}
