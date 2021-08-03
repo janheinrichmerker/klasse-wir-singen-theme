@@ -47,7 +47,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 /*--------------------------------------------------------------
 1.0 Reset
 --------------------------------------------------------------*/
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address,
+big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol,
+ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
   font-family: inherit;
   font-size: 100%;
   font-weight: inherit;
@@ -61,15 +63,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 html {
   font-size: 62.5%;
   /* 10px */
-  overflow-y: scroll;
-  /* Keeps page centred in all browsers regardless of content height */
   -webkit-text-size-adjust: 100%;
   /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
   -ms-text-size-adjust: 100%;
   /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */ }
-
-body {
-  background: #FFC60D; }
 
 article, aside, details, figcaption, figure, footer, header, main, nav, section {
   display: block; }
@@ -216,13 +213,18 @@ input,
 select,
 textarea {
   color: #444340;
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-family: "Open Sans", Helvetica, sans-serif;
   font-size: 16px;
-  font-weight: 300;
   line-height: 1.6; }
 
 body {
   background: #FFC60D; }
+  body.tag-original {
+    background: #FFC60D; }
+  body.tag-jubilaeum {
+    background: #0d9eff; }
+  body.tag-musical {
+    background: #ad1515; }
 
 h1,
 h2,
@@ -231,7 +233,7 @@ h4,
 h5,
 h6 {
   clear: both;
-  font-family: "Yrsa", sans-serif;
+  font-weight: 600;
   margin-bottom: .8em; }
 
 h1 {
@@ -608,7 +610,7 @@ textarea {
   box-shadow: none;
   color: #fff;
   display: block;
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-family: "Open Sans", Helvetica, sans-serif;
   font-size: 15px;
   font-weight: bold;
   margin: 0 auto;
@@ -623,7 +625,7 @@ textarea {
 
 .menu-toggle:before {
   content: "\f419";
-  font-family: Genericons;
+  font-family: Genericons, monospace;
   line-height: 1;
   margin-right: 8px;
   position: relative;
@@ -706,7 +708,6 @@ textarea {
 .paging-navigation a,
 .comment-navigation a {
   display: inline-block;
-  font-family: "Yrsa", Georgia, serif;
   font-size: 18px;
   max-width: 100%;
   word-wrap: break-word;
@@ -892,10 +893,6 @@ textarea {
 #secondary.widget-area {
   margin-top: 3.2em; }
 
-.widget-title:before,
-.widget-title:after {
-  content: " - "; }
-
 #secondary.widget-area .widget ul > li,
 #secondary.widget-area .widget ol > li {
   border-top: 1px solid #f2f2f2; }
@@ -960,9 +957,7 @@ textarea {
 .site {
   max-width: 1180px;
   margin-left: auto;
-  margin-right: auto;
-  padding-right: 2%;
-  padding-left: 2%; }
+  margin-right: auto; }
 
 .no-sidebar .site {
   max-width: 880px; }
@@ -1007,7 +1002,6 @@ textarea {
   max-height: 150px; }
 
 .site-title {
-  font-family: "Yrsa", Georgia, Serif;
   font-size: 29px;
   line-height: 1.2;
   margin-bottom: 0; }
@@ -1022,15 +1016,9 @@ textarea {
 
 .site-description {
   color: #a8a6a1;
-  font-family: "Yrsa", Georgia, serif;
   font-size: 16px;
   font-weight: normal;
   margin-bottom: .4em; }
-
-.site-description:before,
-.site-description:after {
-  display: inline;
-  content: " - "; }
 
 .custom-header {
   display: block;
@@ -1127,8 +1115,8 @@ textarea {
 .entry-meta,
 .entry-footer {
   color: #a8a6a1;
-  font-family: "Yrsa", Georgia, serif;
   font-size: 16px;
+  font-weight: 600;
   margin-bottom: 1.6em;
   text-align: left; }
 
@@ -1190,7 +1178,6 @@ textarea {
 blockquote:before {
   color: #ccc;
   content: "\201C";
-  font-family: "Yrsa", Georgia, serif;
   font-size: 140px;
   font-style: normal;
   line-height: 1;
@@ -1200,7 +1187,6 @@ blockquote:before {
 
 blockquote {
   border: none;
-  font-family: "Yrsa", Georgia, serif;
   font-size: 23px;
   font-style: normal;
   margin-left: 0;
@@ -1656,10 +1642,6 @@ html[xmlns] .flexslider .slides {
   text-align: center;
   text-transform: none; }
 
-.featured-page .entry-title:before,
-.featured-page .entry-title:after {
-  content: " - "; }
-
 /* Grid Page */
 .grid-page-content-area .entry-content {
   min-height: 0; }
@@ -1711,7 +1693,6 @@ body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial {
 .front-testimonials .edit-link a,
 body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial .edit-link a {
   color: #a8a6a1;
-  font-family: "Yrsa", Georgia, serif;
   font-size: 15px; }
 
 body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial:nth-child(even) {
