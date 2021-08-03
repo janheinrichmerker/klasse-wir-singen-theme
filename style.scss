@@ -22,6 +22,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 
 $theme-color: #1a4c8b;
 $background-color: #FFC60D;
+$background-color-original: $background-color;
+$background-color-musical: #ad1515;
+$background-color-jubilee: #0d9eff;
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -231,6 +234,18 @@ textarea {
 }
 body {
 	background: $background-color;
+
+	&.tag-original {
+		background: $background-color-original;
+	}
+
+	&.tag-jubilaeum {
+		background: $background-color-jubilee;
+	}
+
+	&.tag-musical {
+		background: $background-color-musical;
+	}
 }
 h1,
 h2,
