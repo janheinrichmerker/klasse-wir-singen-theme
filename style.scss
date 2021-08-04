@@ -8,7 +8,6 @@ Version: 2.0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: klasse-wir-singen
-Tags: business, blog, bright, modern, professional, blue, light, one-column, two-columns, right-sidebar, author-bio, blog-excerpts, classic-menu, custom-background, custom-colors, custom-header, custom-menu, featured-content-with-pages, featured-images, flexible-header, full-width-template, infinite-scroll, post-slider, rtl-language-support, site-logo, social-menu, testimonials, theme-options, threaded-comments, translation-ready
 */
 
 $theme-color: #1a4c8b;
@@ -23,6 +22,7 @@ $text-color: #444340;
 $text-color-link: $theme-color;
 $text-color-link-active: #a8a6a1;
 $site-width:1080px;
+$block-padding:1.5em;
 
 @import "normalize.css";
 
@@ -49,80 +49,51 @@ html {
   font-size: 62.5%; /* 10px */
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-}
 
-ol, ul {
-  margin: 0 0 1.6em 1.6em;
-}
+  ol, ul {
+    margin: 0 0 $block-padding $block-padding;
 
-ul {
-  list-style: disc;
-}
+    li > ul,
+    li > ol {
+      margin-bottom: 0;
+      margin-left: 1em;
+    }
+  }
 
-ol {
-  list-style: decimal;
-}
+  table {
+    border-spacing: 0;
+  }
 
-li > ul,
-li > ol {
-  margin-bottom: 0;
-  margin-left: 1em;
-}
+  caption, th, td {
+    text-align: left;
+  }
 
-table {
-  border-spacing: 0;
-  border-collapse: separate;
-}
+  blockquote, q {
+    quotes: "" "";
+  }
 
-caption, th, td {
-  text-align: left;
-}
+  a {
+    color: $text-color-link;
+    text-decoration: underline;
 
-blockquote, q {
-  quotes: "" "";
-
-  &:before, &:after {
-    content: "";
+    &:hover, &:focus, &:active {
+      color: $text-color-link-active;
+    }
   }
 }
 
-a {
-  color: $text-color-link;
-  text-decoration: none;
-
-  &:hover, &:focus, &:active {
-    color: $text-color-link-active;
-  }
-}
-
-.entry-content a {
-  text-decoration: underline;
-
-  &:hover,
-  &:focus {
-    text-decoration: none;
-  }
-}
-
-
-/* Do not show the outline on the skip link target. */
-#content[tabindex="-1"]:focus {
-  outline: 0;
-}
-
-
-.clear, .entry-content, .comment-content, .site-header, .site-content, .site-footer, .nav-links {
-  &:before,
-  &:after {
-    content: "";
-    display: table;
-    table-layout: fixed;
-  }
-
-  &:after {
-    clear: both;
-  }
-}
+//.clear, .entry-content, .site-header, .site-content, .site-footer, .nav-links {
+//  &:before,
+//  &:after {
+//    content: "";
+//    display: table;
+//    table-layout: fixed;
+//  }
+//
+//  &:after {
+//    clear: both;
+//  }
+//}
 
 body,
 button,
@@ -577,7 +548,7 @@ textarea {
   }
 }
 
-.post-navigation, .paging-navigation, .comment-navigation {
+.post-navigation, .paging-navigation {
 
   a {
     display: inline-block;
@@ -650,9 +621,8 @@ textarea {
   margin: .8em auto;
 }
 
-.comment-meta, .entry-meta, .footer-widget-area, .hentry, .main-navigation > ul, .site-main, .subordinate-navigation ul,
-.testimonials, .front-testimonials, .testimonials .hentry, .clear, [class*="area"], [class*="content"],
-.post-navigation, .posts-navigation, [class*="site"], .entry-author, .entry-author {
+.entry-meta, .footer-widget-area, .hentry, .main-navigation > ul, .site-main, .subordinate-navigation ul, .clear,
+[class*="area"], [class*="content"], .post-navigation, .posts-navigation, [class*="site"], .entry-author, .entry-author {
   &:before, &:after {
     content: "";
     display: table;
@@ -1297,8 +1267,7 @@ html[xmlns] .flexslider .slides {
   }
 }
 
-.featured-page-area,
-.front-testimonials {
+.featured-page-area {
   padding: 1.6em 0 3.2em;
 }
 
@@ -1340,165 +1309,6 @@ html[xmlns] .flexslider .slides {
   width: 100%;
 }
 
-/*--------------------------------------------------------------
-10.5 Testimonials
---------------------------------------------------------------*/
-
-.testimonials > .hentry:first-of-type {
-  margin-bottom: 4em;
-}
-
-.testimonials > .hentry:first-of-type:after {
-  margin-top: 1.6em;
-  margin-bottom: 1.6em;
-}
-
-body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial {
-  border: 1px solid #f2f2f2;
-  margin: 3.2em 0 0;
-  padding: 0 1.6em;
-  text-align: center;
-  width: 100%;
-}
-
-.comment-body .edit-link a,
-.front-testimonials .edit-link a,
-body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial .edit-link a {
-  color: #a8a6a1;
-  font-size: 15px;
-}
-
-body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial:nth-child(even) {
-  margin-right: 0;
-}
-
-.testimonial-thumbnail {
-  width: 90px;
-  height: 90px;
-  margin: -45px auto 0;
-  text-align: center;
-}
-
-.testimonial-thumbnail img,
-.testimonial-featured-image img {
-  border-radius: 50px;
-}
-
-body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial .entry-header,
-body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial-shortcode .entry-header {
-  overflow: hidden;
-  padding-bottom: 1.6em;
-}
-
-body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial .entry-title a,
-body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial .entry-title,
-.jetpack-testimonial-shortcode .testimonial-entry-title {
-  color: $theme-color;
-  font-family: $font-family;
-  font-size: 15px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial .entry-content,
-.jetpack-testimonial-shortcode .testimonial-entry-content {
-  font-style: italic;
-  margin: 0;
-  overflow: hidden;
-  padding: 0.8em 0;
-}
-
-body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial.without-featured-image .entry-content {
-  padding: 3.2em 0 0.8em;
-}
-
-body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial .entry-meta,
-.jetpack-testimonial-shortcode .entry-meta {
-  clear: both;
-  text-align: center;
-}
-
-/* Testimonials Shortcode */
-.jetpack-testimonial-shortcode .testimonial-entry {
-  border: 1px solid #f2f2f2;
-  padding: 1.6em 1% 0;
-  margin-top: 3.2em;
-  margin-bottom: 3.2em;
-  text-align: center;
-}
-
-.jetpack-testimonial-shortcode .testimonial-entry-title {
-  letter-spacing: 2px;
-  margin-bottom: 1.6em;
-}
-
-.testimonial-featured-image img {
-  margin-bottom: -45px;
-  position: relative;
-  width: 90px;
-  height: 90px;
-}
-
-.testimonial-entry-column-2 {
-  width: 44% !important;
-}
-
-.testimonial-entry-column-3 {
-  width: 27% !important;
-}
-
-.testimonial-entry-column-4 {
-  width: 18% !important;
-}
-
-.testimonial-entry-column-5 {
-  width: 15% !important;
-}
-
-.testimonial-entry-column-6 {
-  width: 11% !important;
-}
-
-/* Testimonials Single View */
-.single .jetpack-testimonial {
-  float: none;
-  width: 100%;
-}
-
-.single .jetpack-testimonial:after {
-  background: none;
-}
-
-/* Testimonials Archives Page */
-.content-wrapper .testimonials-content-area.content-area {
-  margin-bottom: 3.2em;
-}
-
-.testimonials.grid .jetpack-testimonial {
-  float: none;
-  width: auto;
-  margin: 0 0 0 0;
-}
-
-.archive .testimonials .hentry {
-  margin: 0 0 3.2em;
-}
-
-.archive .testimonials .without-featured-image > .entry-header {
-  margin-left: 0;
-}
-
-.testimonials .no-results {
-  margin-bottom: 3.2em;
-}
-
-.post-type-archive-jetpack-testimonial .content-wrapper .hentry:after {
-  background: none;
-}
-
-/*--------------------------------------------------------------
-10.6 Footer
---------------------------------------------------------------*/
 .site-footer {
   background-color: #595854;
   color: #fff;
@@ -1591,7 +1401,7 @@ body .contact-form {
   }
 }
 
-.page-content, .entry-content, .comment-content {
+.page-content, .entry-content {
   img.wp-smiley {
     border: none;
     margin-top: 0;
@@ -1826,16 +1636,6 @@ embed, iframe, object, audio, video {
     display: none;
   }
 
-  body:not(.search):not(.single-jetpack-testimonial) .front-testimonials .jetpack-testimonial {
-    float: left;
-    width: 48%;
-    margin-right: 4%;
-
-    &:nth-child(even) {
-      margin-right: 0;
-    }
-  }
-
   .footer-widget-area .widget-area {
     float: none;
     margin: 0;
@@ -1956,7 +1756,7 @@ embed, iframe, object, audio, video {
     margin: 0 auto;
   }
 
-  .featured-page-area, .front-testimonials {
+  .featured-page-area {
     padding: 1.6em 55px 3.2em;
   }
 
@@ -2023,11 +1823,8 @@ embed, iframe, object, audio, video {
       margin-right: 0;
     }
   }
-  .post-navigation .nav-links, .posts-navigation .nav-links, .comments-area {
+  .post-navigation .nav-links, .posts-navigation .nav-links {
     margin-left: 150px;
-  }
-  .page .comments-area {
-    margin-left: 0;
   }
   .single-jetpack-testimonial .post-navigation {
     margin-left: 0;
@@ -2103,9 +1900,5 @@ embed, iframe, object, audio, video {
   }
   .content-wrapper.without-featured-image {
     margin: 0 13%;
-  }
-
-  .comments-closed .hentry:after {
-    display: none;
   }
 }

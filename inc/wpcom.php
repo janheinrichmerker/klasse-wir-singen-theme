@@ -36,12 +36,3 @@ function dara_wpcom_styles() {
 	wp_enqueue_style( 'dara-wpcom-styles', get_template_directory_uri() . '/inc/style-wpcom.css', '26012017' );
 }
 add_action( 'wp_enqueue_scripts', 'dara_wpcom_styles' );
-
-
-/**
- * Flush the Rewrite Rules for the testimonials CPT after the user has activated the theme.
- */
-function dara_flush_rewrite_rules() {
-	flush_rewrite_rules();
-}
-add_action( 'after_switch_theme', 'dara_flush_rewrite_rules' );

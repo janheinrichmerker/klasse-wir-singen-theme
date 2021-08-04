@@ -42,10 +42,6 @@ msgstr ""
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
 
-#: archive-jetpack-testimonial.php:28
-msgid "Testimonials"
-msgstr ""
-
 #. translators: %s: post title
 #: comments.php:33
 msgctxt "comments title"
@@ -102,7 +98,6 @@ msgstr ""
 
 #. translators: %s: Name of current post
 #: components/page/content-page.php:31
-#: components/testimonials/content-testimonial.php:25
 #: inc/template-tags.php:38
 msgid "Edit %s"
 msgstr ""
@@ -206,10 +201,6 @@ msgstr ""
 
 #: inc/customizer.php:19
 msgid "Theme Options"
-msgstr ""
-
-#: inc/customizer.php:29
-msgid "Randomize Front Page Testimonials"
 msgstr ""
 
 #: inc/customizer.php:41

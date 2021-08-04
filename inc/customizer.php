@@ -20,18 +20,6 @@ function dara_customize_register( $wp_customize ) {
 		'priority' => 130,
 	) );
 
-	/* Randomize Testimonials */
-	$wp_customize->add_setting( 'dara_testimonials', array(
-		'default'           => 0,
-		'sanitize_callback' => 'dara_sanitize_checkbox',
-	) );
-	$wp_customize->add_control( 'dara_testimonials', array(
-		'label'             => esc_html__( 'Randomize Front Page Testimonials', 'dara' ),
-		'section'           => 'dara_theme_options',
-		'priority'          => 2,
-		'type'              => 'checkbox',
-	) );
-
 	/* Front Page: Featured Page One */
 	$wp_customize->add_setting( 'dara_featured_page_one_front_page', array(
 		'default'           => '',

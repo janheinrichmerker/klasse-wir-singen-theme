@@ -553,7 +553,6 @@ add_filter( 'typekit_add_font_category_rules', function( $category_rules ) {
 
 	TypekitTheme::add_font_category_rule( $category_rules, 'body-text',
 		'.comment-body .edit-link a,
-		.front-testimonials .edit-link a,
 		body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial .edit-link a',
 		array(
 			array( 'property' => 'font-family', 'value' => '"Yrsa", Georgia, serif' ),

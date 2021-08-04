@@ -113,10 +113,7 @@ add_action( 'save_post',     'dara_category_transient_flusher' );
  * Change the class of the hero area depending on featured image.
  */
 function dara_additional_class() {
-
-	$jetpack_options = get_theme_mod( 'jetpack_testimonials' );
-
-	if ( is_post_type_archive() && ( ! isset( $jetpack_options['featured-image'] ) || ! $jetpack_options['featured-image'] ) ) {
+	if (is_post_type_archive()) {
 		$additional_class = 'without-featured-image';
 	} else if ( is_page() && ( ! has_post_thumbnail() || ! dara_activate_featured_image() ) ) {
 		$additional_class = 'without-featured-image';

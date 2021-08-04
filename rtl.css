@@ -261,11 +261,6 @@ body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial:nth-chil
 	margin-right: auto;
 }
 
-.archive .testimonials .without-featured-image > .entry-header {
-	margin-right: 0;
-	margin-left: auto;
-}
-
 .gallery-caption {
 	right: 0;
 	text-align: right;
@@ -388,17 +383,6 @@ body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial:nth-chil
     .main-navigation ul ul ul {
     	right: 100%;
     	left: auto;
-    }
-
-    body:not(.search):not(.single-jetpack-testimonial) .front-testimonials .jetpack-testimonial:nth-child(even) {
-    	margin-left: 0;
-    	margin-right: auto;
-    }
-
-    body:not(.search):not(.single-jetpack-testimonial) .front-testimonials .jetpack-testimonial {
-    	float: right;
-    	margin-left: 4%;
-    	margin-right: auto;
     }
 
     .featured-page-area .featured-page,

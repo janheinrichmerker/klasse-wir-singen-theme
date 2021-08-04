@@ -12,7 +12,7 @@ The theme requires at least WordPress 4.5 and is tested up to 4.7.
 
 ### Plugin support
 
-The theme includes support for [Jetpack's](https://wordpress.org/plugins/jetpack) Infinite Scroll, Social Menus, Featured Content, and Testimonials.
+The theme includes support for [Jetpack's](https://wordpress.org/plugins/jetpack) Infinite Scroll, Social Menus, and Featured Content.
 
 ### Front Page Setup
 
@@ -26,7 +26,6 @@ The static front page includes the following:
 
 - A Featured Content area with a slider.
 - Three Featured Pages, set in Customize → Theme Options.
-- The Testimonial area, configured under Customize → Testimonials. This area displays two testimonials. To add a testimonial, go to Testimonials → Add. If no testimonials are added, this section will not be displayed.
 
 ### Featured Content Slider (requires [Jetpack](https://wordpress.org/plugins/jetpack/))
 
@@ -44,18 +43,6 @@ On the front page, a section can be populated with three Featured Pages, each wi
 - Click Save and Publish.
 
 The pages featured in this area will automatically occupy the entire width of your site. For example, a single featured page will occupy the entire column, two Featured Pages will divide the space into two columns, three Featured Pages will divide the space into three columns.
-
-### Custom Page Templates
-
-#### Full-Width Template
-
-The Full-Width template gives you more space for your content. It’s the perfect way to showcase a gallery of images or a video, Don't forget to take advantage of the beautiful full-width Featured Image, too. To use the Full Width template, select it under Page Options while editing a Page.
-
-#### Grid Page Template
-
-The Grid Page template is designed to show child pages in a grid format. To get started, first create or edit a page, and assign it to the Grid Page template from the Page Options panel. The content of this page and Featured Image – if one is set – will be displayed above the grid.
-
-To add items to the grid, create additional pages and use the Page Options box to set the grid page you just created as their parent page. Be sure to set a Featured Image for each child page if you want an image to show up inside the grid. Repeat these steps for every item you want to display in the grid.
 
 #### Custom Menus
 
@@ -78,23 +65,6 @@ If the Sidebar area is not active, the theme automatically adjusts to have a sin
 
 Brand identity is very important. That’s why this theme supports the Site Logo feature. To add your own image, go to Customize → Site Identity. The logo will appear in the header, above the site title.
 
-### Testimonials (requires [Jetpack](https://wordpress.org/plugins/jetpack/))
-
-This theme features testimonials in two ways:
-
-- The dedicated Testimonial Archive Page displays all testimonials in reverse chronological order, with the newest displayed first.
-- The static front page displays the newest two testimonials.
-
-To add a testimonial, go to Testimonials → New. Testimonials are composed of the testimonial text, the name of the customer (added as testimonial title), and an image or logo (which can be added as a Featured Image).
-
-### Testimonial Archive Page
-
-All testimonials are displayed on the testimonial archive page. This page can be added to a Custom Menu using the Links Panel.
-
-The testimonial archive page can be found at http://example.com/testimonial/ — just replace http://example.com/ with the URL of your website.
-
-This page can be further customized by adding a title, intro text, and Featured Image via Customize → Testimonials. This content will appear above the testimonials list.
-
 ### Custom Background
 
 Custom color, pattern, or a beautiful image – the choice is yours. To change the background, visit Customize → Colors & Backgrounds from your dashboard.
@@ -108,11 +78,6 @@ Custom color, pattern, or a beautiful image – the choice is yours. To change t
 - Footer widget widths vary depending on the number of active widget areas.
 - The Featured Image on the front page and on pages works best with images at least 1180 wide.
 - Featured Images for posts should be at least 880 wide by 312 tall.
-
-
-## Tags
-
-business, blog, bright, modern, professional, blue, light, one-column, two-columns, right-sidebar, author-bio, blog-excerpts, classic-menu, custom-background, custom-colors, custom-header, custom-menu, featured-content-with-pages, featured-images, flexible-header, full-width-template, infinite-scroll, post-slider, rtl-language-support, site-logo, social-menu, testimonials, theme-options, threaded-comments, translation-ready
 
 ## Credits
 

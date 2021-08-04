@@ -14,17 +14,9 @@
  * See: https://jetpack.me/support/responsive-videos/
  */
 function dara_jetpack_setup() {
-
-	//The IS container changes depending on the archive type
-	if ( is_post_type_archive( 'jetpack-testimonial' ) ) {
-		$container = 'testimonials';
-	}
-	else {
-		$container = 'main';
-	}
 	// Add theme support for Infinite Scroll.
 	add_theme_support( 'infinite-scroll', array(
-		'container' => $container,
+		'container' => 'main',
 		'render'    => 'dara_infinite_scroll_render',
 		'footer'    => 'page',
 	) );
@@ -40,9 +32,6 @@ function dara_jetpack_setup() {
 
 	// Add theme support for Social Menus
 	add_theme_support( 'jetpack-social-menu', 'svg' );
-
-	// Add theme support for Jetpack Testimonials
-	add_theme_support( 'jetpack-testimonial' );
 
 	// Add theme support for Content Options.
 	add_theme_support( 'jetpack-content-options', array(
@@ -90,8 +79,6 @@ function dara_infinite_scroll_render() {
 		the_post();
 		if ( is_search() ) :
 			get_template_part( 'components/post/content', 'search' );
-		elseif ( is_post_type_archive( 'jetpack-testimonial' ) ) :
-			get_template_part( 'components/testimonials/content', 'testimonial' );
 		else :
 			get_template_part( 'components/post/content', get_post_format() );
 		endif;
