@@ -13,7 +13,7 @@ get_header(); ?>
 
     <?php dara_featured_pages(); ?>
 
-	<div id="primary" class="content-area front-page-content-area">
+	<div id="primary" class="content-area">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php get_template_part( 'components/page/content', 'page' ); ?>
 
