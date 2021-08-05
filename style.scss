@@ -29,7 +29,7 @@ $site-width: 1080px;
 $block-margin: 1.5em;
 $border-radius: 3px;
 $divider-color: transparentize($text-color, 0.7);
-$secondary-divider-color: transparentize($divider-color, 0.3);
+$secondary-divider-color: transparentize($divider-color, 0.2);
 
 @import "normalize.css";
 
@@ -67,7 +67,8 @@ html {
     @mixin body-overwrite-primary-color($primary-color) {
       background: mix(desaturate($primary-color, 10%), $background-content, 25%);
 
-      button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span, .button {
+      button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span,
+      .button, .wp-block-button {
         background: $primary-color;
 
         &:hover {
@@ -76,6 +77,20 @@ html {
 
         &:focus, &:active {
           background: mix($background-content, $primary-color, 75%);
+        }
+
+        &.outline, &.is-style-outline {
+          background: none;
+          color: $primary-color;
+
+          &:hover {
+            color: mix($background-content, $primary-color, 15%);
+            background: mix($background-content, $primary-color, 75%);
+          }
+
+          &:focus, &:active {
+            background: mix($background-content, $primary-color, 75%);
+          }
         }
       }
 
@@ -317,7 +332,8 @@ html {
     }
   }
 
-  button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span, .button {
+  button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span,
+  .button, .wp-block-button {
     display: inline-block;
     background: $primary-color;
     color: $text-color-on-primary;
@@ -329,7 +345,7 @@ html {
     text-align: center;
     vertical-align: middle;
     border-radius: $border-radius;
-    box-shadow: inset 0 -2px 0 transparentize(#000, 0.9);
+    box-shadow: inset 0 -2px 0 $secondary-divider-color;
     transition: background 0.1s, color 0.1s;
 
     &:hover {
@@ -340,6 +356,50 @@ html {
     &:focus, &:active {
       background: mix($background-content, $primary-color, 75%);
       color: $text-color;
+    }
+
+    &.outline, &.is-style-outline {
+      background: none;
+      color: $primary-color;
+      box-shadow: inset 0 0 0 2px currentColor;
+
+      &:hover {
+        color: mix($background-content, $primary-color, 15%);
+        background: mix($background-content, $primary-color, 75%);
+      }
+
+      &:focus, &:active {
+        background: mix($background-content, $primary-color, 75%);
+        color: $text-color;
+        box-shadow: inset 0 -2px 0 $secondary-divider-color;
+      }
+
+      &.wp-block-button a.wp-block-button__link {
+        background: none;
+        color: inherit;
+        border: none;
+      }
+    }
+
+    &.wp-block-button a.wp-block-button__link {
+      background: none;
+      cursor: inherit;
+      display: inline;
+      font-size: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
+      line-height: inherit;
+      padding: 0;
+      text-align: inherit;
+      vertical-align: inherit;
+      text-transform: inherit;
+      box-shadow: none;
+
+      &:hover, &:focus, &:active {
+        background: none;
+        color: inherit;
+        opacity: inherit;
+      }
     }
   }
 
