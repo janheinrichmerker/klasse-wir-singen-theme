@@ -21,13 +21,14 @@ $background-content: #fff;
 $background-preformatted: darken($background-content, 6%);
 $background-mark: #fff9c0;
 $text-color: #444340;
+$text-color-disabled: transparentize($text-color, 0.3);
 $text-color-link: $primary-color;
 $text-color-link-active: #a8a6a1;
 $text-color-on-primary: #fff;
 $site-width: 1080px;
 $block-margin: 1.5em;
 $border-radius: 3px;
-$divider-color: transparentize($text-color, 0.75);
+$divider-color: transparentize($text-color, 0.7);
 $secondary-divider-color: transparentize($divider-color, 0.3);
 
 @import "normalize.css";
@@ -52,7 +53,7 @@ $secondary-divider-color: transparentize($divider-color, 0.3);
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%; /* 10px */
+  font-size: 10px;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 
@@ -120,6 +121,13 @@ html {
 
     &.tag-musical {
       @include body-overwrite-primary-color($primary-color-musical);
+    }
+
+    &.tag-kinder {
+      .content-area {
+        // Increase font size for child-targeted pages.
+        font-size: 20px;
+      }
     }
 
     ol, ul {
@@ -298,12 +306,6 @@ html {
     padding: 0 $block-margin/2;
   }
 
-  fieldset {
-    border: 1px solid $divider-color;
-    border-radius: $border-radius;
-    padding: $block-margin;
-  }
-
   button, input, select, textarea {
     margin: 0;
     vertical-align: baseline;
@@ -341,36 +343,73 @@ html {
     }
   }
 
-  input:not([type="button"], [type="reset"], [type="submit"], [type="range"]), textarea {
-    border: 1px solid #eee;
-    font-size: 15px;
-    padding: 0.8em;
-    border-radius: $border-radius;
-    transition: border-color 0.1s;
+  form {
+    max-width: 100%;
+    margin-bottom: $block-margin;
 
-    &:focus {
-      border: 1px solid $primary-color;
-      outline: none;
+    fieldset {
+      border: 1px solid $divider-color;
+      border-radius: $border-radius;
+      padding: $block-margin / 2;
+      margin-bottom: $block-margin;
+      width: 100%;
+      min-width: auto;
+    }
+
+    input, textarea {
+      max-width: 100%;
+    }
+
+    input:not([type="button"], [type="reset"], [type="submit"], [type="range"], [type="file"]), textarea {
+      border: 1px solid $divider-color;
+      font-size: 15px;
+      padding: 0.8em;
+      border-radius: $border-radius;
+      transition: border-color 0.1s;
+
+      &:focus {
+        border: 1px solid $primary-color;
+        outline: none;
+      }
+    }
+
+    input[type="color"] {
+      border-width: 0;
+      padding: 0;
+      width: 5em;
+      height: 2em;
+      vertical-align: middle;
+      overflow: hidden;
+    }
+
+    input[type="range"] {
+      vertical-align: middle;
+    }
+
+    textarea {
+      overflow: auto;
+      vertical-align: top;
+      width: 100%;
+    }
+
+    label input, label textarea {
+      margin-bottom: $block-margin / 3;
     }
   }
 
-  input[type="color"] {
-    border-width: 0;
-    padding: 0;
-    width: 5em;
-    height: 2em;
-    vertical-align: middle;
-    overflow: hidden;
-  }
+  .wpcf7 {
+    .wpcf7-list-item {
+      margin: 0;
+    }
 
-  input[type="range"] {
-    vertical-align: middle;
-  }
+    .ajax-loader {
+      top: 0.25em;
+    }
 
-  textarea {
-    overflow: auto;
-    vertical-align: top;
-    width: 100%;
+    .wpcf7-response-output {
+      border-radius: $border-radius;
+      margin: 0 0 $block-margin;
+    }
   }
 
   .site {
@@ -1324,14 +1363,14 @@ blockquote {
   position: relative;
 
   &:before {
-    color: #ccc;
+    color: $text-color-disabled;
     content: "\201C";
-    font-size: 140px;
+    font-size: 80px;
     font-style: normal;
     line-height: 1;
     position: absolute;
-    top: -5px;
-    left: -10px;
+    top: 0;
+    left: -0.2em;
   }
 
   cite {

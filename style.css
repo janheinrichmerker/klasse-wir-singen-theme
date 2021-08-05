@@ -26,8 +26,7 @@ Text Domain: klasse-wir-singen
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%;
-  /* 10px */
+  font-size: 10px;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
   html body {
@@ -87,6 +86,8 @@ html {
             background: #ad2000; } }
       html body.tag-musical .site nav.jetpack-social-navigation ul li {
         background: #ad2000; }
+    html body.tag-kinder .content-area {
+      font-size: 20px; }
     html body ol, html body ul {
       margin: 0 0 1.5em 1.5em; }
       html body ol li > ul,
@@ -128,7 +129,7 @@ html {
       border: 0;
       height: 1px;
       margin: 1.5em 0;
-      background-color: rgba(68, 67, 64, 0.25); }
+      background-color: rgba(68, 67, 64, 0.3); }
   html p {
     margin-bottom: 1.5em; }
     html p:last-child {
@@ -172,13 +173,13 @@ html {
       border-bottom: 1px solid rgba(68, 67, 64, 0);
       padding: 0.4em; }
     html table tr th {
-      border-top: 1px solid rgba(68, 67, 64, 0.25);
+      border-top: 1px solid rgba(68, 67, 64, 0.3);
       font-weight: bold;
       padding: 0.4em; }
     html table tr:last-child td {
       border: none; }
     html table tr:last-child th {
-      border-bottom: 1px solid rgba(68, 67, 64, 0.25); }
+      border-bottom: 1px solid rgba(68, 67, 64, 0.3); }
     html table thead tr:first-child th {
       border-top-width: 2px; }
     html table tfoot tr:last-child th {
@@ -186,10 +187,6 @@ html {
   html legend {
     font-weight: bold;
     padding: 0 0.75em; }
-  html fieldset {
-    border: 1px solid rgba(68, 67, 64, 0.25);
-    border-radius: 3px;
-    padding: 1.5em; }
   html button, html input, html select, html textarea {
     margin: 0;
     vertical-align: baseline;
@@ -217,28 +214,49 @@ html {
     html button:focus, html button:active, html input[type="button"]:focus, html input[type="button"]:active, html input[type="reset"]:focus, html input[type="reset"]:active, html input[type="submit"]:focus, html input[type="submit"]:active, html #infinite-handle span:focus, html #infinite-handle span:active, html .button:focus, html .button:active {
       background: #c0d6e5;
       color: #444340; }
-  html input:not([type="button"], [type="reset"], [type="submit"], [type="range"]), html textarea {
-    border: 1px solid #eee;
-    font-size: 15px;
-    padding: 0.8em;
+  html form {
+    max-width: 100%;
+    margin-bottom: 1.5em; }
+    html form fieldset {
+      border: 1px solid rgba(68, 67, 64, 0.3);
+      border-radius: 3px;
+      padding: 0.75em;
+      margin-bottom: 1.5em;
+      width: 100%;
+      min-width: auto; }
+    html form input, html form textarea {
+      max-width: 100%; }
+    html form input:not([type="button"], [type="reset"], [type="submit"], [type="range"], [type="file"]), html form textarea {
+      border: 1px solid rgba(68, 67, 64, 0.3);
+      font-size: 15px;
+      padding: 0.8em;
+      border-radius: 3px;
+      transition: border-color 0.1s; }
+      html form input:not([type="button"], [type="reset"], [type="submit"], [type="range"], [type="file"]):focus, html form textarea:focus {
+        border: 1px solid #025c96;
+        outline: none; }
+    html form input[type="color"] {
+      border-width: 0;
+      padding: 0;
+      width: 5em;
+      height: 2em;
+      vertical-align: middle;
+      overflow: hidden; }
+    html form input[type="range"] {
+      vertical-align: middle; }
+    html form textarea {
+      overflow: auto;
+      vertical-align: top;
+      width: 100%; }
+    html form label input, html form label textarea {
+      margin-bottom: 0.5em; }
+  html .wpcf7 .wpcf7-list-item {
+    margin: 0; }
+  html .wpcf7 .ajax-loader {
+    top: 0.25em; }
+  html .wpcf7 .wpcf7-response-output {
     border-radius: 3px;
-    transition: border-color 0.1s; }
-    html input:not([type="button"], [type="reset"], [type="submit"], [type="range"]):focus, html textarea:focus {
-      border: 1px solid #025c96;
-      outline: none; }
-  html input[type="color"] {
-    border-width: 0;
-    padding: 0;
-    width: 5em;
-    height: 2em;
-    vertical-align: middle;
-    overflow: hidden; }
-  html input[type="range"] {
-    vertical-align: middle; }
-  html textarea {
-    overflow: auto;
-    vertical-align: top;
-    width: 100%; }
+    margin: 0 0 1.5em; }
   html .site header.site-header nav.main-navigation {
     background: #025c96;
     color: #fff;
@@ -865,14 +883,14 @@ blockquote {
   padding-left: 2.4em;
   position: relative; }
   blockquote:before {
-    color: #ccc;
+    color: rgba(68, 67, 64, 0.7);
     content: "\201C";
-    font-size: 140px;
+    font-size: 80px;
     font-style: normal;
     line-height: 1;
     position: absolute;
-    top: -5px;
-    left: -10px; }
+    top: 0;
+    left: -0.2em; }
   blockquote cite {
     display: block;
     font-family: "Open Sans", Helvetica, sans-serif;

@@ -52,8 +52,6 @@
 
 .editor-post-title__block .editor-post-title__input {
 	clear: both;
-	font-family: "Yrsa", sans-serif;
-	margin-bottom: .8em;
 	font-size: 23px;
 	font-weight: normal;
 	line-height: 1.1;
@@ -75,7 +73,6 @@
 .edit-post-visual-editor h5,
 .edit-post-visual-editor h6 {
 	clear: both;
-	font-family: "Yrsa", sans-serif;
 	font-weight: 300;
 	margin-bottom: .8em;
 }
@@ -286,7 +283,6 @@
 }
 
 .edit-post-visual-editor .editor-block-list__block blockquote p {
-	font-family: "Yrsa", Georgia, serif;
 	font-size: 23px;
 	font-style: normal;
 }
@@ -296,13 +292,12 @@
 .rtl .wp-block-quote[style*="text-align: left"]::before {
 	color: #ccc;
 	content: "\201C";
-	font-family: "Yrsa", Georgia, serif;
-	font-size: 140px;
+	font-size: 80px;
 	font-style: normal;
 	line-height: 1;
 	position: absolute;
-	top: -5px;
-	left: -10px;
+	top: 0;
+	left: -0.2em;
 	right: auto;
 }
 
@@ -463,7 +458,6 @@
 
 .wp-block-freeform.block-library-rich-text__tinymce blockquote {
 	border: none;
-	font-family: "Yrsa", Georgia, serif;
 	font-size: 23px;
 	font-style: normal;
 	margin-left: 0;
@@ -475,13 +469,12 @@
 .wp-block-freeform.block-library-rich-text__tinymce blockquote:before {
 	color: #ccc;
 	content: "\201C";
-	font-family: "Yrsa", Georgia, serif;
-	font-size: 140px;
+	font-size: 80px;
 	font-style: normal;
 	line-height: 1;
 	position: absolute;
-	top: -5px;
-	left: -10px;
+	top: 0;
+	left: -0.2em;
 }
 
 
@@ -659,7 +652,6 @@
 .editor-block-list__block .wp-block-pullquote blockquote:before {
 	color: #ccc;
 	content: "\201C";
-	font-family: "Yrsa", Georgia, serif;
 	font-size: 140px;
 	font-style: normal;
 	line-height: 1;
@@ -675,7 +667,6 @@
 }
 
 .edit-post-visual-editor .wp-block-pullquote p {
-	font-family: "Yrsa", Georgia, serif;
 	font-size: 23px;
 	font-style: normal;
 }
