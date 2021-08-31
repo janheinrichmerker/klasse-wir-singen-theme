@@ -47,7 +47,7 @@ if ( ! function_exists( 'dara_setup' ) ) :
 		// Post thumbnails
 		add_image_size( 'dara-featured-image', 880, 312, true );
 		// Hero Image on the front page slider
-		add_image_size( 'dara-hero-thumbnail', 1180, 400, true );
+		add_image_size( 'dara-hero-thumbnail', 1180, 300, true );
 		// Full width and grid page template
 		add_image_size( 'dara-page-thumbnail', 1180, 435, true );
 		// Grid child page thumbnail
@@ -190,7 +190,7 @@ function dara_the_custom_logo() {
  * Returns the Google font stylesheet URL, if available.
  */
 function dara_fonts_url() {
-	return "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap";
+	return "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap";
 }
 
 /**
