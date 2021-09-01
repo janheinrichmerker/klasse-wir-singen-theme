@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 Theme Name: Klasse! Wir singen
 Theme URI: https://github.com/heinrichreimer/klasse-wir-singen-theme
@@ -72,6 +73,9 @@ html {
       html body.tag-original .notification {
         background: #fce8cc;
         border-color: #f08a01; }
+      html body.tag-original .pretix-widget form .pretix-widget-action {
+        width: 100%;
+        margin-left: 0; }
       html body.tag-original .pretix-widget form button:hover {
         background: #f29c27; }
       html body.tag-original .pretix-widget form button:focus, html body.tag-original .pretix-widget form button:active {
@@ -127,6 +131,9 @@ html {
       html body.tag-jubilaeum .notification {
         background: #dfebd5;
         border-color: #5e992d; }
+      html body.tag-jubilaeum .pretix-widget form .pretix-widget-action {
+        width: 100%;
+        margin-left: 0; }
       html body.tag-jubilaeum .pretix-widget form button:hover {
         background: #76a84d; }
       html body.tag-jubilaeum .pretix-widget form button:focus, html body.tag-jubilaeum .pretix-widget form button:active {
@@ -182,6 +189,9 @@ html {
       html body.tag-musical .notification {
         background: #efd2cc;
         border-color: #ad2000; }
+      html body.tag-musical .pretix-widget form .pretix-widget-action {
+        width: 100%;
+        margin-left: 0; }
       html body.tag-musical .pretix-widget form button:hover {
         background: #b94126; }
       html body.tag-musical .pretix-widget form button:focus, html body.tag-musical .pretix-widget form button:active {
@@ -559,7 +569,9 @@ html {
               box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
               position: absolute;
               top: 2.9em;
-              width: 100%; }
+              width: 100%;
+              border-bottom-left-radius: 8px;
+              border-bottom-right-radius: 8px; }
               html .site header.site-header nav.main-navigation .menu-header-container ul.menu li ul li {
                 text-align: initial;
                 border: none; }
@@ -782,8 +794,11 @@ html {
           html .site nav.jetpack-social-navigation ul a:hover, html .site nav.jetpack-social-navigation ul a:focus, html .site nav.jetpack-social-navigation ul a:active {
             color: rgba(255, 255, 255, 0.95);
             background: rgba(255, 255, 255, 0.1); }
-    html .site .site-content img {
-      border-radius: 8px; }
+    html .site .site-content img, html .site .site-content audio, html .site .site-content video, html .site .site-content .mapp-layout {
+      border-radius: 8px;
+      overflow: hidden; }
+    html .site .site-content .mapp-layout {
+      border: 1px solid rgba(68, 67, 64, 0.3); }
     html .site .site-content .content-wrapper.with-featured-image {
       border-top-right-radius: 8px;
       border-top-left-radius: 8px; }
@@ -1105,6 +1120,28 @@ blockquote {
     position: absolute;
     top: 0;
     left: -0.2em; }
+  blockquote.joke {
+    background: rgba(255, 217, 0, 0.3);
+    border: 2px solid rgba(255, 217, 0, 0.8);
+    border-radius: 8px;
+    margin-top: 0.25em;
+    font-family: "Comic Neue", "Comic Sans", Lobster, cursive;
+    font-weight: bold; }
+    blockquote.joke:before {
+      content: "😂";
+      font-size: 50px;
+      color: #444340;
+      top: -0.15em;
+      left: -0.7em;
+      transform: rotate(10deg); }
+    blockquote.joke:nth-child(4n+0):before {
+      content: "😂"; }
+    blockquote.joke:nth-child(4n+1):before {
+      content: "🥸"; }
+    blockquote.joke:nth-child(4n+2):before {
+      content: "🤣"; }
+    blockquote.joke:nth-child(4n+3):before {
+      content: "😜"; }
   blockquote cite {
     display: block;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
