@@ -4,15 +4,15 @@ Theme URI: https://github.com/heinrichreimer/klasse-wir-singen-theme
 Author: Jan Heinrich Reimer
 Author URI: https://reimer.dev
 Description: Klasse! Wir singen theme, based on the Dara theme.
-Version: 2.0.1
+Version: 2.0.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: klasse-wir-singen
 */
 
 $primary-color: #025c96;
-$primary-color-original: #f08a01;
-$primary-color-musical: #ad2000;
+$primary-color-original: #e6a400;
+$primary-color-musical: #c23500;
 $primary-color-jubilee: #5e992d;
 $background-content: #fff;
 $primary-color-dimmed-light: mix($primary-color, $background-content, 20%);
@@ -58,7 +58,7 @@ html {
   -ms-text-size-adjust: 100%;
 
   body {
-    background: $primary-color-dimmed-light;
+    background: change-color($primary-color-dimmed-light, $lightness: 95%);
     color: $text-color;
     font-family: $font-family;
     font-size: 16px;
@@ -68,7 +68,7 @@ html {
       $primary-color-dimmed-light: mix($primary-color, $background-content, 20%);
       $primary-color-dimmed-dark: mix($primary-color, $background-content, 85%);
 
-      background: $primary-color-dimmed-light;
+      background: change-color($primary-color-dimmed-light, $lightness: 95%);
 
       a {
         color: $primary-color;
@@ -122,6 +122,7 @@ html {
             width: 100%;
             margin-left: 0;
           }
+
           button {
             &:hover {
               background: $primary-color-dimmed-dark;
@@ -186,9 +187,48 @@ html {
     }
 
     &.tag-kinder {
-      .content-area {
-        // Increase font size for child-targeted pages.
-        font-size: 20px;
+      .site {
+        .site-content {
+          // Increase font size for child-targeted pages.
+          font-size: 20px;
+        }
+      }
+    }
+
+    &.home {
+
+      .site {
+        header.site-header {
+          .site-branding {
+            .custom-logo-link {
+              .custom-logo {
+                // TODO Larger than on normal pages.
+              }
+            }
+          }
+
+          nav.main-navigation {
+            display: none;
+          }
+        }
+
+        .site-content {
+          // Increase font size for child-targeted pages.
+          font-size: 22px;
+
+          .content-wrapper {
+            max-width: none;
+            padding: $block-margin;
+
+            .entry-header {
+              display: none;
+            }
+
+            .entry-content {
+              max-width: 750px;
+            }
+          }
+        }
       }
     }
 
@@ -455,7 +495,7 @@ html {
   }
 
   button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span,
-  .button, .wp-block-button {
+  .button, .wp-block-button, .wp-block-file__button {
     display: inline-block;
     background: $primary-color;
     color: $text-color-on-primary;
@@ -505,6 +545,7 @@ html {
 
     &.wp-block-button a.wp-block-button__link {
       background: none;
+      color: $text-color-on-primary;
       cursor: inherit;
       display: inline;
       font-size: inherit;
@@ -523,6 +564,10 @@ html {
         opacity: inherit;
       }
     }
+  }
+
+  .wp-block-buttons {
+    margin-bottom: $block-margin;
   }
 
   form {
@@ -836,6 +881,8 @@ html {
             height: auto;
             max-width: $site-width / 2;
             max-height: 100vw / (16 / 9);
+            // TODO Warning: Currently the size is limited by the asset to 300x102px.
+            // Max size should reflect that even if the asset would be larger.
           }
         }
 
@@ -1670,7 +1717,6 @@ blockquote {
 }
 
 .featured-page-area {
-  border-bottom: 1px solid $divider-color;
   padding: $block-margin;
 
   .featured-page {

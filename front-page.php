@@ -11,8 +11,6 @@ else :
 
 get_header(); ?>
 
-<?php dara_featured_pages(); ?>
-
 <div class="content-wrapper full-width <?php echo esc_attr( dara_additional_class() ); ?>">
 
 	<div id="primary" class="content-area">
@@ -34,6 +32,8 @@ get_header(); ?>
         </div><!-- #content -->
 	</div><!-- #primary -->
 </div><!-- .content-wrapper -->
+
+<?php dara_featured_pages(); ?>
 
 <?php get_footer();
 

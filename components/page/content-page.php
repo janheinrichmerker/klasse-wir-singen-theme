@@ -23,17 +23,15 @@
 				) );
 			?>
 		</div>
-		<footer class="entry-footer">
-			<?php
-				edit_post_link(
-					sprintf(
-						/* translators: %s: Name of current post */
-						esc_html__( 'Edit %s', 'dara' ),
-						the_title( '<span class="screen-reader-text">"', '"</span>', false )
-					),
-					'<span class="edit-link">',
-					'</span>'
-				);
-			?>
-		</footer>
+        <?php
+            edit_post_link(
+                sprintf(
+                    /* translators: %s: Name of current post */
+                    esc_html__( 'Edit %s', 'dara' ),
+                    the_title( '<span class="screen-reader-text">"', '"</span>', false )
+                ),
+                '<footer class="entry-footer"><span class="edit-link">',
+                '</span></footer>'
+            );
+        ?>
 </article><!-- #post-## -->

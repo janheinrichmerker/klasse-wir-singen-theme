@@ -5,7 +5,7 @@ Theme URI: https://github.com/heinrichreimer/klasse-wir-singen-theme
 Author: Jan Heinrich Reimer
 Author URI: https://reimer.dev
 Description: Klasse! Wir singen theme, based on the Dara theme.
-Version: 2.0.1
+Version: 2.0.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: klasse-wir-singen
@@ -31,71 +31,71 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
   html body {
-    background: #ccdeea;
+    background: #edf3f8;
     color: #444340;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.6; }
     html body.tag-original {
-      background: #fce8cc; }
+      background: #fdf7e8; }
       html body.tag-original a {
-        color: #f08a01; }
+        color: #e6a400; }
         html body.tag-original a:hover, html body.tag-original a:focus, html body.tag-original a:active {
-          color: #f29c27; }
+          color: #eab226; }
       html body.tag-original button, html body.tag-original input[type="button"], html body.tag-original input[type="reset"], html body.tag-original input[type="submit"], html body.tag-original #infinite-handle span,
       html body.tag-original .button, html body.tag-original .wp-block-button {
-        background: #f08a01; }
+        background: #e6a400; }
         html body.tag-original button:hover, html body.tag-original input[type="button"]:hover, html body.tag-original input[type="reset"]:hover, html body.tag-original input[type="submit"]:hover, html body.tag-original #infinite-handle span:hover,
         html body.tag-original .button:hover, html body.tag-original .wp-block-button:hover {
-          background: #f29c27; }
+          background: #eab226; }
         html body.tag-original button:focus, html body.tag-original button:active, html body.tag-original input[type="button"]:focus, html body.tag-original input[type="button"]:active, html body.tag-original input[type="reset"]:focus, html body.tag-original input[type="reset"]:active, html body.tag-original input[type="submit"]:focus, html body.tag-original input[type="submit"]:active, html body.tag-original #infinite-handle span:focus, html body.tag-original #infinite-handle span:active,
         html body.tag-original .button:focus,
         html body.tag-original .button:active, html body.tag-original .wp-block-button:focus, html body.tag-original .wp-block-button:active {
-          background: #fce8cc; }
+          background: #faedcc; }
         html body.tag-original button.outline, html body.tag-original button.is-style-outline, html body.tag-original input[type="button"].outline, html body.tag-original input[type="button"].is-style-outline, html body.tag-original input[type="reset"].outline, html body.tag-original input[type="reset"].is-style-outline, html body.tag-original input[type="submit"].outline, html body.tag-original input[type="submit"].is-style-outline, html body.tag-original #infinite-handle span.outline, html body.tag-original #infinite-handle span.is-style-outline,
         html body.tag-original .button.outline,
         html body.tag-original .button.is-style-outline, html body.tag-original .wp-block-button.outline, html body.tag-original .wp-block-button.is-style-outline {
           background: none;
-          color: #f08a01; }
+          color: #e6a400; }
           html body.tag-original button.outline:hover, html body.tag-original button.is-style-outline:hover, html body.tag-original input[type="button"].outline:hover, html body.tag-original input[type="button"].is-style-outline:hover, html body.tag-original input[type="reset"].outline:hover, html body.tag-original input[type="reset"].is-style-outline:hover, html body.tag-original input[type="submit"].outline:hover, html body.tag-original input[type="submit"].is-style-outline:hover, html body.tag-original #infinite-handle span.outline:hover, html body.tag-original #infinite-handle span.is-style-outline:hover,
           html body.tag-original .button.outline:hover,
           html body.tag-original .button.is-style-outline:hover, html body.tag-original .wp-block-button.outline:hover, html body.tag-original .wp-block-button.is-style-outline:hover {
-            color: #f29c27;
-            background: #fce8cc; }
+            color: #eab226;
+            background: #faedcc; }
           html body.tag-original button.outline:focus, html body.tag-original button.outline:active, html body.tag-original button.is-style-outline:focus, html body.tag-original button.is-style-outline:active, html body.tag-original input[type="button"].outline:focus, html body.tag-original input[type="button"].outline:active, html body.tag-original input[type="button"].is-style-outline:focus, html body.tag-original input[type="button"].is-style-outline:active, html body.tag-original input[type="reset"].outline:focus, html body.tag-original input[type="reset"].outline:active, html body.tag-original input[type="reset"].is-style-outline:focus, html body.tag-original input[type="reset"].is-style-outline:active, html body.tag-original input[type="submit"].outline:focus, html body.tag-original input[type="submit"].outline:active, html body.tag-original input[type="submit"].is-style-outline:focus, html body.tag-original input[type="submit"].is-style-outline:active, html body.tag-original #infinite-handle span.outline:focus, html body.tag-original #infinite-handle span.outline:active, html body.tag-original #infinite-handle span.is-style-outline:focus, html body.tag-original #infinite-handle span.is-style-outline:active,
           html body.tag-original .button.outline:focus,
           html body.tag-original .button.outline:active,
           html body.tag-original .button.is-style-outline:focus,
           html body.tag-original .button.is-style-outline:active, html body.tag-original .wp-block-button.outline:focus, html body.tag-original .wp-block-button.outline:active, html body.tag-original .wp-block-button.is-style-outline:focus, html body.tag-original .wp-block-button.is-style-outline:active {
-            background: #fce8cc; }
+            background: #faedcc; }
       html body.tag-original input:not([type="button"], [type="reset"], [type="submit"], [type="range"]):focus, html body.tag-original textarea:focus {
-        border: 1px solid #f08a01; }
+        border: 1px solid #e6a400; }
       html body.tag-original .notification {
-        background: #fce8cc;
-        border-color: #f08a01; }
+        background: #faedcc;
+        border-color: #e6a400; }
       html body.tag-original .pretix-widget form .pretix-widget-action {
         width: 100%;
         margin-left: 0; }
       html body.tag-original .pretix-widget form button:hover {
-        background: #f29c27; }
+        background: #eab226; }
       html body.tag-original .pretix-widget form button:focus, html body.tag-original .pretix-widget form button:active {
-        background: #fce8cc; }
+        background: #faedcc; }
       html body.tag-original .site {
-        border-color: #f08a01; }
+        border-color: #e6a400; }
         html body.tag-original .site header.site-header nav.main-navigation {
-          background: #f08a01; }
+          background: #e6a400; }
           @media screen and (min-width: 810px) {
             html body.tag-original .site header.site-header nav.main-navigation .menu-header-container ul.menu li ul {
-              background: #f08a01; } }
+              background: #e6a400; } }
         html body.tag-original .site footer.site-footer {
-          background: #fce8cc;
-          border-top-color: #f08a01; }
+          background: #faedcc;
+          border-top-color: #e6a400; }
         html body.tag-original .site .footer-widget-area a {
           color: #6d6d6d; }
         html body.tag-original .site nav.jetpack-social-navigation ul li {
-          background: #f08a01; }
+          background: #e6a400; }
     html body.tag-jubilaeum {
-      background: #dfebd5; }
+      background: #f2f7ee; }
       html body.tag-jubilaeum a {
         color: #5e992d; }
         html body.tag-jubilaeum a:hover, html body.tag-jubilaeum a:focus, html body.tag-jubilaeum a:active {
@@ -153,65 +153,76 @@ html {
         html body.tag-jubilaeum .site nav.jetpack-social-navigation ul li {
           background: #5e992d; }
     html body.tag-musical {
-      background: #efd2cc; }
+      background: #faefea; }
       html body.tag-musical a {
-        color: #ad2000; }
+        color: #c23500; }
         html body.tag-musical a:hover, html body.tag-musical a:focus, html body.tag-musical a:active {
-          color: #b94126; }
+          color: #cb5326; }
       html body.tag-musical button, html body.tag-musical input[type="button"], html body.tag-musical input[type="reset"], html body.tag-musical input[type="submit"], html body.tag-musical #infinite-handle span,
       html body.tag-musical .button, html body.tag-musical .wp-block-button {
-        background: #ad2000; }
+        background: #c23500; }
         html body.tag-musical button:hover, html body.tag-musical input[type="button"]:hover, html body.tag-musical input[type="reset"]:hover, html body.tag-musical input[type="submit"]:hover, html body.tag-musical #infinite-handle span:hover,
         html body.tag-musical .button:hover, html body.tag-musical .wp-block-button:hover {
-          background: #b94126; }
+          background: #cb5326; }
         html body.tag-musical button:focus, html body.tag-musical button:active, html body.tag-musical input[type="button"]:focus, html body.tag-musical input[type="button"]:active, html body.tag-musical input[type="reset"]:focus, html body.tag-musical input[type="reset"]:active, html body.tag-musical input[type="submit"]:focus, html body.tag-musical input[type="submit"]:active, html body.tag-musical #infinite-handle span:focus, html body.tag-musical #infinite-handle span:active,
         html body.tag-musical .button:focus,
         html body.tag-musical .button:active, html body.tag-musical .wp-block-button:focus, html body.tag-musical .wp-block-button:active {
-          background: #efd2cc; }
+          background: #f3d7cc; }
         html body.tag-musical button.outline, html body.tag-musical button.is-style-outline, html body.tag-musical input[type="button"].outline, html body.tag-musical input[type="button"].is-style-outline, html body.tag-musical input[type="reset"].outline, html body.tag-musical input[type="reset"].is-style-outline, html body.tag-musical input[type="submit"].outline, html body.tag-musical input[type="submit"].is-style-outline, html body.tag-musical #infinite-handle span.outline, html body.tag-musical #infinite-handle span.is-style-outline,
         html body.tag-musical .button.outline,
         html body.tag-musical .button.is-style-outline, html body.tag-musical .wp-block-button.outline, html body.tag-musical .wp-block-button.is-style-outline {
           background: none;
-          color: #ad2000; }
+          color: #c23500; }
           html body.tag-musical button.outline:hover, html body.tag-musical button.is-style-outline:hover, html body.tag-musical input[type="button"].outline:hover, html body.tag-musical input[type="button"].is-style-outline:hover, html body.tag-musical input[type="reset"].outline:hover, html body.tag-musical input[type="reset"].is-style-outline:hover, html body.tag-musical input[type="submit"].outline:hover, html body.tag-musical input[type="submit"].is-style-outline:hover, html body.tag-musical #infinite-handle span.outline:hover, html body.tag-musical #infinite-handle span.is-style-outline:hover,
           html body.tag-musical .button.outline:hover,
           html body.tag-musical .button.is-style-outline:hover, html body.tag-musical .wp-block-button.outline:hover, html body.tag-musical .wp-block-button.is-style-outline:hover {
-            color: #b94126;
-            background: #efd2cc; }
+            color: #cb5326;
+            background: #f3d7cc; }
           html body.tag-musical button.outline:focus, html body.tag-musical button.outline:active, html body.tag-musical button.is-style-outline:focus, html body.tag-musical button.is-style-outline:active, html body.tag-musical input[type="button"].outline:focus, html body.tag-musical input[type="button"].outline:active, html body.tag-musical input[type="button"].is-style-outline:focus, html body.tag-musical input[type="button"].is-style-outline:active, html body.tag-musical input[type="reset"].outline:focus, html body.tag-musical input[type="reset"].outline:active, html body.tag-musical input[type="reset"].is-style-outline:focus, html body.tag-musical input[type="reset"].is-style-outline:active, html body.tag-musical input[type="submit"].outline:focus, html body.tag-musical input[type="submit"].outline:active, html body.tag-musical input[type="submit"].is-style-outline:focus, html body.tag-musical input[type="submit"].is-style-outline:active, html body.tag-musical #infinite-handle span.outline:focus, html body.tag-musical #infinite-handle span.outline:active, html body.tag-musical #infinite-handle span.is-style-outline:focus, html body.tag-musical #infinite-handle span.is-style-outline:active,
           html body.tag-musical .button.outline:focus,
           html body.tag-musical .button.outline:active,
           html body.tag-musical .button.is-style-outline:focus,
           html body.tag-musical .button.is-style-outline:active, html body.tag-musical .wp-block-button.outline:focus, html body.tag-musical .wp-block-button.outline:active, html body.tag-musical .wp-block-button.is-style-outline:focus, html body.tag-musical .wp-block-button.is-style-outline:active {
-            background: #efd2cc; }
+            background: #f3d7cc; }
       html body.tag-musical input:not([type="button"], [type="reset"], [type="submit"], [type="range"]):focus, html body.tag-musical textarea:focus {
-        border: 1px solid #ad2000; }
+        border: 1px solid #c23500; }
       html body.tag-musical .notification {
-        background: #efd2cc;
-        border-color: #ad2000; }
+        background: #f3d7cc;
+        border-color: #c23500; }
       html body.tag-musical .pretix-widget form .pretix-widget-action {
         width: 100%;
         margin-left: 0; }
       html body.tag-musical .pretix-widget form button:hover {
-        background: #b94126; }
+        background: #cb5326; }
       html body.tag-musical .pretix-widget form button:focus, html body.tag-musical .pretix-widget form button:active {
-        background: #efd2cc; }
+        background: #f3d7cc; }
       html body.tag-musical .site {
-        border-color: #ad2000; }
+        border-color: #c23500; }
         html body.tag-musical .site header.site-header nav.main-navigation {
-          background: #ad2000; }
+          background: #c23500; }
           @media screen and (min-width: 810px) {
             html body.tag-musical .site header.site-header nav.main-navigation .menu-header-container ul.menu li ul {
-              background: #ad2000; } }
+              background: #c23500; } }
         html body.tag-musical .site footer.site-footer {
-          background: #efd2cc;
-          border-top-color: #ad2000; }
+          background: #f3d7cc;
+          border-top-color: #c23500; }
         html body.tag-musical .site .footer-widget-area a {
           color: #6d6d6d; }
         html body.tag-musical .site nav.jetpack-social-navigation ul li {
-          background: #ad2000; }
-    html body.tag-kinder .content-area {
+          background: #c23500; }
+    html body.tag-kinder .site .site-content {
       font-size: 20px; }
+    html body.home .site header.site-header nav.main-navigation {
+      display: none; }
+    html body.home .site .site-content {
+      font-size: 22px; }
+      html body.home .site .site-content .content-wrapper {
+        max-width: none;
+        padding: 1.5em; }
+        html body.home .site .site-content .content-wrapper .entry-header {
+          display: none; }
+        html body.home .site .site-content .content-wrapper .entry-content {
+          max-width: 750px; }
     html body ol, html body ul {
       margin: 0 0 1.5em 1.5em; }
       html body ol li > ul,
@@ -363,7 +374,7 @@ html {
       border: 0;
       padding: 0; }
   html button, html input[type="button"], html input[type="reset"], html input[type="submit"], html #infinite-handle span,
-  html .button, html .wp-block-button {
+  html .button, html .wp-block-button, html .wp-block-file__button {
     display: inline-block;
     background: #025c96;
     color: #fff;
@@ -378,42 +389,43 @@ html {
     box-shadow: inset 0 -2px 0 rgba(68, 67, 64, 0.1);
     transition: background 0.1s, color 0.1s; }
     html button:hover, html input[type="button"]:hover, html input[type="reset"]:hover, html input[type="submit"]:hover, html #infinite-handle span:hover,
-    html .button:hover, html .wp-block-button:hover {
+    html .button:hover, html .wp-block-button:hover, html .wp-block-file__button:hover {
       background: #2874a6;
       color: #fff; }
     html button:focus, html button:active, html input[type="button"]:focus, html input[type="button"]:active, html input[type="reset"]:focus, html input[type="reset"]:active, html input[type="submit"]:focus, html input[type="submit"]:active, html #infinite-handle span:focus, html #infinite-handle span:active,
     html .button:focus,
-    html .button:active, html .wp-block-button:focus, html .wp-block-button:active {
+    html .button:active, html .wp-block-button:focus, html .wp-block-button:active, html .wp-block-file__button:focus, html .wp-block-file__button:active {
       background: #ccdeea;
       color: #444340; }
     html button.outline, html button.is-style-outline, html input[type="button"].outline, html input[type="button"].is-style-outline, html input[type="reset"].outline, html input[type="reset"].is-style-outline, html input[type="submit"].outline, html input[type="submit"].is-style-outline, html #infinite-handle span.outline, html #infinite-handle span.is-style-outline,
     html .button.outline,
-    html .button.is-style-outline, html .wp-block-button.outline, html .wp-block-button.is-style-outline {
+    html .button.is-style-outline, html .wp-block-button.outline, html .wp-block-button.is-style-outline, html .wp-block-file__button.outline, html .wp-block-file__button.is-style-outline {
       background: none;
       color: #025c96;
       box-shadow: inset 0 0 0 2px currentColor; }
       html button.outline:hover, html button.is-style-outline:hover, html input[type="button"].outline:hover, html input[type="button"].is-style-outline:hover, html input[type="reset"].outline:hover, html input[type="reset"].is-style-outline:hover, html input[type="submit"].outline:hover, html input[type="submit"].is-style-outline:hover, html #infinite-handle span.outline:hover, html #infinite-handle span.is-style-outline:hover,
       html .button.outline:hover,
-      html .button.is-style-outline:hover, html .wp-block-button.outline:hover, html .wp-block-button.is-style-outline:hover {
+      html .button.is-style-outline:hover, html .wp-block-button.outline:hover, html .wp-block-button.is-style-outline:hover, html .wp-block-file__button.outline:hover, html .wp-block-file__button.is-style-outline:hover {
         color: #2874a6;
         background: #ccdeea; }
       html button.outline:focus, html button.outline:active, html button.is-style-outline:focus, html button.is-style-outline:active, html input[type="button"].outline:focus, html input[type="button"].outline:active, html input[type="button"].is-style-outline:focus, html input[type="button"].is-style-outline:active, html input[type="reset"].outline:focus, html input[type="reset"].outline:active, html input[type="reset"].is-style-outline:focus, html input[type="reset"].is-style-outline:active, html input[type="submit"].outline:focus, html input[type="submit"].outline:active, html input[type="submit"].is-style-outline:focus, html input[type="submit"].is-style-outline:active, html #infinite-handle span.outline:focus, html #infinite-handle span.outline:active, html #infinite-handle span.is-style-outline:focus, html #infinite-handle span.is-style-outline:active,
       html .button.outline:focus,
       html .button.outline:active,
       html .button.is-style-outline:focus,
-      html .button.is-style-outline:active, html .wp-block-button.outline:focus, html .wp-block-button.outline:active, html .wp-block-button.is-style-outline:focus, html .wp-block-button.is-style-outline:active {
+      html .button.is-style-outline:active, html .wp-block-button.outline:focus, html .wp-block-button.outline:active, html .wp-block-button.is-style-outline:focus, html .wp-block-button.is-style-outline:active, html .wp-block-file__button.outline:focus, html .wp-block-file__button.outline:active, html .wp-block-file__button.is-style-outline:focus, html .wp-block-file__button.is-style-outline:active {
         background: #ccdeea;
         color: #444340;
         box-shadow: inset 0 -2px 0 rgba(68, 67, 64, 0.1); }
       html button.outline.wp-block-button a.wp-block-button__link, html button.is-style-outline.wp-block-button a.wp-block-button__link, html input[type="button"].outline.wp-block-button a.wp-block-button__link, html input[type="button"].is-style-outline.wp-block-button a.wp-block-button__link, html input[type="reset"].outline.wp-block-button a.wp-block-button__link, html input[type="reset"].is-style-outline.wp-block-button a.wp-block-button__link, html input[type="submit"].outline.wp-block-button a.wp-block-button__link, html input[type="submit"].is-style-outline.wp-block-button a.wp-block-button__link, html #infinite-handle span.outline.wp-block-button a.wp-block-button__link, html #infinite-handle span.is-style-outline.wp-block-button a.wp-block-button__link,
       html .button.outline.wp-block-button a.wp-block-button__link,
-      html .button.is-style-outline.wp-block-button a.wp-block-button__link, html .wp-block-button.outline.wp-block-button a.wp-block-button__link, html .wp-block-button.is-style-outline.wp-block-button a.wp-block-button__link {
+      html .button.is-style-outline.wp-block-button a.wp-block-button__link, html .wp-block-button.outline.wp-block-button a.wp-block-button__link, html .wp-block-button.is-style-outline.wp-block-button a.wp-block-button__link, html .wp-block-file__button.outline.wp-block-button a.wp-block-button__link, html .wp-block-file__button.is-style-outline.wp-block-button a.wp-block-button__link {
         background: none;
         color: inherit;
         border: none; }
     html button.wp-block-button a.wp-block-button__link, html input[type="button"].wp-block-button a.wp-block-button__link, html input[type="reset"].wp-block-button a.wp-block-button__link, html input[type="submit"].wp-block-button a.wp-block-button__link, html #infinite-handle span.wp-block-button a.wp-block-button__link,
-    html .button.wp-block-button a.wp-block-button__link, html .wp-block-button.wp-block-button a.wp-block-button__link {
+    html .button.wp-block-button a.wp-block-button__link, html .wp-block-button.wp-block-button a.wp-block-button__link, html .wp-block-file__button.wp-block-button a.wp-block-button__link {
       background: none;
+      color: #fff;
       cursor: inherit;
       display: inline;
       font-size: inherit;
@@ -428,10 +440,12 @@ html {
       html button.wp-block-button a.wp-block-button__link:hover, html button.wp-block-button a.wp-block-button__link:focus, html button.wp-block-button a.wp-block-button__link:active, html input[type="button"].wp-block-button a.wp-block-button__link:hover, html input[type="button"].wp-block-button a.wp-block-button__link:focus, html input[type="button"].wp-block-button a.wp-block-button__link:active, html input[type="reset"].wp-block-button a.wp-block-button__link:hover, html input[type="reset"].wp-block-button a.wp-block-button__link:focus, html input[type="reset"].wp-block-button a.wp-block-button__link:active, html input[type="submit"].wp-block-button a.wp-block-button__link:hover, html input[type="submit"].wp-block-button a.wp-block-button__link:focus, html input[type="submit"].wp-block-button a.wp-block-button__link:active, html #infinite-handle span.wp-block-button a.wp-block-button__link:hover, html #infinite-handle span.wp-block-button a.wp-block-button__link:focus, html #infinite-handle span.wp-block-button a.wp-block-button__link:active,
       html .button.wp-block-button a.wp-block-button__link:hover,
       html .button.wp-block-button a.wp-block-button__link:focus,
-      html .button.wp-block-button a.wp-block-button__link:active, html .wp-block-button.wp-block-button a.wp-block-button__link:hover, html .wp-block-button.wp-block-button a.wp-block-button__link:focus, html .wp-block-button.wp-block-button a.wp-block-button__link:active {
+      html .button.wp-block-button a.wp-block-button__link:active, html .wp-block-button.wp-block-button a.wp-block-button__link:hover, html .wp-block-button.wp-block-button a.wp-block-button__link:focus, html .wp-block-button.wp-block-button a.wp-block-button__link:active, html .wp-block-file__button.wp-block-button a.wp-block-button__link:hover, html .wp-block-file__button.wp-block-button a.wp-block-button__link:focus, html .wp-block-file__button.wp-block-button a.wp-block-button__link:active {
         background: none;
         color: inherit;
         opacity: inherit; }
+  html .wp-block-buttons {
+    margin-bottom: 1.5em; }
   html form {
     max-width: 100%;
     margin-bottom: 1.5em; }
@@ -1191,7 +1205,6 @@ blockquote {
   max-height: 300px; }
 
 .featured-page-area {
-  border-bottom: 1px solid rgba(68, 67, 64, 0.3);
   padding: 1.5em; }
   .featured-page-area .featured-page {
     font-size: 16px;
