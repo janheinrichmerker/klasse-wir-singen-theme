@@ -212,6 +212,8 @@ html {
           background: #c23500; }
     html body.tag-kinder .site .site-content {
       font-size: 20px; }
+      html body.tag-kinder .site .site-content .content-area h1, html body.tag-kinder .site .site-content .content-area h2, html body.tag-kinder .site .site-content .content-area h3, html body.tag-kinder .site .site-content .content-area h4 {
+        font-family: 'Slackey', cursive !important; }
     html body.home .site header.site-header nav.main-navigation {
       display: none; }
     html body.home .site .site-content {
@@ -813,9 +815,22 @@ html {
       overflow: hidden; }
     html .site .site-content .mapp-layout {
       border: 1px solid rgba(68, 67, 64, 0.3); }
-    html .site .site-content .content-wrapper.with-featured-image {
-      border-top-right-radius: 8px;
-      border-top-left-radius: 8px; }
+    @media screen and (min-width: 1000px) {
+      html .site .site-content .hero {
+        max-width: 750px;
+        margin: 0 auto; } }
+    html .site .site-content .hero .entry-thumbnail img {
+      aspect-ratio: 2 / 1;
+      object-fit: cover; }
+      @supports not (aspect-ratio: 2/1) {
+        html .site .site-content .hero .entry-thumbnail img:before {
+          float: left;
+          padding-top: 50%;
+          content: ""; }
+        html .site .site-content .hero .entry-thumbnail img:after {
+          display: block;
+          content: "";
+          clear: both; } }
 
 .post-navigation, .posts-navigation {
   margin: .8em 0 0;
@@ -1122,8 +1137,8 @@ blockquote {
   font-size: 23px;
   font-style: normal;
   margin-left: 0;
-  margin-bottom: 1.6em;
-  padding-left: 2.4em;
+  margin-bottom: 1.5em;
+  padding-left: 2.25em;
   position: relative; }
   blockquote:before {
     color: rgba(68, 67, 64, 0.7);
@@ -1140,7 +1155,8 @@ blockquote {
     border-radius: 8px;
     margin-top: 0.25em;
     font-family: "Comic Neue", "Comic Sans", Lobster, cursive;
-    font-weight: bold; }
+    font-weight: bold;
+    padding-right: 0.75em; }
     blockquote.joke:before {
       content: "😂";
       font-size: 50px;
@@ -1151,11 +1167,15 @@ blockquote {
     blockquote.joke:nth-child(4n+0):before {
       content: "😂"; }
     blockquote.joke:nth-child(4n+1):before {
-      content: "🥸"; }
+      content: "😄"; }
     blockquote.joke:nth-child(4n+2):before {
       content: "🤣"; }
     blockquote.joke:nth-child(4n+3):before {
       content: "😜"; }
+  blockquote.diary {
+    font-family: 'Architects Daughter', cursive; }
+    blockquote.diary cite {
+      font-family: 'Architects Daughter', cursive; }
   blockquote cite {
     display: block;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -1209,22 +1229,48 @@ blockquote {
   .featured-page-area .featured-page {
     font-size: 16px;
     margin-bottom: 1.5em; }
-    .featured-page-area .featured-page .entry-summary {
+    .featured-page-area .featured-page article .entry-header {
+      display: none; }
+      .featured-page-area .featured-page article .entry-header .entry-title,
+      .featured-page-area .featured-page article .entry-header .entry-title a {
+        display: block;
+        color: #444340;
+        font-size: 23px;
+        font-weight: 800;
+        text-align: center; }
+    .featured-page-area .featured-page article > a {
+      display: inline-block;
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden; }
+      .featured-page-area .featured-page article > a:after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border-radius: 8px;
+        box-shadow: inset 5px 5px 5px 0 rgba(255, 255, 255, 0.3), inset -5px -5px 5px 0px rgba(0, 0, 0, 0.15); }
+      .featured-page-area .featured-page article > a .attachment-post-thumbnail {
+        display: block;
+        aspect-ratio: 2 / 1;
+        object-fit: cover;
+        max-height: 25vw; }
+        @supports not (aspect-ratio: 2/1) {
+          .featured-page-area .featured-page article > a .attachment-post-thumbnail:before {
+            float: left;
+            padding-top: 50%;
+            content: ""; }
+          .featured-page-area .featured-page article > a .attachment-post-thumbnail:after {
+            display: block;
+            content: "";
+            clear: both; } }
+    .featured-page-area .featured-page article .entry-summary {
       min-height: 0;
       margin: 0;
       text-align: center; }
-    .featured-page-area .featured-page .entry-title,
-    .featured-page-area .featured-page .entry-title a {
-      display: block;
-      color: #444340;
-      font-size: 23px;
-      font-weight: 800;
-      text-align: center; }
-    .featured-page-area .featured-page .attachment-post-thumbnail {
-      border-radius: 8px;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      max-height: 28.125vw; }
 
 .content-wrapper .content-area {
   width: 100%;
@@ -1452,8 +1498,6 @@ embed, iframe, object, audio, video {
   .site {
     margin: 0 auto;
     padding: 0; }
-    .site .hero {
-      margin: 3em 3em 0; }
 
   .site-branding {
     padding-left: 55px;
@@ -1519,8 +1563,6 @@ embed, iframe, object, audio, video {
     max-width: 750px;
     margin: 0 auto;
     padding: 3em; }
-    .content-wrapper.with-featured-image {
-      margin-top: -4.5em; }
     .content-wrapper .content-area {
       width: 100%; }
 
