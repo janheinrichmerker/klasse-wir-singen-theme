@@ -321,6 +321,14 @@ html {
       border-top-width: 2px; }
     html table tfoot tr:last-child th {
       border-bottom-width: 2px; }
+  html .negative-margin-left {
+    margin-left: -1.5em; }
+  html .negative-margin-right {
+    margin-right: -1.5em; }
+  html .double-negative-margin-top {
+    margin-top: -3em; }
+  html .extra-margin-top {
+    margin-top: 2.25em; }
   html .notification {
     border-radius: 8px;
     background: #ccdeea;
@@ -335,6 +343,14 @@ html {
         margin-bottom: 0; }
       html .notification .wp-block-buttons .wp-block-button {
         margin-bottom: 0; }
+  html .song-selection .wp-block-columns {
+    margin-bottom: 0; }
+    html .song-selection .wp-block-columns .wp-block-column figure figcaption {
+      font-style: normal;
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'Slackey', cursive;
+      text-decoration: none; }
   html .pretix-widget {
     border-radius: 8px;
     border: 1px solid rgba(68, 67, 64, 0.3);

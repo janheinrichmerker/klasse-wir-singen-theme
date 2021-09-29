@@ -409,6 +409,19 @@ html {
     }
   }
 
+  .negative-margin-left {
+    margin-left: -$block-margin;
+  }
+  .negative-margin-right {
+    margin-right: -$block-margin;
+  }
+  .double-negative-margin-top {
+    margin-top: -$block-margin * 2;
+  }
+  .extra-margin-top {
+    margin-top: $block-margin * 1.5;
+  }
+
   .notification {
     border-radius: $border-radius;
     background: $primary-color-dimmed-light;
@@ -429,6 +442,24 @@ html {
 
       .wp-block-button {
         margin-bottom: 0;
+      }
+    }
+  }
+
+  .song-selection {
+    .wp-block-columns {
+      margin-bottom: 0;
+
+      .wp-block-column {
+        figure {
+          figcaption {
+            font-style: normal;
+            font-size: 18px;
+            font-weight: bold;
+            font-family: 'Slackey', cursive;
+            text-decoration: none;
+          }
+        }
       }
     }
   }
