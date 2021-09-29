@@ -567,6 +567,11 @@ html {
         html .site header.site-header nav.main-navigation .menu-header-container ul.menu {
           display: flex;
           padding: 0 5%; }
+          html .site header.site-header nav.main-navigation .menu-header-container ul.menu > li.menu-item-type-custom:first-child {
+            flex-grow: 0; }
+            html .site header.site-header nav.main-navigation .menu-header-container ul.menu > li.menu-item-type-custom:first-child > a {
+              padding-left: 2.25em;
+              padding-right: 2.25em; }
           html .site header.site-header nav.main-navigation .menu-header-container ul.menu > li.menu-item-has-children > a:after, html .site header.site-header nav.main-navigation .menu-header-container ul.menu > li.page_item_has_children > a:after {
             content: "\f502";
             font-family: Genericons, monospace;

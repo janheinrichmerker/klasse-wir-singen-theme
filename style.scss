@@ -777,6 +777,15 @@ html {
 
             > li {
 
+              &.menu-item-type-custom:first-child {
+                // Home icon.
+                flex-grow: 0;
+                > a {
+                  padding-left: $block-margin * 1.5;
+                  padding-right: $block-margin * 1.5;
+                }
+              }
+
               &.menu-item-has-children, &.page_item_has_children {
                 > a:after {
                   content: "\f502";
