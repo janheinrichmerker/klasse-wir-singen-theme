@@ -211,13 +211,15 @@ html {
         html body.tag-musical .site nav.jetpack-social-navigation ul li {
           background: #c23500; }
     html body.tag-kinder .site .site-content {
-      font-size: 20px; }
+      font-size: 20px;
+      line-height: 1.4; }
       html body.tag-kinder .site .site-content .content-area h1, html body.tag-kinder .site .site-content .content-area h2, html body.tag-kinder .site .site-content .content-area h3, html body.tag-kinder .site .site-content .content-area h4 {
         font-family: 'Slackey', cursive !important; }
     html body.home .site header.site-header nav.main-navigation {
       display: none; }
     html body.home .site .site-content {
-      font-size: 22px; }
+      font-size: 22px;
+      line-height: 1.4; }
       html body.home .site .site-content .content-wrapper {
         max-width: none;
         padding: 1.5em; }
@@ -343,13 +345,12 @@ html {
         margin-bottom: 0; }
       html .notification .wp-block-buttons .wp-block-button {
         margin-bottom: 0; }
-  html .song-selection .wp-block-columns {
-    margin-bottom: 0; }
-    html .song-selection .wp-block-columns .wp-block-column figure figcaption {
-      font-style: normal;
-      font-size: 18px;
-      font-weight: bold;
-      font-family: 'Slackey', cursive;
+  html .song-selection .wp-block-jetpack-layout-grid .wp-block-jetpack-layout-grid-column figure figcaption {
+    font-style: normal;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Slackey', cursive; }
+    html .song-selection .wp-block-jetpack-layout-grid .wp-block-jetpack-layout-grid-column figure figcaption a {
       text-decoration: none; }
   html .pretix-widget {
     border-radius: 8px;
@@ -853,6 +854,9 @@ html {
           content: "";
           clear: both; } }
 
+.h5p-inner {
+  border-radius: 8px; }
+
 .post-navigation, .posts-navigation {
   margin: .8em 0 0;
   position: relative; }
@@ -1250,44 +1254,17 @@ blockquote {
   .featured-page-area .featured-page {
     font-size: 16px;
     margin-bottom: 1.5em; }
-    .featured-page-area .featured-page article .entry-header {
-      display: none; }
-      .featured-page-area .featured-page article .entry-header .entry-title,
-      .featured-page-area .featured-page article .entry-header .entry-title a {
-        display: block;
-        color: #444340;
-        font-size: 23px;
-        font-weight: 800;
-        text-align: center; }
+    .featured-page-area .featured-page article .entry-header .entry-title,
+    .featured-page-area .featured-page article .entry-header .entry-title a {
+      display: block;
+      color: #444340;
+      font-size: 23px;
+      font-weight: 800;
+      text-align: center; }
     .featured-page-area .featured-page article > a {
-      display: inline-block;
-      position: relative;
-      border-radius: 8px;
-      overflow: hidden; }
-      .featured-page-area .featured-page article > a:after {
-        display: block;
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        border-radius: 8px;
-        box-shadow: inset 5px 5px 5px 0 rgba(255, 255, 255, 0.3), inset -5px -5px 5px 0px rgba(0, 0, 0, 0.15); }
+      display: inline-block; }
       .featured-page-area .featured-page article > a .attachment-post-thumbnail {
-        display: block;
-        aspect-ratio: 2 / 1;
-        object-fit: cover;
-        max-height: 25vw; }
-        @supports not (aspect-ratio: 2/1) {
-          .featured-page-area .featured-page article > a .attachment-post-thumbnail:before {
-            float: left;
-            padding-top: 50%;
-            content: ""; }
-          .featured-page-area .featured-page article > a .attachment-post-thumbnail:after {
-            display: block;
-            content: "";
-            clear: both; } }
+        display: block; }
     .featured-page-area .featured-page article .entry-summary {
       min-height: 0;
       margin: 0;

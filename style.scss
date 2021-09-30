@@ -191,6 +191,7 @@ html {
         .site-content {
           // Increase font size for child-targeted pages.
           font-size: 20px;
+          line-height: 1.4;
 
           .content-area {
             h1, h2, h3, h4 {
@@ -221,6 +222,7 @@ html {
         .site-content {
           // Increase font size for child-targeted pages.
           font-size: 22px;
+          line-height: 1.4;
 
           .content-wrapper {
             max-width: none;
@@ -447,17 +449,18 @@ html {
   }
 
   .song-selection {
-    .wp-block-columns {
-      margin-bottom: 0;
-
-      .wp-block-column {
+    .wp-block-jetpack-layout-grid {
+      .wp-block-jetpack-layout-grid-column {
         figure {
           figcaption {
             font-style: normal;
             font-size: 18px;
             font-weight: bold;
             font-family: 'Slackey', cursive;
-            text-decoration: none;
+
+            a {
+              text-decoration: none;
+            }
           }
         }
       }
@@ -1235,6 +1238,10 @@ html {
   }
 }
 
+.h5p-inner {
+  border-radius: $border-radius;
+}
+
 .post-navigation, .posts-navigation {
   margin: .8em 0 0;
   position: relative;
@@ -1802,7 +1809,7 @@ blockquote {
     article {
 
       .entry-header {
-        display: none;
+        //display: none;
 
         .entry-title,
         .entry-title a {
@@ -1816,40 +1823,40 @@ blockquote {
 
       > a {
         display:inline-block;
-        position: relative;
-        border-radius: $border-radius;
-        overflow: hidden;
+        //position: relative;
+        //border-radius: $border-radius;
+        //overflow: hidden;
 
-        &:after {
-          display:block;
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          right: 0;
-          border-radius: 8px;
-          box-shadow: inset 5px 5px 5px 0 rgba(255, 255, 255, 0.30), inset -5px -5px 5px 0px rgba(0, 0, 0, 0.15);
-        }
+        //&:after {
+        //  display:block;
+        //  content: "";
+        //  position: absolute;
+        //  top: 0;
+        //  left: 0;
+        //  bottom: 0;
+        //  right: 0;
+        //  border-radius: 8px;
+        //  box-shadow: inset 5px 5px 5px 0 rgba(255, 255, 255, 0.30), inset -5px -5px 5px 0px rgba(0, 0, 0, 0.15);
+        //}
 
         .attachment-post-thumbnail {
           display: block;
-          aspect-ratio: 2 / 1;
-          object-fit: cover;
-          max-height: 50vw / (2 / 1);
-
-          @supports not (aspect-ratio: 2 / 1) {
-            &:before {
-              float: left;
-              padding-top: 100% / (2 / 1);
-              content: "";
-            }
-            &:after {
-              display: block;
-              content: "";
-              clear: both;
-            }
-          }
+      //    aspect-ratio: 2 / 1;
+      //    object-fit: cover;
+      //    max-height: 50vw / (2 / 1);
+      //
+      //    @supports not (aspect-ratio: 2 / 1) {
+      //      &:before {
+      //        float: left;
+      //        padding-top: 100% / (2 / 1);
+      //        content: "";
+      //      }
+      //      &:after {
+      //        display: block;
+      //        content: "";
+      //        clear: both;
+      //      }
+      //    }
         }
       }
 
