@@ -10,11 +10,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: klasse-wir-singen
 */
 
-$primary-color: #025c96;
-$primary-color-original: #e6a400;
-$primary-color-musical: #c23500;
-$primary-color-jubilee: #5e992d;
-$background-content: #fff;
+$primary-color: #0095D9;
+$background-content: mix(#A6CE39, white, 20%);
+$background-site: mix(#A6CE39, white, 10%);
 $primary-color-dimmed-light: mix($primary-color, $background-content, 20%);
 $primary-color-dimmed-dark: mix($primary-color, $background-content, 85%);
 $font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -30,6 +28,7 @@ $block-margin: 1.5em;
 $border-radius: 8px;
 $divider-color: transparentize($text-color, 0.7);
 $secondary-divider-color: transparentize($divider-color, 0.2);
+$theme-base-path: "/wp-content/themes/klasse-wir-singen";
 
 @import "normalize.css";
 
@@ -58,136 +57,20 @@ html {
   -ms-text-size-adjust: 100%;
 
   body {
-    background: change-color($primary-color-dimmed-light, $lightness: 95%);
+    background: $background-site;
     color: $text-color;
     font-family: $font-family;
     font-size: 16px;
     line-height: 1.6;
 
-    @mixin body-overwrite-primary-color($primary-color) {
-      $primary-color-dimmed-light: mix($primary-color, $background-content, 20%);
-      $primary-color-dimmed-dark: mix($primary-color, $background-content, 85%);
-
-      background: change-color($primary-color-dimmed-light, $lightness: 95%);
-
-      a {
-        color: $primary-color;
-
-        &:hover, &:focus, &:active {
-          color: $primary-color-dimmed-dark;
-        }
-      }
-
-      button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span,
-      .button, .wp-block-button {
-        background: $primary-color;
-
-        &:hover {
-          background: $primary-color-dimmed-dark;
-        }
-
-        &:focus, &:active {
-          background: $primary-color-dimmed-light;
-        }
-
-        &.outline, &.is-style-outline {
-          background: none;
-          color: $primary-color;
-
-          &:hover {
-            color: $primary-color-dimmed-dark;
-            background: $primary-color-dimmed-light;
-          }
-
-          &:focus, &:active {
-            background: $primary-color-dimmed-light;
-          }
-        }
-      }
-
-      input:not([type="button"], [type="reset"], [type="submit"], [type="range"]), textarea {
-        &:focus {
-          border: 1px solid $primary-color;
-        }
-      }
-
-      .notification {
-        background: $primary-color-dimmed-light;
-        border-color: $primary-color;
-      }
-
-      .pretix-widget {
-        form {
-          .pretix-widget-action {
-            width: 100%;
-            margin-left: 0;
-          }
-
-          button {
-            &:hover {
-              background: $primary-color-dimmed-dark;
-            }
-
-            &:focus, &:active {
-              background: $primary-color-dimmed-light;
-            }
-          }
-        }
-      }
-
-      .site {
-        border-color: $primary-color;
-
-        header.site-header {
-          nav.main-navigation {
-            background: $primary-color;
-            @media screen and (min-width: $site-width * 0.75) {
-              .menu-header-container ul.menu {
-                li {
-                  ul {
-                    background: $primary-color;
-                  }
-                }
-              }
-            }
-          }
-        }
-
-        footer.site-footer {
-          background: $primary-color-dimmed-light;
-          border-top-color: $primary-color;
-        }
-
-        .footer-widget-area {
-          a {
-            color: #6d6d6d;
-          }
-        }
-
-        nav.jetpack-social-navigation {
-          ul {
-            li {
-              background: $primary-color;
-            }
-          }
-        }
-      }
-    }
-
-    &.tag-original {
-      @include body-overwrite-primary-color($primary-color-original);
-    }
-
-    &.tag-jubilaeum {
-      @include body-overwrite-primary-color($primary-color-jubilee);
-    }
-
-    &.tag-musical {
-      @include body-overwrite-primary-color($primary-color-musical);
-    }
-
     &.tag-kinder {
       .site {
+        .site-header {
+          .site-branding {
+            background-image: url($theme-base-path + "/images/header-animals.svg");
+          }
+        }
+
         .site-content {
           // Increase font size for child-targeted pages.
           font-size: 20px;
@@ -196,44 +79,6 @@ html {
           .content-area {
             h1, h2, h3, h4 {
               font-family: 'Slackey', cursive !important; // TODO Remove !important rule.
-            }
-          }
-        }
-      }
-    }
-
-    &.home {
-
-      .site {
-        header.site-header {
-          .site-branding {
-            .custom-logo-link {
-              .custom-logo {
-                // TODO Larger than on normal pages.
-              }
-            }
-          }
-
-          nav.main-navigation {
-            display: none;
-          }
-        }
-
-        .site-content {
-          // Increase font size for child-targeted pages.
-          font-size: 22px;
-          line-height: 1.4;
-
-          .content-wrapper {
-            max-width: none;
-            padding: $block-margin;
-
-            .entry-header {
-              display: none;
-            }
-
-            .entry-content {
-              max-width: 750px;
             }
           }
         }
@@ -414,17 +259,20 @@ html {
   .negative-margin-left {
     margin-left: -$block-margin;
   }
+
   .negative-margin-right {
     margin-right: -$block-margin;
   }
+
   .double-negative-margin-top {
     margin-top: -$block-margin * 2;
   }
+
   .extra-margin-top {
     margin-top: $block-margin * 1.5;
   }
 
-  .notification {
+  .notification, .appendix {
     border-radius: $border-radius;
     background: $primary-color-dimmed-light;
     border: 2px solid $primary-color;
@@ -680,18 +528,24 @@ html {
   }
 
   .site {
-    border: 2px solid $primary-color;
-    border-top: none;
-    border-bottom: none;
+    border: 0 solid $primary-color;
+
+    @media screen and (min-width: $site-width) {
+      margin: 0 auto;
+      padding: 0;
+      border-left-width: 2px;
+      border-right-width: 2px;
+    }
 
     header.site-header {
+      background: $background-content;
+
       nav.main-navigation {
-        background: $primary-color;
-        color: $text-color-on-primary;
         display: block;
 
         .menu-toggle {
           box-shadow: none;
+          background: $primary-color;
           color: $text-color-on-primary;
           display: block;
           width: 100%;
@@ -724,13 +578,14 @@ html {
             display: block;
             border-top: 1px solid transparentize($text-color-on-primary, 0.8);
             padding: 0;
+            background: $primary-color;
+            color: $text-color-on-primary;
 
             &.current_page_item > a, &:hover > a, &:focus > a, &.focus > a {
               background: transparentize($text-color-on-primary, 0.95);
             }
 
             a {
-              color: #fff;
               display: block;
               font-size: 15px;
               font-weight: bold;
@@ -810,10 +665,10 @@ html {
             padding: 0 5%;
 
             > li {
+              flex-grow: 0;
 
               &.menu-item-type-custom:first-child {
                 // Home icon.
-                flex-grow: 0;
                 > a {
                   padding-left: $block-margin * 1.5;
                   padding-right: $block-margin * 1.5;
@@ -905,33 +760,48 @@ html {
       }
 
       .site-branding {
-        background: $background-content;
+        background-image: url($theme-base-path + "/images/header-notes.svg");
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: bottom;
+        background-size: cover;
+        height: 60vw;
 
-        @media screen and (min-width: $site-width * 0.75) {
-          display: flex;
-          padding: 0;
+        @media screen and (min-width: $site-width * 0.5) {
+          height: 40vw;
+        }
+
+        @media screen and (min-width: $site-width) {
+          height: $site-width  / 100  * 40;
         }
 
         .custom-logo-link {
           display: block;
           width: 100%;
-          padding: 1em;
+          padding: 5vw (1 * $block-margin);
           text-align: center;
 
-          @media screen and (min-width: $site-width * 0.75) {
-            flex: 1;
-            padding: 1.5em 5%;
+          @media screen and (min-width: $site-width * 0.5) {
             text-align: left;
+            padding: 4vw (1.5 * $block-margin);
+          }
+
+          @media screen and (min-width: $site-width) {
+            padding: ($site-width / 100 * 4) (1.5 * $block-margin);
           }
 
           .custom-logo {
             display: inline-block;
+            height: 18.5vw;
             width: auto;
-            height: auto;
-            max-width: $site-width / 2;
-            max-height: 100vw / (16 / 9);
-            // TODO Warning: Currently the size is limited by the asset to 300x102px.
-            // Max size should reflect that even if the asset would be larger.
+
+            @media screen and (min-width: $site-width * 0.5) {
+              height: 13.5vw;
+            }
+
+            @media screen and (min-width: $site-width) {
+              height: $site-width / 100 * 13.5;
+            }
           }
         }
 
@@ -1208,7 +1078,7 @@ html {
       }
 
       .hero {
-        @media screen and (min-width: 1000px){
+        @media screen and (min-width: $site-width) {
           max-width: 750px;
           margin: 0 auto;
         }
@@ -1822,7 +1692,7 @@ blockquote {
       }
 
       > a {
-        display:inline-block;
+        display: inline-block;
         //position: relative;
         //border-radius: $border-radius;
         //overflow: hidden;
@@ -1841,22 +1711,22 @@ blockquote {
 
         .attachment-post-thumbnail {
           display: block;
-      //    aspect-ratio: 2 / 1;
-      //    object-fit: cover;
-      //    max-height: 50vw / (2 / 1);
-      //
-      //    @supports not (aspect-ratio: 2 / 1) {
-      //      &:before {
-      //        float: left;
-      //        padding-top: 100% / (2 / 1);
-      //        content: "";
-      //      }
-      //      &:after {
-      //        display: block;
-      //        content: "";
-      //        clear: both;
-      //      }
-      //    }
+          //    aspect-ratio: 2 / 1;
+          //    object-fit: cover;
+          //    max-height: 50vw / (2 / 1);
+          //
+          //    @supports not (aspect-ratio: 2 / 1) {
+          //      &:before {
+          //        float: left;
+          //        padding-top: 100% / (2 / 1);
+          //        content: "";
+          //      }
+          //      &:after {
+          //        display: block;
+          //        content: "";
+          //        clear: both;
+          //      }
+          //    }
         }
       }
 
@@ -2154,24 +2024,12 @@ embed, iframe, object, audio, video {
   }
 }
 
-@media screen and (min-width: 1000px) {
-  .site {
-    margin: 0 auto;
-    padding: 0;
-  }
-  .site-branding {
-    padding-left: 55px;
-    padding-right: 55px;
-  }
+@media screen and (min-width: $site-width) {
   .content-area {
     max-width: 825px;
     margin-right: 0;
     margin-left: 0;
     width: 100%;
-  }
-
-  .footer-widget-area {
-    padding: 3.2em 55px;
   }
 
   .hero-content-wrapper {

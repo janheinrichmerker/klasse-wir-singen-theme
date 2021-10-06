@@ -39,59 +39,65 @@ get_header(); ?>
     <div class="featured-page-wrapper clear">
         <div class="featured-page">
             <article class="page type-page status-publish has-post-thumbnail hentry tag-jubilaeum with-featured-image">
-<!--                <header class="entry-header">-->
-<!--                    <h2 class="entry-title">-->
-<!--                        <a href="/jubilaeum/" rel="bookmark" title="75. Geburtstag">75.&nbsp;Landesgeburtstag</a>-->
-<!--                    </h2>-->
-<!--                </header>-->
                 <a href="/jubilaeum/">
-                    <img src="/wp-content/uploads/2021/09/Button-Jubilaeum.png"
+                    <img src="/wp-content/uploads/2021/10/Frame-12.png"
                          class="attachment-post-thumbnail size-post-thumbnail wp-post-image jetpack-lazy-image jetpack-lazy-image--handled"
                          alt="Landesdgeburtstag"
                          loading="eager">
                 </a>
+                <header class="entry-header">
+                    <h2 class="entry-title">
+                        <a href="/jubilaeum/" rel="bookmark" title="75. Geburtstag">75.&nbsp;Landesgeburtstag</a>
+                    </h2>
+                </header>
                 <div class="entry-summary">
-                    <p>
-                        Am 1.&nbsp;November&nbsp;2021 wird das Land Niedersachsen 75. Feiern Sie mit!
-                    </p>
+                    <a href="/jubilaeum/">
+                        <p>
+                            Am 1.&nbsp;November&nbsp;2021 wird das Land Niedersachsen 75. Feiern Sie mit!
+                        </p>
+                    </a>
                 </div>
             </article>
         </div>
         <div class="featured-page">
             <article class="page type-page status-publish has-post-thumbnail hentry tag-musical with-featured-image">
-<!--                <header class="entry-header">-->
-<!--                    <h2 class="entry-title">-->
-<!--                        <a href="/musical/" rel="bookmark" title="Musical">Musical</a>-->
-<!--                    </h2>-->
-<!--                </header>-->
                 <a href="/musical/">
-                    <img src="/wp-content/uploads/2021/09/Button-Musical.png"
+                    <img src="/wp-content/uploads/2021/10/Frame-12.png"
                          class="attachment-post-thumbnail size-post-thumbnail wp-post-image jetpack-lazy-image jetpack-lazy-image--handled"
                          alt="Musical"
                          loading="eager">
                 </a>
+                <header class="entry-header">
+                    <h2 class="entry-title">
+                        <a href="/musical/" rel="bookmark" title="Musical">Musical</a>
+                    </h2>
+                </header>
                 <div class="entry-summary">
-                    <p>
-                        Das Kindermusical zum Mitmachen, erstmals 2022!
-                    </p>
+                    <a href="/musical/">
+                        <p>
+                            Das Kindermusical zum Mitmachen, erstmals 2022!
+                        </p>
+                    </a>
                 </div>
             </article>
         </div>
         <div class="featured-page">
             <article class="page type-page status-publish has-post-thumbnail hentry tag-original with-featured-image">
-<!--                <header class="entry-header">-->
-<!--                    <h2 class="entry-title">-->
-<!--                        <a href="/original/" rel="bookmark" title="Original">Original</a>-->
-<!--                    </h2>-->
-<!--                </header>-->
                 <a href="/original/">
-                    <img src="/wp-content/uploads/2021/09/Button-Original.png"
+                    <img src="/wp-content/uploads/2021/10/Frame-12.png"
                          class="attachment-post-thumbnail size-post-thumbnail wp-post-image jetpack-lazy-image jetpack-lazy-image--handled"
                          alt="Original"
                          loading="eager">
                 </a>
+                <header class="entry-header">
+                    <h2 class="entry-title">
+                        <a href="/original/" rel="bookmark" title="Original">Original</a>
+                    </h2>
+                </header>
                 <div class="entry-summary">
-                    <p>Klasse! Wir singen Liederfeste, wie Sie sie kennen und lieben.</p>
+                    <a href="/original/">
+                        <p>Klasse! Wir singen Liederfeste, wie Sie sie kennen und lieben.</p>
+                    </a>
                 </div>
             </article>
         </div>
