@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-rm theme.zip
-zip -rq theme.zip ./
+rm klasse-wir-singen.zip
+zip -rq klasse-wir-singen.zip ./
