@@ -40,7 +40,7 @@ get_header(); ?>
         <div class="featured-page">
             <article class="page type-page status-publish has-post-thumbnail hentry tag-jubilaeum with-featured-image">
                 <a href="/jubilaeum/">
-                    <img src="/wp-content/uploads/2021/10/Frame-12.png"
+                    <img src="<?php echo(bloginfo('template_directory')); ?>/images/button-jubilaeum.svg"
                          class="attachment-post-thumbnail size-post-thumbnail wp-post-image jetpack-lazy-image jetpack-lazy-image--handled"
                          alt="Landesdgeburtstag"
                          loading="eager">
@@ -62,7 +62,7 @@ get_header(); ?>
         <div class="featured-page">
             <article class="page type-page status-publish has-post-thumbnail hentry tag-musical with-featured-image">
                 <a href="/musical/">
-                    <img src="/wp-content/uploads/2021/10/Frame-12.png"
+                    <img src="<?php echo(bloginfo('template_directory')); ?>/images/button-musical.svg"
                          class="attachment-post-thumbnail size-post-thumbnail wp-post-image jetpack-lazy-image jetpack-lazy-image--handled"
                          alt="Musical"
                          loading="eager">
@@ -84,7 +84,7 @@ get_header(); ?>
         <div class="featured-page">
             <article class="page type-page status-publish has-post-thumbnail hentry tag-original with-featured-image">
                 <a href="/original/">
-                    <img src="/wp-content/uploads/2021/10/Frame-12.png"
+                    <img src="<?php echo(bloginfo('template_directory')); ?>/images/button-original.svg"
                          class="attachment-post-thumbnail size-post-thumbnail wp-post-image jetpack-lazy-image jetpack-lazy-image--handled"
                          alt="Original"
                          loading="eager">
