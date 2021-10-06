@@ -10,9 +10,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: klasse-wir-singen
 */
 
-$primary-color: #0095D9;
-$background-content: mix(#A6CE39, white, 20%);
-$background-site: mix(#A6CE39, white, 10%);
+$primary-color: #07375e;
+$secondary-color: #00adef;
+$background-content: #e0f09e;
+$background-content-dark: #bfe259;
+$background-site: mix($background-content, white, 10%);
 $primary-color-dimmed-light: mix($primary-color, $background-content, 20%);
 $primary-color-dimmed-dark: mix($primary-color, $background-content, 85%);
 $font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -72,13 +74,9 @@ html {
         }
 
         .site-content {
-          // Increase font size for child-targeted pages.
-          font-size: 20px;
-          line-height: 1.4;
-
           .content-area {
             h1, h2, h3, h4 {
-              font-family: 'Slackey', cursive !important; // TODO Remove !important rule.
+              font-family: "Architects Daughter", cursive;
             }
           }
         }
@@ -529,8 +527,15 @@ html {
 
   .site {
     border: 0 solid $primary-color;
+    background: $background-content;
+    background: linear-gradient($background-content-dark, $background-content 120vw);
+
+    @media screen and (min-width: $site-width * 0.5) {
+      background: linear-gradient($background-content-dark, $background-content 60vw);
+    }
 
     @media screen and (min-width: $site-width) {
+      background: linear-gradient($background-content-dark, $background-content ($site-width / 100 * 60));
       margin: 0 auto;
       padding: 0;
       border-left-width: 2px;
@@ -538,7 +543,6 @@ html {
     }
 
     header.site-header {
-      background: $background-content;
 
       nav.main-navigation {
         display: block;
@@ -1016,7 +1020,6 @@ html {
     }
 
     footer.site-footer {
-      background: $primary-color-dimmed-light;
       border-top: 2px solid $primary-color;
       font-size: 15px;
       padding: 24px 34px 24px 34px;
@@ -1310,7 +1313,6 @@ html {
 }
 
 .footer-widget-area {
-  background-color: $background-content;
   border-top: 1px solid $divider-color;
   width: 100%;
   margin: 0;
@@ -1352,7 +1354,6 @@ html {
 }
 
 .site-content {
-  background-color: $background-content;
   padding: $block-margin;
 }
 
@@ -1623,7 +1624,6 @@ blockquote {
 }
 
 .content-wrapper {
-  background: $background-content;
   padding: $block-margin;
   position: relative;
 }
