@@ -17,14 +17,6 @@ if ( ! function_exists( 'dara_setup' ) ) :
 	 */
 	function dara_setup() {
 
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on components, use a find and replace
-		 * to change 'dara' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain( 'dara', get_template_directory() . '/languages' );
-
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
@@ -58,48 +50,6 @@ if ( ! function_exists( 'dara_setup' ) ) :
 		// Add support for responsive embeds.
 		add_theme_support( 'responsive-embeds' );
 
-		// Add custom colors to Gutenberg
-		add_theme_support(
-			'editor-color-palette',
-			array(
-				array(
-					'name'  => esc_html__( 'Black', 'dara' ),
-					'slug'  => 'black',
-					'color' => '#404040',
-				),
-				array(
-					'name'  => esc_html__( 'Bright Yellow', 'dara' ),
-					'slug'  => 'bright-yellow',
-					'color' => '#FFC60D',
-				),
-				array(
-					'name'  => esc_html__( 'Medium Gray', 'dara' ),
-					'slug'  => 'medium-gray',
-					'color' => '#a8a6a1',
-				),
-				array(
-					'name'  => esc_html__( 'Light Gray', 'dara' ),
-					'slug'  => 'light-gray',
-					'color' => '#e6e6e6',
-				),
-				array(
-					'name'  => esc_html__( 'White', 'dara' ),
-					'slug'  => 'white',
-					'color' => '#ffffff',
-				),
-				array(
-					'name'  => esc_html__( 'Blue', 'dara' ),
-					'slug'  => 'blue',
-					'color' => '#15b6b8',
-				),
-				array(
-					'name'  => esc_html__( 'Dark Blue', 'dara' ),
-					'slug'  => 'dark-blue',
-					'color' => '#0c8384',
-				),
-			)
-		);
-
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus(
             array(
@@ -129,63 +79,11 @@ if ( ! function_exists( 'dara_setup' ) ) :
 			)
 		);
 
-		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		// Set up the WordPress core custom background feature.
-		add_theme_support(
-			'custom-background',
-			apply_filters(
-				'dara_custom_background_args',
-				array(
-					'default-color' => 'FFC60D',
-				)
-			)
-		);
-
-		// Add theme support for custom logos
-		add_theme_support(
-			'custom-logo',
-			array(
-				'width'       => 1200,
-				'height'      => 300,
-				'flex-width'  => true,
-				'flex-height' => true,
-			)
-		);
-
 		// Add theme support for excerpts on pages
 		add_post_type_support( 'page', 'excerpt' );
 	}
 endif;
 add_action( 'after_setup_theme', 'dara_setup' );
-
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function dara_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'dara_content_width', 825 );
-}
-add_action( 'after_setup_theme', 'dara_content_width', 0 );
-
-/**
- * Set larger content width in some situations.
- */
-function dara_adjust_content_width() {
-    $GLOBALS['content_width'] = 1080;
-}
-add_action( 'template_redirect', 'dara_adjust_content_width' );
-
-/**
- * Returns the Google font stylesheet URL, if available.
- */
-function dara_fonts_url() {
-	return "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Architects+Daughter&family=Slackey&family=Comic+Neue:wght@700&display=swap";
-}
 
 /**
  * Enqueue scripts and styles.
@@ -195,9 +93,6 @@ function dara_scripts() {
 
 	// Gutenberg styles
 	wp_enqueue_style( 'dara-blocks', get_template_directory_uri() . '/blocks.css' );
-
-	// Add Yrsa, Source Sans Pro and Merriweather fonts.
-	wp_enqueue_style( 'dara-fonts', dara_fonts_url(), array(), null );
 
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/assets/genericons/genericons.css', array(), '3.4.1' );
 
@@ -216,7 +111,6 @@ add_action( 'wp_enqueue_scripts', 'dara_scripts' );
  */
 function dara_editor_styles() {
 	wp_enqueue_style( 'dara-editor-block-style', get_template_directory_uri() . '/editor-blocks.css' );
-	wp_enqueue_style( 'dara-fonts', dara_fonts_url() );
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.3' );
 }
 add_action( 'enqueue_block_editor_assets', 'dara_editor_styles' );

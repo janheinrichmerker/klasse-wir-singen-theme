@@ -16,7 +16,7 @@ get_header(); ?>
 <?php rewind_posts(); ?>
 
 
-<div class="content-wrapper full-width <?php echo esc_attr( dara_additional_class() ); ?>">
+<div class="content-wrapper <?php echo esc_attr( dara_additional_class() ); ?>">
     <div id="primary" class="content-area">
         <div id="main" class="site-main" role="main">
 

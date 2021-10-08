@@ -11,7 +11,7 @@ else :
 
 get_header(); ?>
 
-<div class="content-wrapper full-width <?php echo esc_attr( dara_additional_class() ); ?>">
+<div class="content-wrapper <?php echo esc_attr( dara_additional_class() ); ?>">
 
 	<div id="primary" class="content-area">
         <div id="main" class="site-main" role="main">
@@ -32,77 +32,6 @@ get_header(); ?>
         </div><!-- #content -->
 	</div><!-- #primary -->
 </div><!-- .content-wrapper -->
-
-<?php //dara_featured_pages(); ?>
-
-<div id="quaternary" class="featured-page-area">
-    <div class="featured-page-wrapper clear">
-        <div class="featured-page">
-            <article class="page type-page status-publish has-post-thumbnail hentry tag-jubilaeum with-featured-image">
-                <a href="/jubilaeum/">
-                    <img src="<?php echo(bloginfo('template_directory')); ?>/images/button-jubilaeum.svg"
-                         class="attachment-post-thumbnail size-post-thumbnail wp-post-image jetpack-lazy-image jetpack-lazy-image--handled"
-                         alt="Landesdgeburtstag"
-                         loading="eager">
-                </a>
-                <header class="entry-header">
-                    <h2 class="entry-title">
-                        <a href="/jubilaeum/" rel="bookmark" title="75. Geburtstag">75.&nbsp;Landesgeburtstag</a>
-                    </h2>
-                </header>
-                <div class="entry-summary">
-                    <a href="/jubilaeum/">
-                        <p>
-                            Am 1.&nbsp;November&nbsp;2021 wird das Land Niedersachsen 75. Feiern Sie mit!
-                        </p>
-                    </a>
-                </div>
-            </article>
-        </div>
-        <div class="featured-page">
-            <article class="page type-page status-publish has-post-thumbnail hentry tag-musical with-featured-image">
-                <a href="/musical/">
-                    <img src="<?php echo(bloginfo('template_directory')); ?>/images/button-musical.svg"
-                         class="attachment-post-thumbnail size-post-thumbnail wp-post-image jetpack-lazy-image jetpack-lazy-image--handled"
-                         alt="Musical"
-                         loading="eager">
-                </a>
-                <header class="entry-header">
-                    <h2 class="entry-title">
-                        <a href="/musical/" rel="bookmark" title="Musical">Musical</a>
-                    </h2>
-                </header>
-                <div class="entry-summary">
-                    <a href="/musical/">
-                        <p>
-                            Das Kindermusical zum Mitmachen, erstmals 2022!
-                        </p>
-                    </a>
-                </div>
-            </article>
-        </div>
-        <div class="featured-page">
-            <article class="page type-page status-publish has-post-thumbnail hentry tag-original with-featured-image">
-                <a href="/original/">
-                    <img src="<?php echo(bloginfo('template_directory')); ?>/images/button-original.svg"
-                         class="attachment-post-thumbnail size-post-thumbnail wp-post-image jetpack-lazy-image jetpack-lazy-image--handled"
-                         alt="Original"
-                         loading="eager">
-                </a>
-                <header class="entry-header">
-                    <h2 class="entry-title">
-                        <a href="/original/" rel="bookmark" title="Original">Original</a>
-                    </h2>
-                </header>
-                <div class="entry-summary">
-                    <a href="/original/">
-                        <p>Klasse! Wir singen Liederfeste, wie Sie sie kennen und lieben.</p>
-                    </a>
-                </div>
-            </article>
-        </div>
-    </div>
-</div>
 
 <?php get_footer();
 

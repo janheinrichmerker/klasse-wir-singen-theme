@@ -1,8 +1,6 @@
 # 🎨 klasse-wir-singen-theme
 
 Klasse! Wir singen [WordPress](https://wordpress.com/) theme, based on the [Dara theme](https://wordpress.com/theme/dara) ([source](https://github.com/Automattic/themes/tree/trunk/dara)).
-With bold featured images and bright, cheerful colors, this theme is specially customized for the [Klasse! Wir singen](https://klasse-wir-singen.de/) project.
-The theme requires at least WordPress 4.5 and is tested up to 4.7.
 
 ## Installation
 
@@ -18,22 +16,9 @@ When you first activate this theme, your homepage will display posts in a tradit
 - Go to Customize → Static Front Page.
 - Select "A static page" and choose the two pages you published in Step #1 as your Front page and Posts page.
 
-The static front page includes the following:
-
-- A Featured Content area with a slider.
-- Three Featured Pages, set in Customize → Theme Options.
-
 #### Custom Menus
 
-The theme includes one Custom Menu in the header, which can be configured via My Sites → Menus. If no menu is assigned, this area will display a list of your pages by default.
-
-### Site Logo
-
-Brand identity is very important. That’s why this theme supports the Site Logo feature. To add your own image, go to Customize → Site Identity. The logo will appear in the header, above the site title.
-
-### Custom Background
-
-Custom color, pattern, or a beautiful image – the choice is yours. To change the background, visit Customize → Colors & Backgrounds from your dashboard.
+The theme includes two Custom Menus, one in the header and one in the footer, which can be configured via My Sites → Menus. If no menu is assigned, this area will display a list of your pages by default.
 
 ## Credits
 
