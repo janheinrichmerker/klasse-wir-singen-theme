@@ -10,28 +10,11 @@
 /**
  * Jetpack setup function.
  *
- * See: https://jetpack.me/support/infinite-scroll/
  * See: https://jetpack.me/support/responsive-videos/
  */
 function dara_jetpack_setup() {
-	// Add theme support for Infinite Scroll.
-	add_theme_support( 'infinite-scroll', array(
-		'container' => 'main',
-		'render'    => 'dara_infinite_scroll_render',
-		'footer'    => 'page',
-	) );
-
-	add_theme_support( 'featured-content', array(
-		'filter'     => 'dara_get_featured_posts',
-		'max_posts'  => 10,
-		'post_types' => array( 'post', 'page', 'jetpack-portfolio' ),
-	) );
-
 	// Add theme support for Responsive Videos.
 	add_theme_support( 'jetpack-responsive-videos' );
-
-	// Add theme support for Social Menus
-	add_theme_support( 'jetpack-social-menu', 'svg' );
 
 	// Add theme support for Content Options.
 	add_theme_support( 'jetpack-content-options', array(
@@ -55,39 +38,6 @@ function dara_jetpack_setup() {
 
 }
 add_action( 'after_setup_theme', 'dara_jetpack_setup' );
-
-/**
- * Footer widgets Callback for Infinite Scroll
- */
-if ( function_exists( 'jetpack_is_mobile' ) && class_exists( 'Jetpack_User_Agent_Info' ) ) {
-	function dara_has_footer_widgets() {
-
-		if ( is_active_sidebar( 'sidebar-2' ) || is_active_sidebar( 'sidebar-3' ) || is_active_sidebar( 'sidebar-4' ) ) {
-			return true;
-		}
-
-		return false;
-	}
-	add_filter( 'infinite_scroll_has_footer_widgets', 'dara_has_footer_widgets' );
-}
-
-/**
- * Custom render function for Infinite Scroll.
- */
-function dara_infinite_scroll_render() {
-	while ( have_posts() ) {
-		the_post();
-		if ( is_search() ) :
-			get_template_part( 'components/post/content', 'search' );
-		else :
-			get_template_part( 'components/post/content', get_post_format() );
-		endif;
-	}
-}
-
-function dara_get_featured_posts() {
-	return apply_filters( 'dara_get_featured_posts', array() );
-}
 
 function dara_has_featured_posts( $minimum = 1 ) {
 	if ( is_paged() )
@@ -123,14 +73,6 @@ function dara_author_bio_avatar_size() {
 	return 90;
 }
 add_filter( 'jetpack_author_bio_avatar_size', 'dara_author_bio_avatar_size' );
-
-function dara_social_menu() {
-	if ( ! function_exists( 'jetpack_social_menu' ) ) {
-		return;
-	} else {
-		jetpack_social_menu();
-	}
-}
 
 /**
  * Custom function to check for a post thumbnail;

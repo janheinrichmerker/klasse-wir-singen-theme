@@ -34,9 +34,7 @@
 	</header>
 
 	<?php if ( is_front_page() ) {
-		if ( dara_has_featured_posts() ) :
-			get_template_part( 'components/post/content', 'featured' );
-		elseif ( 'page' === get_post_type() && has_post_thumbnail() ) :
+		if ( 'page' === get_post_type() && has_post_thumbnail() ) :
 			get_template_part( 'components/page/content', 'hero' );
 		endif;
 	} ?>

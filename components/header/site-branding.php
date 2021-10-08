@@ -1,4 +1,7 @@
-		<div class="site-branding">
-			<?php dara_the_custom_logo(); ?>
-			<?php dara_social_menu(); ?>
-		</div><!-- .site-branding -->
+<div class="site-branding">
+    <a href="/" class="logo-link" rel="home">
+        <img src="<?php echo(bloginfo('template_directory')); ?>/images/logo.svg"
+             class="logo"
+             alt="Klasse! Wir singen">
+    </a>
+</div><!-- .site-branding -->

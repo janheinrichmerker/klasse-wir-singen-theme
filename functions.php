@@ -181,63 +181,11 @@ function dara_adjust_content_width() {
 add_action( 'template_redirect', 'dara_adjust_content_width' );
 
 /**
- * Return early if Custom Logos are not available.
- *
- * @todo Remove after WP 4.7
- */
-function dara_the_custom_logo() {
-	if ( ! function_exists( 'the_custom_logo' ) ) {
-		return;
-	} else {
-		the_custom_logo();
-	}
-}
-
-/**
  * Returns the Google font stylesheet URL, if available.
  */
 function dara_fonts_url() {
 	return "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Architects+Daughter&family=Slackey&family=Comic+Neue:wght@700&display=swap";
 }
-
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function dara_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Footer 1', 'dara' ),
-			'id'            => 'sidebar-2',
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside>',
-			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Footer 2', 'dara' ),
-			'id'            => 'sidebar-3',
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside>',
-			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Footer 3', 'dara' ),
-			'id'            => 'sidebar-4',
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside>',
-			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
-		)
-	);
-}
-add_action( 'widgets_init', 'dara_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
@@ -254,16 +202,6 @@ function dara_scripts() {
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/assets/genericons/genericons.css', array(), '3.4.1' );
 
 	wp_enqueue_script( 'dara-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
-
-	if ( dara_has_featured_posts( 1 ) && ( is_home() || is_front_page() ) ) {
-		wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/assets/js/jquery.flexslider.js', array( 'jquery' ), '20161220', true );
-		wp_enqueue_script( 'dara-slider', get_template_directory_uri() . '/assets/js/slider.js', array( 'flexslider', 'imagesloaded' ), '20161220', true );
-	}
-
-	// If there's an active Video widget, and it's (hopefully) in the footer widget area
-	if ( is_active_widget( '', '', 'media_video' ) && ( is_active_sidebar( 'sidebar-2' ) || is_active_sidebar( 'sidebar-3' ) || is_active_sidebar( 'sidebar-4' ) ) ) {
-		wp_enqueue_script( 'dara-video', get_template_directory_uri() . '/assets/js/video-widget.js', array( 'jquery' ), '20170608', true );
-	}
 
 	wp_enqueue_script( 'dara-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -308,11 +246,6 @@ function dara_auto_excerpt_more() {
 add_filter( 'excerpt_more', 'dara_auto_excerpt_more' );
 
 /**
- * Custom Header support.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
@@ -321,11 +254,6 @@ require get_template_directory() . '/inc/template-tags.php';
  * Custom functions that act independently of the theme templates.
  */
 require get_template_directory() . '/inc/extras.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Load Jetpack compatibility file.

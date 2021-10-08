@@ -24,7 +24,6 @@ get_header(); ?>
 				</section>
 			</main><!-- .site-main -->
 		</div><!-- .content-area -->
-		<?php get_sidebar(); ?>
 	</div><!-- .content-wrapper -->
 <?php
 get_footer();

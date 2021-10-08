@@ -470,7 +470,7 @@ body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial:nth-chil
     }
 
     .front-page-content-area.content-area,
-    .no-sidebar .content-area {
+    .content-area {
     	margin-left: 0;
     	margin-right: 0;
     }
@@ -496,7 +496,7 @@ body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial:nth-chil
     	margin-right: auto;
     }
 
-    .no-sidebar .entry-meta {
+    .entry-meta {
     	right: 0;
     	left: auto;
     }
@@ -508,14 +508,14 @@ body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial:nth-chil
     	margin-left: auto;
     }
 
-    .no-sidebar .post-navigation .nav-links,
-    .no-sidebar .posts-navigation .nav-links,
-    .no-sidebar .comments-area {
+    .post-navigation .nav-links,
+    .posts-navigation .nav-links,
+    .comments-area {
     	margin-right: 150px;
     	margin-left: auto;
     }
 
-    .page.no-sidebar .comments-area {
+    .page .comments-area {
     	margin-right: 0;
     	margin-left: auto;
     }
@@ -539,7 +539,7 @@ body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial:nth-chil
     	float: right;
     }
 
-    .no-sidebar.page .content-wrapper.without-featured-image {
+    .page .content-wrapper.without-featured-image {
     	padding-right: 55px;
     	padding-left: 55px;
     }
@@ -548,7 +548,7 @@ body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial:nth-chil
     	padding: 0 211px 0 0;
     }
 
-    .no-sidebar .entry-body {
+    .entry-body {
     	padding-right: 150px;
     	padding-left: 55px;
     }
@@ -558,12 +558,12 @@ body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial:nth-chil
     	padding: 1.3em 1.9em 0 1.6em;
     }
 
-    .no-sidebar .post-thumbnail {
+    .post-thumbnail {
     	margin-right: -55px;
     	margin-left: -55px;
     }
 
-    .no-sidebar .post-thumbnail + .entry-header {
+    .post-thumbnail + .entry-header {
     	margin-right: 120px;
     	margin-left: auto;
     }
@@ -576,10 +576,10 @@ body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial:nth-chil
     	margin-left: auto;
     }
 
-    .no-sidebar.blog .without-featured-image > .entry-header,
-	.no-sidebar.single .without-featured-image > .entry-header,
-	.no-sidebar.archive .without-featured-image > .entry-header,
-	.no-sidebar.search .without-featured-image > .entry-header {
+    .blog .without-featured-image > .entry-header,
+	.single .without-featured-image > .entry-header,
+	.archive .without-featured-image > .entry-header,
+	.search .without-featured-image > .entry-header {
     	margin-right: 150px;
     	margin-left: auto;
     }
@@ -591,14 +591,14 @@ body:not(.search):not(.single-jetpack-testimonial) .jetpack-testimonial:nth-chil
     	padding-left: 0;
     }
 
-    .no-sidebar .page-title,
-    .no-sidebar .taxonomy-description {
+    .page-title,
+    .taxonomy-description {
     	padding-right: 150px;
     	padding-left: 0;
     }
 
-    .no-sidebar.search .no-results .page-title,
-	.no-sidebar.search .no-results .page-content,
+    .search .no-results .page-title,
+	.search .no-results .page-content,
 	.error404 .page-title {
     	padding-right: 0;
     	padding-left: 0;
