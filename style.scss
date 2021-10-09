@@ -12,10 +12,12 @@ Text Domain: klasse-wir-singen
 
 $primary-color: #07375e;
 $secondary-color: #00adef;
+$accent-color: #fab30c;
 $background-content: #e1f19f;
 $background-content-dark: #bfe259;
 $background-site: #edf5d7;
 $background-box: #cceffc;
+$background-box-accent: #fdd207;
 $primary-color-dimmed-light: mix($primary-color, $background-content, 20%);
 $primary-color-dimmed-dark: mix($primary-color, $background-content, 85%);
 $font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -81,7 +83,7 @@ html {
       }
     }
 
-    &.tag-kinder {
+    &.tag-jubilaeum {
       .site {
         .site-header {
           .site-branding {
@@ -101,6 +103,65 @@ html {
       }
     }
 
+    ol {
+      &.lyrics {
+        margin-left: 0;
+
+        li {
+          display: block;
+          position: relative;
+          margin-bottom: $block-margin * 0.5;
+          padding-left: $block-margin * 2;
+
+          @media screen and (min-width: $site-width * 0.5) {
+            padding-left: $block-margin * 3;
+          }
+
+          &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: $block-margin * 1.5;
+            height: $block-margin * 1.5;
+            background-size: contain;
+
+            @media screen and (min-width: $site-width * 0.5) {
+              width: $block-margin * 2;
+              height: $block-margin * 2;
+            }
+          }
+
+          @for $i from 1 through 10 {
+            &:nth-child(#{$i}):before {
+              @if ($i < 10) {
+                background-image: url($theme-base-path + "/images/number-0#{$i}.svg");
+              } @else {
+                background-image: url($theme-base-path + "/images/number-#{$i}.svg");
+              }
+            }
+          }
+        }
+
+        &[start="0"] li {
+          &:before {
+            background-image: none;
+          }
+
+          @for $i from 1 through 10 {
+            &:nth-child(#{$i + 1}):before {
+              @if ($i < 10) {
+                background-image: url($theme-base-path + "/images/number-0#{$i}.svg");
+              } @else {
+                background-image: url($theme-base-path + "/images/number-#{$i}.svg");
+              }
+            }
+          }
+        }
+      }
+    }
+
     table {
       border-spacing: 0;
     }
@@ -114,6 +175,7 @@ html {
     }
 
     blockquote {
+      clear: both;
       border: none;
       font-size: 23px;
       margin-left: 0;
@@ -135,8 +197,8 @@ html {
       }
 
       &.joke {
-        background: rgba(255, 217, 0, 0.3);
-        border: 2px solid rgba(255, 217, 0, 0.8);
+        background: $background-box-accent;
+        border: 2px solid $accent-color;
         border-radius: $border-radius;
         margin-top: 0.25em;
         font-family: "Comic Neue", "Comic Sans", Lobster, cursive;
@@ -244,8 +306,13 @@ html {
           flex: $size-image-button 0 !important;
           min-width: $size-image-button;
           margin: 0;
+          text-align: center;
 
           figure {
+            margin-bottom: $block-margin * 0.5;
+          }
+
+          h1 {
             margin-bottom: $block-margin * 0.5;
           }
 
@@ -253,6 +320,10 @@ html {
             text-decoration: none;
             color: $text-color;
             display: block;
+
+            img {
+              margin: 0;
+            }
           }
         }
       }
@@ -262,6 +333,7 @@ html {
 
       .wp-block-columns {
         align-items: center;
+        justify-content: center;
         gap: $block-margin;
 
         .wp-block-column {
@@ -279,25 +351,53 @@ html {
             text-decoration: none;
             color: $text-color;
             display: block;
+
+            img {
+              margin: 0;
+            }
           }
         }
       }
     }
 
     .song-grid {
+      margin-bottom: $block-margin;
+
       .grids-section {
         > div {
-          column-gap: $block-margin;
-          row-gap: $block-margin * 2;
+          display: flex;
+          gap: ($block-margin * 2) $block-margin;
+          flex-flow: row wrap;
+          justify-content: space-evenly;
+
+          @media screen and (min-width: $content-width) {
+            display: grid;
+            -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: repeat( 12, minmax(0px, 1fr) );
+            //noinspection CssInvalidPropertyValue
+            -ms-grid-rows: repeat(6, auto);
+            grid-template-rows: repeat( 6, auto );
+          }
 
           .grids-area {
             text-align: center;
+            flex: $size-image-button 0;
+            width: $size-image-button;
+            height: auto;
+
+            @media screen and (min-width: $content-width) {
+              width: auto;
+            }
 
             figure {
               margin: 0;
 
               a {
                 border: 2px solid #0d733a;
+
+                img {
+                  margin: 0;
+                }
               }
             }
 
@@ -406,13 +506,91 @@ html {
     text-decoration: none;
   }
 
-  figure {
+  figure, [class^="wp-block-"] figure {
+    clear: both;
     margin: 0;
 
-    &.image-button {
-      display: block;
+    &.wp-block-video {
+      position: relative;
+      border-radius: $border-radius-large;
+      overflow: hidden;
+
+      video {
+        border-radius: 0;
+        margin: 0;
+      }
+
+      &:after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        pointer-events: none;
+        border-radius: $border-radius-large;
+        box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.75),
+        inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.8),
+                ($block-margin * 0.125) ($block-margin * 0.25) ($block-margin * 0.25) 0 transparentize($text-color, 0.9);
+        transition: box-shadow 0.15s ease;
+      }
+
+      &:hover:after {
+        box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.8),
+        inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.85),
+        0 ($block-margin * 0.125) ($block-margin * 0.125) 0 transparentize($text-color, 0.9);
+      }
+    }
+
+    &.wp-block-audio {
+      figcaption {
+        font-style: normal;
+        font-size: inherit;
+
+        &:before {
+          content: "";
+          background: url($theme-base-path + "/images/hint-audio.svg") center no-repeat;
+          background-size: contain;
+          width: $block-margin * 2;
+          height: $block-margin;
+          display: block;
+          margin: 0 auto;
+        }
+      }
+    }
+
+    img, audio, video {
+      margin-bottom: $block-margin * 0.25;
+    }
+
+    figcaption {
+      margin: 0;
+    }
+
+    &.image-button, &.song-title-button {
+      display: inline-block;
       position: relative;
       margin: 0 0 $block-margin;
+
+      &.song-title-button {
+
+        @media screen and (min-width: $content-width) {
+          float: left;
+          margin-right: $block-margin;
+        }
+
+        a {
+          border: 2px solid #0d733a;
+
+          img {
+            display: block;
+            width: $size-image-button * 0.65;
+            height: $size-image-button * 0.65;
+            margin: 0;
+          }
+        }
+      }
 
       a {
         display: block;
@@ -505,17 +683,31 @@ html {
     margin-top: $block-margin * 1.5;
   }
 
-  .box, .information, .appendix {
+  .box, .information, .appendix, .accent-gallery {
+    clear: both;
     border-radius: $border-radius;
     background: $background-box;
     border: 2px solid $primary-color;
     padding: $block-margin;
     margin-bottom: $block-margin;
 
+    &.accent-gallery {
+      background: $background-box-accent;
+      border-color: $accent-color;
+    }
+
     figure {
       &.box-header {
         margin: (-$block-margin) (-$block-margin) $block-margin (-$block-margin);
       }
+    }
+
+    :first-child {
+      margin-top: 0;
+    }
+
+    :last-child {
+      margin-bottom: 0;
     }
 
     p {
@@ -537,7 +729,8 @@ html {
 
   .pretix-widget {
     border-radius: $border-radius;
-    border: 1px solid $divider-color;
+    border: 2px solid $primary-color;
+    background: $background-box;
     padding: $block-margin * 0.5;
     margin-bottom: 1.5em;
 
@@ -695,6 +888,7 @@ html {
 
   .wp-block-buttons {
     margin-bottom: $block-margin;
+    gap: $block-margin ($block-margin * 0.5);
   }
 
   form {
@@ -702,7 +896,8 @@ html {
     margin-bottom: $block-margin;
 
     fieldset {
-      border: 1px solid $divider-color;
+      border: 2px solid $primary-color;
+      background: $background-box;
       border-radius: $border-radius;
       padding: $block-margin / 2;
       margin-bottom: $block-margin;
@@ -716,6 +911,7 @@ html {
 
     input:not([type="button"], [type="reset"], [type="submit"], [type="range"], [type="file"]), textarea {
       border: 1px solid $divider-color;
+      background: white;
       font-size: 15px;
       padding: 0.8em;
       border-radius: $border-radius;
@@ -798,9 +994,11 @@ html {
       nav.main-navigation {
         font-family: $font-family-heading;
         font-size: 18px;
+        padding: 0 $block-margin;
 
         @media screen and (min-width: $content-width) {
           max-width: $content-width;
+          padding: 0;
           margin: 0 auto;
         }
 
@@ -1147,42 +1345,52 @@ html {
         overflow: hidden;
       }
 
-      figure {
-        &.sharp-corners {
+      .mapp-layout {
+        border: 2px solid $divider-color;
+      }
+
+      .sharp-corners {
+        border-radius: 0;
+
+        figure {
+          border-radius: 0;
+
           img {
             border-radius: 0;
           }
         }
       }
 
-      .mapp-layout {
-        border: 1px solid $divider-color;
-      }
-
       .hero {
-        @media screen and (min-width: $content-width) {
-          max-width: $content-width;
-          margin: 0 auto;
-        }
+        padding: $block-margin;
+        max-width: $content-width;
+        margin: 0 auto;
 
         .entry-thumbnail {
+          position: relative;
+          border-radius: $border-radius-large;
+          overflow: hidden;
+
+          &:after {
+            display: block;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            pointer-events: none;
+            border-radius: $border-radius-large;
+            box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.75),
+            inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.8),
+                    ($block-margin * 0.125) ($block-margin * 0.25) ($block-margin * 0.25) 0 transparentize($text-color, 0.9);
+            transition: box-shadow 0.15s ease;
+          }
+
           img {
-            aspect-ratio: 2 / 1;
             object-fit: cover;
-
-            @supports not (aspect-ratio: 2 / 1) {
-              &:before {
-                float: left;
-                padding-top: 100% / (2 / 1);
-                content: "";
-              }
-
-              &:after {
-                display: block;
-                content: "";
-                clear: both;
-              }
-            }
+            max-height: 50vh;
+            border-radius: 0;
           }
         }
       }
@@ -1190,6 +1398,9 @@ html {
       .content-wrapper {
         padding: $block-margin;
         position: relative;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
 
         @media screen and (min-width: $content-width) {
           max-width: $content-width;
@@ -1244,11 +1455,13 @@ html {
               .sd-content {
                 ul {
                   display: flex;
+                  flex-wrap: wrap;
                   gap: $block-margin * 0.5;
                   margin-bottom: $block-margin;
 
                   li {
                     margin: 0;
+                    padding: 0;
 
                     a {
                       font-family: $font-family-heading;
@@ -1550,12 +1763,6 @@ html {
   word-spacing: 7px;
 }
 
-.hero-content {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-content img,
 .thumbnail-placeholder {
   display: block;
 }
@@ -1721,14 +1928,8 @@ embed, iframe, object, audio, video {
   h5 {
     font-size: 16px;
   }
-  h6, .cat-links a, .hero-content-wrapper .cat-links a {
+  h6, .cat-links a {
     font-size: 15px;
-  }
-  .hero-content-wrapper .cat-links {
-    margin-bottom: .8em;
-  }
-  .hero-content {
-    overflow: visible;
   }
 
   .hentry:after, .post-navigation:after, .posts-navigation:after, .page-header:after {
@@ -1768,17 +1969,6 @@ embed, iframe, object, audio, video {
 
 @media screen and (min-width: $site-width) {
 
-  .hero-content-wrapper {
-
-    &:before {
-      background: linear-gradient(rgba(0, 0, 0, 0) 66%, rgba(0, 0, 0, 0.5) 100%);
-    }
-
-    .featured-post {
-      padding: 0 3.2em;
-    }
-
-  }
   .flex-direction-nav {
 
     a {

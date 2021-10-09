@@ -36,7 +36,7 @@ html {
     line-height: 1.6; }
     html body.home .site .site-content .content-wrapper .content-area .entry-header .entry-title {
       display: none; }
-    html body.tag-kinder .site .site-header .site-branding {
+    html body.tag-jubilaeum .site .site-header .site-branding {
       background-image: url("/wp-content/themes/klasse-wir-singen/images/header-animals.svg"); }
     html body ol, html body ul {
       margin: 0 0 24px 24px; }
@@ -45,6 +45,71 @@ html {
       html body ul li > ol {
         margin-bottom: 0;
         margin-left: 1em; }
+    html body ol.lyrics {
+      margin-left: 0; }
+      html body ol.lyrics li {
+        display: block;
+        position: relative;
+        margin-bottom: 12px;
+        padding-left: 48px; }
+        @media screen and (min-width: 540px) {
+          html body ol.lyrics li {
+            padding-left: 72px; } }
+        html body ol.lyrics li:before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 36px;
+          height: 36px;
+          background-size: contain; }
+          @media screen and (min-width: 540px) {
+            html body ol.lyrics li:before {
+              width: 48px;
+              height: 48px; } }
+        html body ol.lyrics li:nth-child(1):before {
+          background-image: url("/wp-content/themes/klasse-wir-singen/images/number-01.svg"); }
+        html body ol.lyrics li:nth-child(2):before {
+          background-image: url("/wp-content/themes/klasse-wir-singen/images/number-02.svg"); }
+        html body ol.lyrics li:nth-child(3):before {
+          background-image: url("/wp-content/themes/klasse-wir-singen/images/number-03.svg"); }
+        html body ol.lyrics li:nth-child(4):before {
+          background-image: url("/wp-content/themes/klasse-wir-singen/images/number-04.svg"); }
+        html body ol.lyrics li:nth-child(5):before {
+          background-image: url("/wp-content/themes/klasse-wir-singen/images/number-05.svg"); }
+        html body ol.lyrics li:nth-child(6):before {
+          background-image: url("/wp-content/themes/klasse-wir-singen/images/number-06.svg"); }
+        html body ol.lyrics li:nth-child(7):before {
+          background-image: url("/wp-content/themes/klasse-wir-singen/images/number-07.svg"); }
+        html body ol.lyrics li:nth-child(8):before {
+          background-image: url("/wp-content/themes/klasse-wir-singen/images/number-08.svg"); }
+        html body ol.lyrics li:nth-child(9):before {
+          background-image: url("/wp-content/themes/klasse-wir-singen/images/number-09.svg"); }
+        html body ol.lyrics li:nth-child(10):before {
+          background-image: url("/wp-content/themes/klasse-wir-singen/images/number-10.svg"); }
+      html body ol.lyrics[start="0"] li:before {
+        background-image: none; }
+      html body ol.lyrics[start="0"] li:nth-child(2):before {
+        background-image: url("/wp-content/themes/klasse-wir-singen/images/number-01.svg"); }
+      html body ol.lyrics[start="0"] li:nth-child(3):before {
+        background-image: url("/wp-content/themes/klasse-wir-singen/images/number-02.svg"); }
+      html body ol.lyrics[start="0"] li:nth-child(4):before {
+        background-image: url("/wp-content/themes/klasse-wir-singen/images/number-03.svg"); }
+      html body ol.lyrics[start="0"] li:nth-child(5):before {
+        background-image: url("/wp-content/themes/klasse-wir-singen/images/number-04.svg"); }
+      html body ol.lyrics[start="0"] li:nth-child(6):before {
+        background-image: url("/wp-content/themes/klasse-wir-singen/images/number-05.svg"); }
+      html body ol.lyrics[start="0"] li:nth-child(7):before {
+        background-image: url("/wp-content/themes/klasse-wir-singen/images/number-06.svg"); }
+      html body ol.lyrics[start="0"] li:nth-child(8):before {
+        background-image: url("/wp-content/themes/klasse-wir-singen/images/number-07.svg"); }
+      html body ol.lyrics[start="0"] li:nth-child(9):before {
+        background-image: url("/wp-content/themes/klasse-wir-singen/images/number-08.svg"); }
+      html body ol.lyrics[start="0"] li:nth-child(10):before {
+        background-image: url("/wp-content/themes/klasse-wir-singen/images/number-09.svg"); }
+      html body ol.lyrics[start="0"] li:nth-child(11):before {
+        background-image: url("/wp-content/themes/klasse-wir-singen/images/number-10.svg"); }
     html body table {
       border-spacing: 0; }
     html body caption, html body th, html body td {
@@ -52,6 +117,7 @@ html {
     html body blockquote, html body q {
       quotes: "" ""; }
     html body blockquote {
+      clear: both;
       border: none;
       font-size: 23px;
       margin-left: 0;
@@ -70,8 +136,8 @@ html {
         top: 0;
         left: -0.2em; }
       html body blockquote.joke {
-        background: rgba(255, 217, 0, 0.3);
-        border: 2px solid rgba(255, 217, 0, 0.8);
+        background: #fdd207;
+        border: 2px solid #fab30c;
         border-radius: 8px;
         margin-top: 0.25em;
         font-family: "Comic Neue", "Comic Sans", Lobster, cursive;
@@ -142,15 +208,21 @@ html {
         html body .featured-columns .wp-block-columns .wp-block-column {
           flex: 238px 0 !important;
           min-width: 238px;
-          margin: 0; }
+          margin: 0;
+          text-align: center; }
           html body .featured-columns .wp-block-columns .wp-block-column figure {
+            margin-bottom: 12px; }
+          html body .featured-columns .wp-block-columns .wp-block-column h1 {
             margin-bottom: 12px; }
           html body .featured-columns .wp-block-columns .wp-block-column a {
             text-decoration: none;
             color: #051826;
             display: block; }
+            html body .featured-columns .wp-block-columns .wp-block-column a img {
+              margin: 0; }
     html body .teaser-columns .wp-block-columns {
       align-items: center;
+      justify-content: center;
       gap: 24px; }
       html body .teaser-columns .wp-block-columns .wp-block-column {
         flex: 238px 1 !important;
@@ -162,23 +234,44 @@ html {
           text-decoration: none;
           color: #051826;
           display: block; }
-    html body .song-grid .grids-section > div {
-      column-gap: 24px;
-      row-gap: 48px; }
-      html body .song-grid .grids-section > div .grids-area {
-        text-align: center; }
-        html body .song-grid .grids-section > div .grids-area figure {
-          margin: 0; }
-          html body .song-grid .grids-section > div .grids-area figure a {
-            border: 2px solid #0d733a; }
-        html body .song-grid .grids-section > div .grids-area h2 {
-          margin-top: 12px;
-          margin-bottom: 0;
-          line-height: 1.2; }
-        html body .song-grid .grids-section > div .grids-area a {
-          text-decoration: none;
-          color: #051826;
-          display: block; }
+          html body .teaser-columns .wp-block-columns .wp-block-column a img {
+            margin: 0; }
+    html body .song-grid {
+      margin-bottom: 24px; }
+      html body .song-grid .grids-section > div {
+        display: flex;
+        gap: 48px 24px;
+        flex-flow: row wrap;
+        justify-content: space-evenly; }
+        @media screen and (min-width: 810px) {
+          html body .song-grid .grids-section > div {
+            display: grid;
+            -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: repeat(12, minmax(0px, 1fr));
+            -ms-grid-rows: repeat(6, auto);
+            grid-template-rows: repeat(6, auto); } }
+        html body .song-grid .grids-section > div .grids-area {
+          text-align: center;
+          flex: 238px 0;
+          width: 238px;
+          height: auto; }
+          @media screen and (min-width: 810px) {
+            html body .song-grid .grids-section > div .grids-area {
+              width: auto; } }
+          html body .song-grid .grids-section > div .grids-area figure {
+            margin: 0; }
+            html body .song-grid .grids-section > div .grids-area figure a {
+              border: 2px solid #0d733a; }
+              html body .song-grid .grids-section > div .grids-area figure a img {
+                margin: 0; }
+          html body .song-grid .grids-section > div .grids-area h2 {
+            margin-top: 12px;
+            margin-bottom: 0;
+            line-height: 1.2; }
+          html body .song-grid .grids-section > div .grids-area a {
+            text-decoration: none;
+            color: #051826;
+            display: block; }
     html body h1, html body h2, html body h3, html body h4, html body h5, html body h6 {
       clear: both;
       font-weight: bold;
@@ -228,17 +321,65 @@ html {
   html mark, html ins {
     background-color: #fff9c0;
     text-decoration: none; }
-  html figure {
+  html figure, html [class^="wp-block-"] figure {
+    clear: both;
     margin: 0; }
-    html figure.image-button {
-      display: block;
+    html figure.wp-block-video, html [class^="wp-block-"] figure.wp-block-video {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden; }
+      html figure.wp-block-video video, html [class^="wp-block-"] figure.wp-block-video video {
+        border-radius: 0;
+        margin: 0; }
+      html figure.wp-block-video:after, html [class^="wp-block-"] figure.wp-block-video:after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        pointer-events: none;
+        border-radius: 16px;
+        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(5, 24, 38, 0.2), 3px 6px 6px 0 rgba(5, 24, 38, 0.1);
+        transition: box-shadow 0.15s ease; }
+      html figure.wp-block-video:hover:after, html [class^="wp-block-"] figure.wp-block-video:hover:after {
+        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2), inset -8px -8px 8px 0 rgba(5, 24, 38, 0.15), 0 3px 3px 0 rgba(5, 24, 38, 0.1); }
+    html figure.wp-block-audio figcaption, html [class^="wp-block-"] figure.wp-block-audio figcaption {
+      font-style: normal;
+      font-size: inherit; }
+      html figure.wp-block-audio figcaption:before, html [class^="wp-block-"] figure.wp-block-audio figcaption:before {
+        content: "";
+        background: url("/wp-content/themes/klasse-wir-singen/images/hint-audio.svg") center no-repeat;
+        background-size: contain;
+        width: 48px;
+        height: 24px;
+        display: block;
+        margin: 0 auto; }
+    html figure img, html figure audio, html figure video, html [class^="wp-block-"] figure img, html [class^="wp-block-"] figure audio, html [class^="wp-block-"] figure video {
+      margin-bottom: 6px; }
+    html figure figcaption, html [class^="wp-block-"] figure figcaption {
+      margin: 0; }
+    html figure.image-button, html figure.song-title-button, html [class^="wp-block-"] figure.image-button, html [class^="wp-block-"] figure.song-title-button {
+      display: inline-block;
       position: relative;
       margin: 0 0 24px; }
-      html figure.image-button a {
+      @media screen and (min-width: 810px) {
+        html figure.image-button.song-title-button, html figure.song-title-button.song-title-button, html [class^="wp-block-"] figure.image-button.song-title-button, html [class^="wp-block-"] figure.song-title-button.song-title-button {
+          float: left;
+          margin-right: 24px; } }
+      html figure.image-button.song-title-button a, html figure.song-title-button.song-title-button a, html [class^="wp-block-"] figure.image-button.song-title-button a, html [class^="wp-block-"] figure.song-title-button.song-title-button a {
+        border: 2px solid #0d733a; }
+        html figure.image-button.song-title-button a img, html figure.song-title-button.song-title-button a img, html [class^="wp-block-"] figure.image-button.song-title-button a img, html [class^="wp-block-"] figure.song-title-button.song-title-button a img {
+          display: block;
+          width: 154.7px;
+          height: 154.7px;
+          margin: 0; }
+      html figure.image-button a, html figure.song-title-button a, html [class^="wp-block-"] figure.image-button a, html [class^="wp-block-"] figure.song-title-button a {
         display: block;
         overflow: hidden;
         border-radius: 16px; }
-        html figure.image-button a:after {
+        html figure.image-button a:after, html figure.song-title-button a:after, html [class^="wp-block-"] figure.image-button a:after, html [class^="wp-block-"] figure.song-title-button a:after {
           display: block;
           content: "";
           position: absolute;
@@ -250,9 +391,9 @@ html {
           border-radius: 16px;
           box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(5, 24, 38, 0.2), 3px 6px 6px 0 rgba(5, 24, 38, 0.1);
           transition: box-shadow 0.15s ease; }
-        html figure.image-button a:hover:after {
+        html figure.image-button a:hover:after, html figure.song-title-button a:hover:after, html [class^="wp-block-"] figure.image-button a:hover:after, html [class^="wp-block-"] figure.song-title-button a:hover:after {
           box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2), inset -8px -8px 8px 0 rgba(5, 24, 38, 0.15), 0 3px 3px 0 rgba(5, 24, 38, 0.1); }
-        html figure.image-button a img {
+        html figure.image-button a img, html figure.song-title-button a img, html [class^="wp-block-"] figure.image-button a img, html [class^="wp-block-"] figure.song-title-button a img {
           display: block;
           width: 238px;
           height: 238px; }
@@ -285,25 +426,34 @@ html {
     margin-top: -48px; }
   html .extra-margin-top {
     margin-top: 36px; }
-  html .box, html .information, html .appendix {
+  html .box, html .information, html .appendix, html .accent-gallery {
+    clear: both;
     border-radius: 8px;
     background: #cceffc;
     border: 2px solid #07375e;
     padding: 24px;
     margin-bottom: 24px; }
-    html .box figure.box-header, html .information figure.box-header, html .appendix figure.box-header {
+    html .box.accent-gallery, html .information.accent-gallery, html .appendix.accent-gallery, html .accent-gallery.accent-gallery {
+      background: #fdd207;
+      border-color: #fab30c; }
+    html .box figure.box-header, html .information figure.box-header, html .appendix figure.box-header, html .accent-gallery figure.box-header {
       margin: -24px -24px 24px -24px; }
-    html .box p, html .information p, html .appendix p {
+    html .box :first-child, html .information :first-child, html .appendix :first-child, html .accent-gallery :first-child {
+      margin-top: 0; }
+    html .box :last-child, html .information :last-child, html .appendix :last-child, html .accent-gallery :last-child {
+      margin-bottom: 0; }
+    html .box p, html .information p, html .appendix p, html .accent-gallery p {
       margin-bottom: 1em; }
-    html .box .wp-block-buttons, html .information .wp-block-buttons, html .appendix .wp-block-buttons {
+    html .box .wp-block-buttons, html .information .wp-block-buttons, html .appendix .wp-block-buttons, html .accent-gallery .wp-block-buttons {
       margin-bottom: 1em; }
-      html .box .wp-block-buttons:last-child, html .information .wp-block-buttons:last-child, html .appendix .wp-block-buttons:last-child {
+      html .box .wp-block-buttons:last-child, html .information .wp-block-buttons:last-child, html .appendix .wp-block-buttons:last-child, html .accent-gallery .wp-block-buttons:last-child {
         margin-bottom: 0; }
-      html .box .wp-block-buttons .wp-block-button, html .information .wp-block-buttons .wp-block-button, html .appendix .wp-block-buttons .wp-block-button {
+      html .box .wp-block-buttons .wp-block-button, html .information .wp-block-buttons .wp-block-button, html .appendix .wp-block-buttons .wp-block-button, html .accent-gallery .wp-block-buttons .wp-block-button {
         margin-bottom: 0; }
   html .pretix-widget {
     border-radius: 8px;
-    border: 1px solid rgba(5, 24, 38, 0.3);
+    border: 2px solid #07375e;
+    background: #cceffc;
     padding: 12px;
     margin-bottom: 1.5em; }
     html .pretix-widget form {
@@ -408,12 +558,14 @@ html {
         color: inherit;
         opacity: inherit; }
   html .wp-block-buttons {
-    margin-bottom: 24px; }
+    margin-bottom: 24px;
+    gap: 24px 12px; }
   html form {
     max-width: 100%;
     margin-bottom: 24px; }
     html form fieldset {
-      border: 1px solid rgba(5, 24, 38, 0.3);
+      border: 2px solid #07375e;
+      background: #cceffc;
       border-radius: 8px;
       padding: 12px;
       margin-bottom: 24px;
@@ -423,6 +575,7 @@ html {
       max-width: 100%; }
     html form input:not([type="button"], [type="reset"], [type="submit"], [type="range"], [type="file"]), html form textarea {
       border: 1px solid rgba(5, 24, 38, 0.3);
+      background: white;
       font-size: 15px;
       padding: 0.8em;
       border-radius: 8px;
@@ -477,10 +630,12 @@ html {
           margin-bottom: 48px; } }
       html .site header.site-header nav.main-navigation {
         font-family: "Architects Daughter", Helvetica, Arial, sans-serif;
-        font-size: 18px; }
+        font-size: 18px;
+        padding: 0 24px; }
         @media screen and (min-width: 810px) {
           html .site header.site-header nav.main-navigation {
             max-width: 810px;
+            padding: 0;
             margin: 0 auto; } }
         html .site header.site-header nav.main-navigation button.menu-toggle {
           display: block;
@@ -696,29 +851,44 @@ html {
     html .site .site-content img, html .site .site-content audio, html .site .site-content video, html .site .site-content .mapp-layout {
       border-radius: 8px;
       overflow: hidden; }
-    html .site .site-content figure.sharp-corners img {
-      border-radius: 0; }
     html .site .site-content .mapp-layout {
-      border: 1px solid rgba(5, 24, 38, 0.3); }
-    @media screen and (min-width: 810px) {
-      html .site .site-content .hero {
-        max-width: 810px;
-        margin: 0 auto; } }
-    html .site .site-content .hero .entry-thumbnail img {
-      aspect-ratio: 2 / 1;
-      object-fit: cover; }
-      @supports not (aspect-ratio: 2/1) {
-        html .site .site-content .hero .entry-thumbnail img:before {
-          float: left;
-          padding-top: 50%;
-          content: ""; }
-        html .site .site-content .hero .entry-thumbnail img:after {
+      border: 2px solid rgba(5, 24, 38, 0.3); }
+    html .site .site-content .sharp-corners {
+      border-radius: 0; }
+      html .site .site-content .sharp-corners figure {
+        border-radius: 0; }
+        html .site .site-content .sharp-corners figure img {
+          border-radius: 0; }
+    html .site .site-content .hero {
+      padding: 24px;
+      max-width: 810px;
+      margin: 0 auto; }
+      html .site .site-content .hero .entry-thumbnail {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden; }
+        html .site .site-content .hero .entry-thumbnail:after {
           display: block;
           content: "";
-          clear: both; } }
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          pointer-events: none;
+          border-radius: 16px;
+          box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(5, 24, 38, 0.2), 3px 6px 6px 0 rgba(5, 24, 38, 0.1);
+          transition: box-shadow 0.15s ease; }
+        html .site .site-content .hero .entry-thumbnail img {
+          object-fit: cover;
+          max-height: 50vh;
+          border-radius: 0; }
     html .site .site-content .content-wrapper {
       padding: 24px;
-      position: relative; }
+      position: relative;
+      -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto; }
       @media screen and (min-width: 810px) {
         html .site .site-content .content-wrapper {
           max-width: 810px;
@@ -749,10 +919,12 @@ html {
             display: none; }
         html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content ul {
           display: flex;
+          flex-wrap: wrap;
           gap: 12px;
           margin-bottom: 24px; }
           html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content ul li {
-            margin: 0; }
+            margin: 0;
+            padding: 0; }
             html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content ul li a {
               font-family: "Architects Daughter", Helvetica, Arial, sans-serif;
               background: #07375e;
@@ -964,11 +1136,6 @@ html {
   margin-top: 1.6em;
   word-spacing: 7px; }
 
-.hero-content {
-  position: relative;
-  overflow: hidden; }
-
-.hero-content img,
 .thumbnail-placeholder {
   display: block; }
 
@@ -1107,14 +1274,8 @@ embed, iframe, object, audio, video {
   h5 {
     font-size: 16px; }
 
-  h6, .cat-links a, .hero-content-wrapper .cat-links a {
+  h6, .cat-links a {
     font-size: 15px; }
-
-  .hero-content-wrapper .cat-links {
-    margin-bottom: .8em; }
-
-  .hero-content {
-    overflow: visible; }
 
   .hentry:after, .post-navigation:after, .posts-navigation:after, .page-header:after {
     width: 100%; }
@@ -1129,11 +1290,6 @@ embed, iframe, object, audio, video {
     float: right;
     width: 48%; } }
 @media screen and (min-width: 1080px) {
-  .hero-content-wrapper:before {
-    background: linear-gradient(rgba(0, 0, 0, 0) 66%, rgba(0, 0, 0, 0.5) 100%); }
-  .hero-content-wrapper .featured-post {
-    padding: 0 3.2em; }
-
   .flex-direction-nav a {
     width: 52px;
     height: 52px; }
