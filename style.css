@@ -5,7 +5,7 @@ Theme URI: https://github.com/heinrichreimer/klasse-wir-singen-theme
 Author: Jan Heinrich Reimer
 Author URI: https://reimer.dev
 Description: Klasse! Wir singen theme, based on the Dara theme.
-Version: 2.0.2
+Version: 3.0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: klasse-wir-singen
@@ -13,28 +13,19 @@ Text Domain: klasse-wir-singen
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Architects+Daughter&family=Slackey&family=Comic+Neue:wght@700&display=swap");
 @import url(normalize.css);
 * {
-  font-family: inherit;
-  font-size: 100%;
-  font-weight: inherit;
-  font-style: inherit;
-  margin: 0;
-  padding: 0;
-  vertical-align: baseline;
-  border: 0;
-  outline: 0;
   box-sizing: border-box; }
 
 html {
-  font-size: 10px;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%; }
+  font-size: 16px; }
+  @media screen and (min-width: 810px) {
+    html {
+      font-size: 18px; } }
   html body {
     background: #edf5d7;
-    color: #031b2f;
+    color: #07375e;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.4; }
-    html body.home .site .site-content .content-wrapper .content-area .entry-header .entry-title {
+    line-height: 1.25; }
+    html body.home .site .site-content .content-wrapper .content-area .entry-header .entry-title, html body.tag-hide-title .site .site-content .content-wrapper .content-area .entry-header .entry-title {
       display: none; }
     html body.tag-header-animals .site header.site-header .site-branding {
       background-image: url("/wp-content/themes/klasse-wir-singen/images/header-animals.svg"); }
@@ -63,35 +54,35 @@ html {
     html body.tag-footer-notes .site footer.site-footer {
       background-image: url("/wp-content/themes/klasse-wir-singen/images/footer-notes.svg"); }
     html body ol, html body ul {
-      margin: 0 0 24px 24px; }
-      html body ol li > ul,
-      html body ol li > ol, html body ul li > ul,
-      html body ul li > ol {
-        margin-bottom: 0;
-        margin-left: 1em; }
+      margin: 0 0 32px; }
+      html body ol:first-child, html body ul:first-child {
+        margin-bottom: 0; }
+      html body ol:last-child, html body ul:last-child {
+        margin-bottom: 0; }
     html body ol.lyrics {
-      margin-left: 0; }
+      margin: 32px 0;
+      padding: 0; }
       html body ol.lyrics li {
         display: block;
         position: relative;
-        margin-bottom: 12px;
-        padding-left: 48px; }
+        margin-bottom: 32px;
+        padding-left: 64px; }
         @media screen and (min-width: 540px) {
           html body ol.lyrics li {
-            padding-left: 72px; } }
+            padding-left: 96px; } }
         html body ol.lyrics li:before {
           content: "";
           display: block;
           position: absolute;
           top: 0;
           left: 0;
-          width: 36px;
-          height: 36px;
+          width: 48px;
+          height: 48px;
           background-size: contain; }
           @media screen and (min-width: 540px) {
             html body ol.lyrics li:before {
-              width: 48px;
-              height: 48px; } }
+              width: 64px;
+              height: 64px; } }
         html body ol.lyrics li:nth-child(1):before {
           background-image: url("/wp-content/themes/klasse-wir-singen/images/number-01.svg"); }
         html body ol.lyrics li:nth-child(2):before {
@@ -142,79 +133,74 @@ html {
       text-align: left; }
     html body blockquote, html body q {
       quotes: "" ""; }
-    html body blockquote {
+    html body blockquote, html body blockquote.wp-block-quote {
       clear: both;
       border: none;
-      font-size: 23px;
+      font-size: 1.2em;
+      margin-top: 2ex;
       margin-left: 0;
-      margin-bottom: 24px;
-      padding-left: 36px;
+      padding: 0 0 0 32px;
+      border-left: 3px solid rgba(7, 55, 94, 0.3);
       position: relative;
-      border-left: 2px solid rgba(3, 27, 47, 0.1);
       font-style: italic; }
-      html body blockquote:before {
-        content: "\201C";
-        font-size: 80px;
-        font-style: normal;
-        line-height: 1;
-        position: absolute;
-        top: 0;
-        left: -0.2em; }
-      html body blockquote.joke {
+      html body blockquote.joke, html body blockquote.wp-block-quote.joke {
         background: #cceffc;
         border: 2px solid #07375e;
         border-radius: 8px;
-        margin-top: 36px;
+        margin-top: 3ex;
         font-family: "Comic Neue", "Comic Sans", Lobster, cursive;
         font-weight: bold;
-        padding: 12px 12px 12px 108px; }
-        html body blockquote.joke:before {
+        font-style: normal;
+        padding: 1em 1em 1em 5em; }
+        html body blockquote.joke:before, html body blockquote.wp-block-quote.joke:before {
           content: "😂";
-          font-size: 60px;
-          color: #031b2f;
-          top: -12px;
-          left: 24px;
-          transform: rotate(10deg);
-          text-shadow: 0 3px 3px rgba(3, 27, 47, 0.5); }
-        html body blockquote.joke:nth-child(4n+0):before {
+          position: absolute;
+          font-size: 3em;
+          color: #07375e;
+          top: -0.75ex;
+          left: 0.3em;
+          text-shadow: 0 4px 4px rgba(7, 55, 94, 0.5); }
+        html body blockquote.joke:nth-child(4n+0):before, html body blockquote.wp-block-quote.joke:nth-child(4n+0):before {
           content: "😂"; }
-        html body blockquote.joke:nth-child(4n+1):before {
+        html body blockquote.joke:nth-child(4n+1):before, html body blockquote.wp-block-quote.joke:nth-child(4n+1):before {
           content: "😄"; }
-        html body blockquote.joke:nth-child(4n+2):before {
+        html body blockquote.joke:nth-child(4n+2):before, html body blockquote.wp-block-quote.joke:nth-child(4n+2):before {
           content: "🤣"; }
-        html body blockquote.joke:nth-child(4n+3):before {
+        html body blockquote.joke:nth-child(4n+3):before, html body blockquote.wp-block-quote.joke:nth-child(4n+3):before {
           content: "😜"; }
-      html body blockquote.diary {
-        font-family: "Architects Daughter", Helvetica, Arial, sans-serif; }
-        html body blockquote.diary cite {
+      html body blockquote.diary, html body blockquote.wp-block-quote.diary {
+        font-family: "Architects Daughter", Helvetica, Arial, sans-serif;
+        font-style: normal; }
+        html body blockquote.diary cite, html body blockquote.wp-block-quote.diary cite {
           font-family: "Architects Daughter", Helvetica, Arial, sans-serif; }
-      html body blockquote cite {
+      html body blockquote cite, html body blockquote.wp-block-quote cite {
         display: block;
         font-family: "Open Sans", Helvetica, Arial, sans-serif;
-        font-size: 16px;
+        font-size: 0.75em;
         font-weight: bold;
-        margin: 12px 0;
+        margin: 16px 0;
         text-transform: uppercase; }
-      html body blockquote p:last-child {
+      html body blockquote p:last-child, html body blockquote.wp-block-quote p:last-child {
         margin-bottom: 0; }
     html body a {
       color: #07375e;
-      text-decoration: underline; }
+      text-decoration: underline;
+      transition: color 0.1s ease; }
       html body a:hover, html body a:focus, html body a:active {
-        color: #285368; }
+        color: #00adef; }
     html body .featured-columns {
-      margin: 0 0 24px; }
+      margin: 0 0 32px; }
       @media screen and (max-width: 809px) {
         html body .featured-columns {
           position: relative;
-          margin: 0 -24px 24px -24px; }
+          margin: 0 -32px 32px -32px; }
           html body .featured-columns:after, html body .featured-columns:before {
             content: "";
             display: block;
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 72px;
+            width: 96px;
             pointer-events: none;
             z-index: 1; }
           html body .featured-columns:before {
@@ -224,49 +210,70 @@ html {
             right: 0;
             background: radial-gradient(ellipse farthest-side at right, rgba(225, 241, 159, 0.9), transparent); } }
       html body .featured-columns .wp-block-columns {
-        gap: 24px; }
+        gap: 48px; }
         @media screen and (max-width: 809px) {
           html body .featured-columns .wp-block-columns {
             position: relative;
             overflow-x: auto;
             flex-wrap: nowrap;
-            padding: 0 24px; } }
+            padding: 0 32px; } }
         html body .featured-columns .wp-block-columns .wp-block-column {
-          flex: 238px 0 !important;
-          min-width: 238px;
+          flex: 216.6666666667px 0 !important;
+          min-width: 216.6666666667px;
           margin: 0;
-          text-align: center; }
+          hyphens: none; }
           html body .featured-columns .wp-block-columns .wp-block-column figure {
-            margin-bottom: 12px; }
-          html body .featured-columns .wp-block-columns .wp-block-column h1 {
-            margin-bottom: 12px; }
+            margin-bottom: 0.5em; }
+          html body .featured-columns .wp-block-columns .wp-block-column h2 {
+            margin-top: 0; }
           html body .featured-columns .wp-block-columns .wp-block-column a {
             text-decoration: none;
-            color: #031b2f;
+            color: #07375e;
             display: block; }
             html body .featured-columns .wp-block-columns .wp-block-column a img {
               margin: 0; }
     html body .teaser-columns .wp-block-columns {
       align-items: center;
       justify-content: center;
-      gap: 24px; }
+      gap: 48px; }
       html body .teaser-columns .wp-block-columns .wp-block-column {
-        flex: 238px 1 !important;
-        min-width: 238px;
+        flex: 216.6666666667px 1 !important;
+        min-width: 216.6666666667px;
         margin: 0; }
         html body .teaser-columns .wp-block-columns .wp-block-column:first-child {
-          flex: 238px 0 !important; }
+          flex: 216.6666666667px 0 !important; }
+        html body .teaser-columns .wp-block-columns .wp-block-column figure {
+          margin-bottom: 0; }
         html body .teaser-columns .wp-block-columns .wp-block-column a {
           text-decoration: none;
-          color: #031b2f;
-          display: block; }
+          color: #07375e;
+          display: block;
+          hyphens: none; }
           html body .teaser-columns .wp-block-columns .wp-block-column a img {
             margin: 0; }
+    html body .song-title-header .wp-block-columns {
+      align-items: center;
+      justify-content: center;
+      gap: 48px; }
+      html body .song-title-header .wp-block-columns .wp-block-column {
+        flex: 162.5px 1 !important;
+        min-width: 162.5px;
+        margin: 0; }
+        html body .song-title-header .wp-block-columns .wp-block-column:first-child {
+          flex: 162.5px 0 !important; }
+        html body .song-title-header .wp-block-columns .wp-block-column figure {
+          margin-bottom: 0; }
+          html body .song-title-header .wp-block-columns .wp-block-column figure img {
+            margin: 0;
+            width: 162.5px;
+            height: 162.5px;
+            border: 2px solid #0d733a; }
     html body .song-grid {
-      margin-bottom: 24px; }
+      margin-top: 24px;
+      margin-bottom: 32px; }
       html body .song-grid .grids-section > div {
         display: flex;
-        gap: 48px 24px;
+        gap: 72px 48px;
         flex-flow: row wrap;
         justify-content: space-evenly; }
         @media screen and (min-width: 810px) {
@@ -278,8 +285,8 @@ html {
             grid-template-rows: repeat(6, auto); } }
         html body .song-grid .grids-section > div .grids-area {
           text-align: center;
-          flex: 238px 0;
-          width: 238px;
+          flex: 216.6666666667px 0;
+          width: 216.6666666667px;
           height: auto; }
           @media screen and (min-width: 810px) {
             html body .song-grid .grids-section > div .grids-area {
@@ -291,17 +298,31 @@ html {
               content: "";
               display: block;
               position: absolute;
-              top: -18px;
+              top: -24px;
               left: 50%;
               transform: translateX(-50%);
-              width: 36px;
-              height: 36px;
+              width: 48px;
+              height: 48px;
               z-index: 1;
               background-repeat: no-repeat;
               background-position: center;
               background-size: contain;
               border-radius: 50%;
-              box-shadow: 0 0 12px 0 rgba(3, 27, 47, 0.1); }
+              box-shadow: 0 0 16px 0 rgba(7, 55, 94, 0.1); }
+            html body .song-grid .grids-section > div .grids-area figure.image-button:after {
+              content: "";
+              display: block;
+              position: absolute;
+              bottom: 0;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 48px;
+              height: 48px;
+              z-index: 1;
+              background-image: url("/wp-content/themes/klasse-wir-singen/images/hint-song.svg");
+              background-repeat: no-repeat;
+              background-position: bottom center;
+              background-size: contain; }
             html body .song-grid .grids-section > div .grids-area figure.image-button a img {
               margin: 0;
               border: 2px solid #0d733a; }
@@ -325,74 +346,86 @@ html {
             background-image: url("/wp-content/themes/klasse-wir-singen/images/number-09.svg"); }
           html body .song-grid .grids-section > div .grids-area:nth-child(10) figure.image-button:before {
             background-image: url("/wp-content/themes/klasse-wir-singen/images/number-10.svg"); }
-          html body .song-grid .grids-section > div .grids-area h2 {
-            margin-top: 12px;
+          html body .song-grid .grids-section > div .grids-area h3 {
+            margin-top: 16px;
             margin-bottom: 0;
-            line-height: 1.2; }
+            hyphens: none;
+            font-size: 1.35em;
+            font-weight: bold; }
           html body .song-grid .grids-section > div .grids-area a {
             text-decoration: none;
-            color: #031b2f;
+            color: #0d733a;
             display: block; }
     html body h1, html body h2, html body h3, html body h4, html body h5, html body h6 {
       clear: both;
-      font-weight: bold;
-      color: #07375e;
-      margin: 24px 0; }
-      html body h1 strong, html body h2 strong, html body h3 strong, html body h4 strong, html body h5 strong, html body h6 strong {
-        text-shadow: 1px 0 0 currentColor, 0 1px 0 currentColor; }
+      font-weight: 400;
+      margin: 0.5em 0;
+      color: #07375e; }
     html body h1 {
-      font-size: 29px;
-      text-transform: uppercase; }
+      font-size: 2.25em;
+      text-transform: uppercase;
+      font-family: "Architects Daughter", Helvetica, Arial, sans-serif;
+      hyphens: none; }
     html body h2 {
-      font-size: 23px;
-      text-transform: uppercase; }
+      font-size: 2em;
+      text-transform: uppercase;
+      font-family: "Architects Daughter", Helvetica, Arial, sans-serif;
+      hyphens: none; }
     html body h3 {
-      font-size: 18px; }
+      font-size: 1.75em; }
     html body h4 {
-      font-size: 16px; }
+      font-size: 1.5em; }
     html body h5 {
-      font-size: 15px; }
+      font-size: 1.25em; }
     html body h6 {
-      font-size: 14px; }
+      font-size: 1em; }
     html body hr {
       border: 0;
       height: 1px;
       margin: 1.5em 0;
-      background-color: rgba(3, 27, 47, 0.3); }
+      background-color: rgba(7, 55, 94, 0.3); }
   html p {
-    margin-bottom: 24px; }
+    margin-top: 0;
+    margin-bottom: 32px; }
     html p:last-child {
       margin-bottom: 0; }
   html dl dt {
     font-weight: bold; }
   html dl dd {
-    margin: 0 0 24px 12px; }
+    margin: 0 0 32px 16px; }
   html dfn, html cite, html em, html i {
     font-style: italic; }
   html address {
-    margin: 0 0 24px 0; }
+    margin: 0 0 32px 0; }
   html pre, html code, html kbd, html tt, html var {
     font-family: "Courier 10 Pitch", Courier, monospace; }
   html pre {
     background: #d9ed84;
     border-radius: 8px;
     max-width: 100%;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
     overflow-x: scroll;
     padding: 1em; }
   html abbr, html acronym {
-    border-bottom: 1px dotted rgba(3, 27, 47, 0.5);
+    border-bottom: 1px dotted rgba(7, 55, 94, 0.5);
     cursor: help; }
   html mark, html ins {
     background-color: #fff9c0;
     text-decoration: none; }
   html .wp-block-image {
     margin: 0; }
-  html .wp-block-column .wp-block-image:last-child figure {
-    margin-bottom: 0; }
+  html .wp-block-columns .wp-block-column {
+    margin-bottom: 32px; }
+    html .wp-block-columns .wp-block-column:last-child {
+      margin-bottom: 0; }
+    @media screen and (min-width: 540px) {
+      html .wp-block-columns .wp-block-column {
+        margin-bottom: 0; } }
+    html .wp-block-columns .wp-block-column .wp-block-image:last-child figure {
+      margin-bottom: 0; }
   html figure, html [class^="wp-block-"] figure, html figure[class^="wp-block-"] {
     clear: both;
-    margin: 0 0 24px; }
+    margin: 0 0 32px; }
     html figure.wp-block-video, html [class^="wp-block-"] figure.wp-block-video, html figure[class^="wp-block-"].wp-block-video {
       display: block;
       position: relative;
@@ -407,51 +440,41 @@ html {
         right: 0;
         pointer-events: none;
         border-radius: 16px;
-        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(3, 27, 47, 0.2), 3px 6px 6px 0 rgba(3, 27, 47, 0.1);
+        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(7, 55, 94, 0.2), 4px 8px 8px 0 rgba(7, 55, 94, 0.1);
         transition: box-shadow 0.15s ease; }
       html figure.wp-block-video:hover:after, html [class^="wp-block-"] figure.wp-block-video:hover:after, html figure[class^="wp-block-"].wp-block-video:hover:after {
-        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2), inset -8px -8px 8px 0 rgba(3, 27, 47, 0.15), 0 3px 3px 0 rgba(3, 27, 47, 0.1); }
+        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2), inset -8px -8px 8px 0 rgba(7, 55, 94, 0.15), 0 4px 4px 0 rgba(7, 55, 94, 0.1); }
       html figure.wp-block-video img, html figure.wp-block-video video, html [class^="wp-block-"] figure.wp-block-video img, html [class^="wp-block-"] figure.wp-block-video video, html figure[class^="wp-block-"].wp-block-video img, html figure[class^="wp-block-"].wp-block-video video {
         border-radius: 16px; }
       html figure.wp-block-video video, html [class^="wp-block-"] figure.wp-block-video video, html figure[class^="wp-block-"].wp-block-video video {
         display: block;
         margin: 0; }
     html figure.wp-block-audio audio, html [class^="wp-block-"] figure.wp-block-audio audio, html figure[class^="wp-block-"].wp-block-audio audio {
-      margin-bottom: 6px; }
+      margin-bottom: 8px; }
     html figure.wp-block-audio figcaption, html [class^="wp-block-"] figure.wp-block-audio figcaption, html figure[class^="wp-block-"].wp-block-audio figcaption {
       font-style: normal;
-      font-size: inherit; }
+      text-align: center; }
       html figure.wp-block-audio figcaption:before, html [class^="wp-block-"] figure.wp-block-audio figcaption:before, html figure[class^="wp-block-"].wp-block-audio figcaption:before {
         content: "";
         background: url("/wp-content/themes/klasse-wir-singen/images/hint-audio.svg") center no-repeat;
         background-size: contain;
-        width: 48px;
-        height: 24px;
+        width: 64px;
+        height: 32px;
         display: block;
-        margin: 0 auto; }
+        margin: 0 auto 0.2em; }
     html figure figcaption, html [class^="wp-block-"] figure figcaption, html figure[class^="wp-block-"] figcaption {
-      margin: 0; }
-    html figure.image-button, html figure.song-title-button, html [class^="wp-block-"] figure.image-button, html [class^="wp-block-"] figure.song-title-button, html figure[class^="wp-block-"].image-button, html figure[class^="wp-block-"].song-title-button {
+      margin: 0;
+      text-align: left;
+      font-size: 1em; }
+    html figure.image-button, html [class^="wp-block-"] figure.image-button, html figure[class^="wp-block-"].image-button {
       display: inline-block;
       position: relative;
-      margin: 0 0 24px; }
-      @media screen and (min-width: 810px) {
-        html figure.image-button.song-title-button, html figure.song-title-button.song-title-button, html [class^="wp-block-"] figure.image-button.song-title-button, html [class^="wp-block-"] figure.song-title-button.song-title-button, html figure[class^="wp-block-"].image-button.song-title-button, html figure[class^="wp-block-"].song-title-button.song-title-button {
-          float: left;
-          margin-right: 24px; } }
-      html figure.image-button.song-title-button a img, html figure.song-title-button.song-title-button a img, html [class^="wp-block-"] figure.image-button.song-title-button a img, html [class^="wp-block-"] figure.song-title-button.song-title-button a img, html figure[class^="wp-block-"].image-button.song-title-button a img, html figure[class^="wp-block-"].song-title-button.song-title-button a img {
-        display: block;
-        width: 154.7px;
-        height: 154.7px;
-        margin: 0;
-        border: 2px solid #0d733a; }
-      html figure.image-button.song-title-button + .wp-block-buttons + *, html figure.song-title-button.song-title-button + .wp-block-buttons + *, html [class^="wp-block-"] figure.image-button.song-title-button + .wp-block-buttons + *, html [class^="wp-block-"] figure.song-title-button.song-title-button + .wp-block-buttons + *, html figure[class^="wp-block-"].image-button.song-title-button + .wp-block-buttons + *, html figure[class^="wp-block-"].song-title-button.song-title-button + .wp-block-buttons + * {
-        clear: both; }
-      html figure.image-button a, html figure.song-title-button a, html [class^="wp-block-"] figure.image-button a, html [class^="wp-block-"] figure.song-title-button a, html figure[class^="wp-block-"].image-button a, html figure[class^="wp-block-"].song-title-button a {
+      margin: 0 0 32px; }
+      html figure.image-button a, html [class^="wp-block-"] figure.image-button a, html figure[class^="wp-block-"].image-button a {
         display: block;
         position: relative;
         border-radius: 16px; }
-        html figure.image-button a:after, html figure.song-title-button a:after, html [class^="wp-block-"] figure.image-button a:after, html [class^="wp-block-"] figure.song-title-button a:after, html figure[class^="wp-block-"].image-button a:after, html figure[class^="wp-block-"].song-title-button a:after {
+        html figure.image-button a:after, html [class^="wp-block-"] figure.image-button a:after, html figure[class^="wp-block-"].image-button a:after {
           display: block;
           content: "";
           position: absolute;
@@ -461,46 +484,79 @@ html {
           right: 0;
           pointer-events: none;
           border-radius: 16px;
-          box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(3, 27, 47, 0.2), 3px 6px 6px 0 rgba(3, 27, 47, 0.1);
+          box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(7, 55, 94, 0.2), 4px 8px 8px 0 rgba(7, 55, 94, 0.1);
           transition: box-shadow 0.15s ease; }
-        html figure.image-button a:hover:after, html figure.song-title-button a:hover:after, html [class^="wp-block-"] figure.image-button a:hover:after, html [class^="wp-block-"] figure.song-title-button a:hover:after, html figure[class^="wp-block-"].image-button a:hover:after, html figure[class^="wp-block-"].song-title-button a:hover:after {
-          box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2), inset -8px -8px 8px 0 rgba(3, 27, 47, 0.15), 0 3px 3px 0 rgba(3, 27, 47, 0.1); }
-        html figure.image-button a img, html figure.image-button a video, html figure.song-title-button a img, html figure.song-title-button a video, html [class^="wp-block-"] figure.image-button a img, html [class^="wp-block-"] figure.image-button a video, html [class^="wp-block-"] figure.song-title-button a img, html [class^="wp-block-"] figure.song-title-button a video, html figure[class^="wp-block-"].image-button a img, html figure[class^="wp-block-"].image-button a video, html figure[class^="wp-block-"].song-title-button a img, html figure[class^="wp-block-"].song-title-button a video {
+        html figure.image-button a:hover:after, html [class^="wp-block-"] figure.image-button a:hover:after, html figure[class^="wp-block-"].image-button a:hover:after {
+          box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2), inset -8px -8px 8px 0 rgba(7, 55, 94, 0.15), 0 4px 4px 0 rgba(7, 55, 94, 0.1); }
+        html figure.image-button a img, html figure.image-button a video, html [class^="wp-block-"] figure.image-button a img, html [class^="wp-block-"] figure.image-button a video, html figure[class^="wp-block-"].image-button a img, html figure[class^="wp-block-"].image-button a video {
           border-radius: 16px; }
-        html figure.image-button a img, html figure.song-title-button a img, html [class^="wp-block-"] figure.image-button a img, html [class^="wp-block-"] figure.song-title-button a img, html figure[class^="wp-block-"].image-button a img, html figure[class^="wp-block-"].song-title-button a img {
+        html figure.image-button a img, html [class^="wp-block-"] figure.image-button a img, html figure[class^="wp-block-"].image-button a img {
           display: block;
-          width: 238px;
-          height: 238px; }
+          width: 216.6666666667px;
+          height: 216.6666666667px; }
   html img {
     max-width: 100%;
     height: auto; }
   html table {
-    margin: 0 0 24px 0;
+    margin: 0 0 32px 0;
     width: 100%; }
     html table tr td {
-      border-bottom: 1px solid rgba(3, 27, 47, 0.1);
+      border-bottom: 1px solid rgba(7, 55, 94, 0.1);
       padding: 0.4em; }
     html table tr th {
-      border-top: 1px solid rgba(3, 27, 47, 0.3);
+      border-top: 1px solid rgba(7, 55, 94, 0.3);
       font-weight: bold;
       padding: 0.4em; }
     html table tr:last-child td {
       border: none; }
     html table tr:last-child th {
-      border-bottom: 1px solid rgba(3, 27, 47, 0.3); }
+      border-bottom: 1px solid rgba(7, 55, 94, 0.3); }
     html table thead tr:first-child th {
       border-top-width: 2px; }
     html table tfoot tr:last-child th {
       border-bottom-width: 2px; }
   html .h5p-iframe-wrapper iframe.h5p-iframe {
     overflow: visible; }
+  html .h5p-content {
+    color: inherit;
+    background: none; }
+    html .h5p-content .h5p-container ul[role="application"] {
+      margin: 0;
+      overflow: visible; }
+      html .h5p-content .h5p-container ul[role="application"] .h5p-memory-wrap .h5p-memory-card {
+        margin: 0; }
+        html .h5p-content .h5p-container ul[role="application"] .h5p-memory-wrap .h5p-memory-card .h5p-front, html .h5p-content .h5p-container ul[role="application"] .h5p-memory-wrap .h5p-memory-card .h5p-back {
+          color: inherit !important;
+          background-color: #cceffc !important;
+          border: 2px solid #07375e !important;
+          border-radius: 8px;
+          overflow: hidden; }
+          html .h5p-content .h5p-container ul[role="application"] .h5p-memory-wrap .h5p-memory-card .h5p-front:after, html .h5p-content .h5p-container ul[role="application"] .h5p-memory-wrap .h5p-memory-card .h5p-back:after {
+            display: none; }
+          html .h5p-content .h5p-container ul[role="application"] .h5p-memory-wrap .h5p-memory-card .h5p-front .h5p-memory-audio-button, html .h5p-content .h5p-container ul[role="application"] .h5p-memory-wrap .h5p-memory-card .h5p-back .h5p-memory-audio-button {
+            color: #fff; }
+    html .h5p-content .h5p-container .h5p-memory-pop {
+      background: #cceffc;
+      border: 2px solid #07375e;
+      border-radius: 8px;
+      min-width: 778px !important;
+      box-shadow: none; }
+      html .h5p-content .h5p-container .h5p-memory-pop .h5p-memory-top {
+        background: none;
+        border: 0; }
+        html .h5p-content .h5p-container .h5p-memory-pop .h5p-memory-top .h5p-memory-image {
+          color: inherit !important;
+          background-color: #cceffc !important;
+          border: 2px solid #07375e !important;
+          border-radius: 8px;
+          overflow: hidden; }
   html .box, html .information, html .appendix, html .accent-gallery {
     clear: both;
     border-radius: 8px;
     background: #cceffc;
     border: 2px solid #07375e;
-    padding: 24px;
-    margin-bottom: 24px; }
+    padding: 32px;
+    margin-bottom: 32px; }
     html .box.accent-gallery, html .information.accent-gallery, html .appendix.accent-gallery, html .accent-gallery.accent-gallery {
       background: #fdd207;
       border-color: #fab30c; }
@@ -509,32 +565,39 @@ html {
     html .box .wp-block-group__inner-container > :last-child, html .information .wp-block-group__inner-container > :last-child, html .appendix .wp-block-group__inner-container > :last-child, html .accent-gallery .wp-block-group__inner-container > :last-child {
       margin-bottom: 0; }
     html .box .wp-block-group__inner-container figure.box-header, html .information .wp-block-group__inner-container figure.box-header, html .appendix .wp-block-group__inner-container figure.box-header, html .accent-gallery .wp-block-group__inner-container figure.box-header {
-      margin: -24px -24px 24px -24px; }
+      margin: -32px -32px 32px -32px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0; }
+    @media screen and (min-width: 810px) {
+      html .box .wp-block-group__inner-container figure.wp-block-video, html .information .wp-block-group__inner-container figure.wp-block-video, html .appendix .wp-block-group__inner-container figure.wp-block-video, html .accent-gallery .wp-block-group__inner-container figure.wp-block-video {
+        margin: 16px; } }
   html .pretix-widget {
     border-radius: 8px;
     border: 2px solid #07375e;
     background: #cceffc;
-    padding: 12px;
-    margin-bottom: 1.5em; }
+    padding: 32px;
+    margin: 0 0 32px;
+    min-height: 0; }
     html .pretix-widget form {
       margin-bottom: 0; }
+      html .pretix-widget form .pretix-widget-action {
+        width: auto;
+        margin: 0; }
       html .pretix-widget form button {
         border: none;
         border-radius: 8px;
-        font-size: inherit;
-        line-height: inherit; }
-        html .pretix-widget form button:hover {
+        font-size: 1.25rem;
+        line-height: 1.5;
+        padding: 0;
+        width: auto; }
+        html .pretix-widget form button:hover, html .pretix-widget form button:focus, html .pretix-widget form button:active, html .pretix-widget form button:hover:focus, html .pretix-widget form button:hover:active {
           border: none;
-          background: #285368;
+          background: #00adef;
           color: #fff; }
-        html .pretix-widget form button:focus, html .pretix-widget form button:active, html .pretix-widget form button:hover:focus, html .pretix-widget form button:hover:active {
-          border: none;
-          background: #b5cc92;
-          color: #031b2f; }
       html .pretix-widget form input[type="number"], html .pretix-widget form input[type="text"] {
         border-radius: 8px; }
     html .pretix-widget .pretix-widget-category {
-      margin: 0 0 12px; }
+      margin: 0 0 16px; }
     html .pretix-widget .pretix-widget-item-info-col, html .pretix-widget .pretix-widget-item-price-col, html .pretix-widget .pretix-widget-action {
       padding-left: 0; }
     html .pretix-widget .pretix-widget-item-info-col, html .pretix-widget .pretix-widget-item-availability-col, html .pretix-widget .pretix-widget-action {
@@ -543,39 +606,35 @@ html {
       display: none; }
   html legend {
     font-weight: bold;
-    padding: 0 12px; }
+    padding: 0 16px; }
   html button, html input, html select, html textarea {
-    margin: 0;
-    vertical-align: baseline;
-    line-height: normal; }
-    html button::-moz-focus-inner, html input::-moz-focus-inner, html select::-moz-focus-inner, html textarea::-moz-focus-inner {
-      border: 0;
-      padding: 0; }
-  html button, html input[type="button"], html input[type="reset"], html input[type="submit"], html .button, html .wp-block-button, html .wp-block-file__button {
+    margin: 0; }
+  html button, html input[type="button"], html input[type="reset"], html input[type="submit"], html .button, html .wp-block-button {
     display: inline-block;
-    font-family: "Architects Daughter", Helvetica, Arial, sans-serif;
-    background: #07375e;
+    background: #529d32;
     color: #fff;
     cursor: pointer;
     border: none;
-    text-transform: uppercase;
-    line-height: 1.75;
-    padding: 4.8px 12px 2.4px;
+    font-size: 1.25rem;
     text-align: center;
     vertical-align: middle;
     border-radius: 8px;
-    transition: background 0.1s, color 0.1s, box-shadow 0.15s ease; }
-    html button:hover, html button:focus, html button:active, html input[type="button"]:hover, html input[type="button"]:focus, html input[type="button"]:active, html input[type="reset"]:hover, html input[type="reset"]:focus, html input[type="reset"]:active, html input[type="submit"]:hover, html input[type="submit"]:focus, html input[type="submit"]:active, html .button:hover, html .button:focus, html .button:active, html .wp-block-button:hover, html .wp-block-button:focus, html .wp-block-button:active, html .wp-block-file__button:hover, html .wp-block-file__button:focus, html .wp-block-file__button:active {
+    line-height: 1.5;
+    transition: background 0.1s, color 0.1s, box-shadow 0.15s ease;
+    padding: 0 0.75em; }
+    html button:hover, html button:focus, html button:active, html input[type="button"]:hover, html input[type="button"]:focus, html input[type="button"]:active, html input[type="reset"]:hover, html input[type="reset"]:focus, html input[type="reset"]:active, html input[type="submit"]:hover, html input[type="submit"]:focus, html input[type="submit"]:active, html .button:hover, html .button:focus, html .button:active, html .wp-block-button:hover, html .wp-block-button:focus, html .wp-block-button:active {
       background: #00adef; }
-    html button.call-to-action, html input[type="button"].call-to-action, html input[type="reset"].call-to-action, html input[type="submit"].call-to-action, html .button.call-to-action, html .wp-block-button.call-to-action, html .wp-block-file__button.call-to-action {
+    html button.call-to-action, html input[type="button"].call-to-action, html input[type="reset"].call-to-action, html input[type="submit"].call-to-action, html .button.call-to-action, html .wp-block-button.call-to-action {
       display: block;
       position: relative;
       border-radius: 16px;
-      font-size: 24px;
-      padding: 7.2px 24px 4.8px;
+      font-size: 1.5em;
+      padding: 0 1em;
+      line-height: 2;
+      font-weight: bold;
       transition: background 0.15s;
-      margin-top: 24px; }
-      html button.call-to-action:after, html input[type="button"].call-to-action:after, html input[type="reset"].call-to-action:after, html input[type="submit"].call-to-action:after, html .button.call-to-action:after, html .wp-block-button.call-to-action:after, html .wp-block-file__button.call-to-action:after {
+      background: #f5821f; }
+      html button.call-to-action:after, html input[type="button"].call-to-action:after, html input[type="reset"].call-to-action:after, html input[type="submit"].call-to-action:after, html .button.call-to-action:after, html .wp-block-button.call-to-action:after {
         display: block;
         content: "";
         position: absolute;
@@ -585,63 +644,69 @@ html {
         right: 0;
         pointer-events: none;
         border-radius: 16px;
-        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(3, 27, 47, 0.2), 3px 6px 6px 0 rgba(3, 27, 47, 0.1);
+        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(7, 55, 94, 0.2), 4px 8px 8px 0 rgba(7, 55, 94, 0.1);
         transition: box-shadow 0.15s ease; }
-      html button.call-to-action:hover:after, html input[type="button"].call-to-action:hover:after, html input[type="reset"].call-to-action:hover:after, html input[type="submit"].call-to-action:hover:after, html .button.call-to-action:hover:after, html .wp-block-button.call-to-action:hover:after, html .wp-block-file__button.call-to-action:hover:after {
-        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2), inset -8px -8px 8px 0 rgba(3, 27, 47, 0.15), 0 3px 3px 0 rgba(3, 27, 47, 0.1); }
-      html button.call-to-action img, html button.call-to-action video, html input[type="button"].call-to-action img, html input[type="button"].call-to-action video, html input[type="reset"].call-to-action img, html input[type="reset"].call-to-action video, html input[type="submit"].call-to-action img, html input[type="submit"].call-to-action video, html .button.call-to-action img, html .button.call-to-action video, html .wp-block-button.call-to-action img, html .wp-block-button.call-to-action video, html .wp-block-file__button.call-to-action img, html .wp-block-file__button.call-to-action video {
+      html button.call-to-action:hover:after, html input[type="button"].call-to-action:hover:after, html input[type="reset"].call-to-action:hover:after, html input[type="submit"].call-to-action:hover:after, html .button.call-to-action:hover:after, html .wp-block-button.call-to-action:hover:after {
+        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2), inset -8px -8px 8px 0 rgba(7, 55, 94, 0.15), 0 4px 4px 0 rgba(7, 55, 94, 0.1); }
+      html button.call-to-action img, html button.call-to-action video, html input[type="button"].call-to-action img, html input[type="button"].call-to-action video, html input[type="reset"].call-to-action img, html input[type="reset"].call-to-action video, html input[type="submit"].call-to-action img, html input[type="submit"].call-to-action video, html .button.call-to-action img, html .button.call-to-action video, html .wp-block-button.call-to-action img, html .wp-block-button.call-to-action video {
         border-radius: 16px; }
-    html button.outline, html button.is-style-outline, html input[type="button"].outline, html input[type="button"].is-style-outline, html input[type="reset"].outline, html input[type="reset"].is-style-outline, html input[type="submit"].outline, html input[type="submit"].is-style-outline, html .button.outline, html .button.is-style-outline, html .wp-block-button.outline, html .wp-block-button.is-style-outline, html .wp-block-file__button.outline, html .wp-block-file__button.is-style-outline {
+    html button.outline, html button.is-style-outline, html input[type="button"].outline, html input[type="button"].is-style-outline, html input[type="reset"].outline, html input[type="reset"].is-style-outline, html input[type="submit"].outline, html input[type="submit"].is-style-outline, html .button.outline, html .button.is-style-outline, html .wp-block-button.outline, html .wp-block-button.is-style-outline {
       background: #edf5d7;
-      color: #07375e;
-      box-shadow: inset 0 0 0 2px #07375e; }
-      html button.outline:hover, html button.outline:focus, html button.outline:active, html button.is-style-outline:hover, html button.is-style-outline:focus, html button.is-style-outline:active, html input[type="button"].outline:hover, html input[type="button"].outline:focus, html input[type="button"].outline:active, html input[type="button"].is-style-outline:hover, html input[type="button"].is-style-outline:focus, html input[type="button"].is-style-outline:active, html input[type="reset"].outline:hover, html input[type="reset"].outline:focus, html input[type="reset"].outline:active, html input[type="reset"].is-style-outline:hover, html input[type="reset"].is-style-outline:focus, html input[type="reset"].is-style-outline:active, html input[type="submit"].outline:hover, html input[type="submit"].outline:focus, html input[type="submit"].outline:active, html input[type="submit"].is-style-outline:hover, html input[type="submit"].is-style-outline:focus, html input[type="submit"].is-style-outline:active, html .button.outline:hover, html .button.outline:focus, html .button.outline:active, html .button.is-style-outline:hover, html .button.is-style-outline:focus, html .button.is-style-outline:active, html .wp-block-button.outline:hover, html .wp-block-button.outline:focus, html .wp-block-button.outline:active, html .wp-block-button.is-style-outline:hover, html .wp-block-button.is-style-outline:focus, html .wp-block-button.is-style-outline:active, html .wp-block-file__button.outline:hover, html .wp-block-file__button.outline:focus, html .wp-block-file__button.outline:active, html .wp-block-file__button.is-style-outline:hover, html .wp-block-file__button.is-style-outline:focus, html .wp-block-file__button.is-style-outline:active {
+      color: #2d6a48;
+      box-shadow: inset 0 0 0 2px #529d32; }
+      html button.outline:hover, html button.outline:focus, html button.outline:active, html button.is-style-outline:hover, html button.is-style-outline:focus, html button.is-style-outline:active, html input[type="button"].outline:hover, html input[type="button"].outline:focus, html input[type="button"].outline:active, html input[type="button"].is-style-outline:hover, html input[type="button"].is-style-outline:focus, html input[type="button"].is-style-outline:active, html input[type="reset"].outline:hover, html input[type="reset"].outline:focus, html input[type="reset"].outline:active, html input[type="reset"].is-style-outline:hover, html input[type="reset"].is-style-outline:focus, html input[type="reset"].is-style-outline:active, html input[type="submit"].outline:hover, html input[type="submit"].outline:focus, html input[type="submit"].outline:active, html input[type="submit"].is-style-outline:hover, html input[type="submit"].is-style-outline:focus, html input[type="submit"].is-style-outline:active, html .button.outline:hover, html .button.outline:focus, html .button.outline:active, html .button.is-style-outline:hover, html .button.is-style-outline:focus, html .button.is-style-outline:active, html .wp-block-button.outline:hover, html .wp-block-button.outline:focus, html .wp-block-button.outline:active, html .wp-block-button.is-style-outline:hover, html .wp-block-button.is-style-outline:focus, html .wp-block-button.is-style-outline:active {
         color: #fff;
         background: #00adef;
         box-shadow: none; }
-      html button.outline.wp-block-button a.wp-block-button__link, html button.is-style-outline.wp-block-button a.wp-block-button__link, html input[type="button"].outline.wp-block-button a.wp-block-button__link, html input[type="button"].is-style-outline.wp-block-button a.wp-block-button__link, html input[type="reset"].outline.wp-block-button a.wp-block-button__link, html input[type="reset"].is-style-outline.wp-block-button a.wp-block-button__link, html input[type="submit"].outline.wp-block-button a.wp-block-button__link, html input[type="submit"].is-style-outline.wp-block-button a.wp-block-button__link, html .button.outline.wp-block-button a.wp-block-button__link, html .button.is-style-outline.wp-block-button a.wp-block-button__link, html .wp-block-button.outline.wp-block-button a.wp-block-button__link, html .wp-block-button.is-style-outline.wp-block-button a.wp-block-button__link, html .wp-block-file__button.outline.wp-block-button a.wp-block-button__link, html .wp-block-file__button.is-style-outline.wp-block-button a.wp-block-button__link {
+  html .wp-block-buttons {
+    margin: 32px 0;
+    gap: 0 16px; }
+    html .wp-block-buttons:first-child {
+      margin-top: 0; }
+    html .wp-block-buttons:last-child {
+      margin-bottom: 0; }
+    html .wp-block-buttons .wp-block-button {
+      margin: 0; }
+      html .wp-block-buttons .wp-block-button .wp-block-button__link {
+        display: inline;
+        font-size: inherit;
+        font-weight: inherit;
+        letter-spacing: inherit;
+        line-height: inherit;
+        padding: 0;
+        text-align: inherit;
+        vertical-align: inherit;
+        text-transform: inherit;
+        box-shadow: none;
+        text-decoration: inherit;
         background: none;
+        border-radius: 0;
+        overflow-wrap: inherit;
+        box-sizing: inherit;
         color: inherit;
         border: none; }
-    html button.wp-block-button a.wp-block-button__link, html input[type="button"].wp-block-button a.wp-block-button__link, html input[type="reset"].wp-block-button a.wp-block-button__link, html input[type="submit"].wp-block-button a.wp-block-button__link, html .button.wp-block-button a.wp-block-button__link, html .wp-block-button.wp-block-button a.wp-block-button__link, html .wp-block-file__button.wp-block-button a.wp-block-button__link {
-      background: none;
-      color: #fff;
-      cursor: inherit;
-      display: inline;
-      font-size: inherit;
-      font-weight: inherit;
-      letter-spacing: inherit;
-      line-height: inherit;
-      padding: 0;
-      text-align: inherit;
-      vertical-align: inherit;
-      text-transform: inherit;
-      box-shadow: none; }
-      html button.wp-block-button a.wp-block-button__link:hover, html button.wp-block-button a.wp-block-button__link:focus, html button.wp-block-button a.wp-block-button__link:active, html input[type="button"].wp-block-button a.wp-block-button__link:hover, html input[type="button"].wp-block-button a.wp-block-button__link:focus, html input[type="button"].wp-block-button a.wp-block-button__link:active, html input[type="reset"].wp-block-button a.wp-block-button__link:hover, html input[type="reset"].wp-block-button a.wp-block-button__link:focus, html input[type="reset"].wp-block-button a.wp-block-button__link:active, html input[type="submit"].wp-block-button a.wp-block-button__link:hover, html input[type="submit"].wp-block-button a.wp-block-button__link:focus, html input[type="submit"].wp-block-button a.wp-block-button__link:active, html .button.wp-block-button a.wp-block-button__link:hover, html .button.wp-block-button a.wp-block-button__link:focus, html .button.wp-block-button a.wp-block-button__link:active, html .wp-block-button.wp-block-button a.wp-block-button__link:hover, html .wp-block-button.wp-block-button a.wp-block-button__link:focus, html .wp-block-button.wp-block-button a.wp-block-button__link:active, html .wp-block-file__button.wp-block-button a.wp-block-button__link:hover, html .wp-block-file__button.wp-block-button a.wp-block-button__link:focus, html .wp-block-file__button.wp-block-button a.wp-block-button__link:active {
-        background: none;
-        color: inherit;
-        opacity: inherit; }
-  html .wp-block-buttons {
-    margin-bottom: 24px;
-    gap: 24px 12px; }
+        html .wp-block-buttons .wp-block-button .wp-block-button__link:hover, html .wp-block-buttons .wp-block-button .wp-block-button__link:focus, html .wp-block-buttons .wp-block-button .wp-block-button__link:active {
+          background: none;
+          color: inherit;
+          opacity: inherit; }
   html form {
     max-width: 100%;
-    margin-bottom: 24px; }
+    margin-bottom: 32px; }
     html form fieldset {
       border: 2px solid #07375e;
       background: #cceffc;
       border-radius: 8px;
-      padding: 12px;
-      margin-bottom: 24px;
+      padding: 32px;
+      margin-bottom: 32px;
       width: 100%;
       min-width: auto; }
     html form input, html form textarea {
       max-width: 100%; }
     html form input:not([type="button"], [type="reset"], [type="submit"], [type="range"], [type="file"]), html form textarea {
-      border: 1px solid rgba(3, 27, 47, 0.3);
+      border: 1px solid rgba(7, 55, 94, 0.3);
       background: white;
-      font-size: 15px;
-      padding: 0.8em;
+      font-size: 0.9em;
+      padding: 0.5em 1em;
       border-radius: 8px;
       transition: border-color 0.1s; }
       html form input:not([type="button"], [type="reset"], [type="submit"], [type="range"], [type="file"]):focus, html form textarea:focus {
@@ -661,14 +726,14 @@ html {
       vertical-align: top;
       width: 100%; }
     html form label input, html form label textarea {
-      margin-bottom: 8px; }
+      margin-bottom: 16px; }
   html .wpcf7 .wpcf7-list-item {
     margin: 0; }
   html .wpcf7 .ajax-loader {
     top: 0.25em; }
   html .wpcf7 .wpcf7-response-output {
     border-radius: 8px;
-    margin: 0 0 24px; }
+    margin: 0 0 32px; }
   html .site {
     max-width: 1080px;
     margin-left: auto;
@@ -686,16 +751,17 @@ html {
         padding: 0;
         border-left-width: 2px;
         border-right-width: 2px;
-        box-shadow: rgba(3, 27, 47, 0.15) 0 0 24px; } }
+        box-shadow: rgba(7, 55, 94, 0.15) 0 0 24px; } }
     html .site header.site-header {
-      margin-bottom: 24px; }
+      margin-bottom: 48px; }
       @media screen and (min-width: 810px) {
         html .site header.site-header {
-          margin-bottom: 48px; } }
+          margin-bottom: 64px; } }
       html .site header.site-header nav.main-navigation {
         font-family: "Architects Daughter", Helvetica, Arial, sans-serif;
-        font-size: 18px;
-        padding: 0 24px; }
+        font-size: 1.25rem;
+        line-height: 1.5;
+        padding: 0 32px; }
         @media screen and (min-width: 810px) {
           html .site header.site-header nav.main-navigation {
             max-width: 810px;
@@ -706,7 +772,7 @@ html {
           width: 100%;
           background: #07375e;
           color: #fff;
-          padding: 7.2px 12px 4.8px;
+          padding: 0.2em 0.75em;
           text-transform: uppercase;
           letter-spacing: 4px;
           border-radius: 8px;
@@ -720,18 +786,20 @@ html {
             display: inline-block;
             content: "\f419";
             font-family: Genericons, monospace;
-            margin-right: 12px;
-            font-size: 1.75ex; }
+            margin-right: 1em;
+            font-size: 0.65em; }
         html .site header.site-header nav.main-navigation .menu-header-container > ul.menu {
           display: none;
           overflow: hidden;
-          margin: 0; }
+          margin: 0;
+          padding: 0; }
           @media screen and (min-width: 810px) {
             html .site header.site-header nav.main-navigation .menu-header-container > ul.menu {
               display: flex;
+              gap: 16px;
               justify-content: space-between;
               overflow: visible;
-              margin: 0 18px; } }
+              margin: 0 32px; } }
           html .site header.site-header nav.main-navigation .menu-header-container > ul.menu li.menu-item {
             padding: 0;
             margin: 0;
@@ -742,26 +810,26 @@ html {
               outline: none;
               background: #07375e;
               color: #fff;
-              padding: 7.2px 12px 4.8px;
               text-decoration: none;
               text-transform: uppercase;
               transition: color 0.1s, background 0.1s;
-              white-space: nowrap; }
+              white-space: nowrap;
+              padding: 0.2em 0.75em; }
               @media screen and (min-width: 810px) {
                 html .site header.site-header nav.main-navigation .menu-header-container > ul.menu li.menu-item a {
-                  padding: 3.6px 18px; } }
+                  padding: 0.1em 0.5em; } }
               html .site header.site-header nav.main-navigation .menu-header-container > ul.menu li.menu-item a:hover, html .site header.site-header nav.main-navigation .menu-header-container > ul.menu li.menu-item a:focus, html .site header.site-header nav.main-navigation .menu-header-container > ul.menu li.menu-item a:active {
                 background: #00adef; }
             html .site header.site-header nav.main-navigation .menu-header-container > ul.menu li.menu-item ul.sub-menu {
               margin: 0;
+              padding: 0;
               font-family: "Open Sans", Helvetica, Arial, sans-serif; }
               html .site header.site-header nav.main-navigation .menu-header-container > ul.menu li.menu-item ul.sub-menu li.menu-item a {
                 text-transform: none; }
           @media screen and (min-width: 810px) {
             html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item {
-              flex: 0;
-              position: relative;
-              margin: 0 6px; }
+              flex: content 1;
+              position: relative; }
               html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item:hover > ul.sub-menu, html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item:focus > ul.sub-menu, html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item:active > ul.sub-menu {
                 display: block; }
               html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item:hover > a, html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item:focus > a, html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item:active > a {
@@ -770,15 +838,15 @@ html {
                 right: 0; } }
           @media screen and (min-width: 810px) {
             html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item > a {
+              text-align: center;
               border-top-width: 0;
-              border-radius: 8px;
-              padding: 2.4px 18px; } }
+              border-radius: 8px; } }
           @media screen and (min-width: 810px) {
             html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item > ul.sub-menu {
               display: none;
               position: absolute;
               z-index: 100000;
-              padding-top: 6px;
+              padding-top: 0.2em;
               min-width: 100%; } }
           @media screen and (min-width: 810px) {
             html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item > ul.sub-menu > li.menu-item {
@@ -793,32 +861,32 @@ html {
                 border-bottom-left-radius: 8px;
                 border-bottom-right-radius: 8px; } }
           html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item > ul.sub-menu > li.menu-item > a {
-            padding-left: 24px; }
+            padding-left: 1.5em; }
             @media screen and (min-width: 810px) {
               html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item > ul.sub-menu > li.menu-item > a {
-                padding-left: 18px; } }
+                padding-left: 0.5em; } }
           html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item {
             border-top: 0; }
             html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > a {
-              padding-left: 36px; }
+              padding-left: 2em; }
               @media screen and (min-width: 810px) {
                 html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > a {
-                  padding-left: 30px; } }
+                  padding-left: 40px; } }
             html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > a {
-              padding-left: 48px; }
+              padding-left: 2.5em; }
               @media screen and (min-width: 810px) {
                 html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > a {
-                  padding-left: 36px; } }
+                  padding-left: 48px; } }
             html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > a {
-              padding-left: 60px; }
+              padding-left: 3em; }
               @media screen and (min-width: 810px) {
                 html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > a {
-                  padding-left: 42px; } }
+                  padding-left: 56px; } }
             html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > a {
-              padding-left: 72px; }
+              padding-left: 3.5em; }
               @media screen and (min-width: 810px) {
                 html .site header.site-header nav.main-navigation .menu-header-container > ul.menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > ul.sub-menu > li.menu-item > a {
-                  padding-left: 48px; } }
+                  padding-left: 64px; } }
         @media screen and (max-width: 809px) {
           html .site header.site-header nav.main-navigation.toggled button.menu-toggle {
             border-bottom-left-radius: 0;
@@ -831,27 +899,26 @@ html {
         background-image: url("/wp-content/themes/klasse-wir-singen/images/header-notes.svg");
         background-repeat: no-repeat;
         background-position-x: center;
-        background-position-y: bottom;
+        background-position-y: 25%;
         background-size: cover;
-        height: 60vw; }
+        height: 45vw; }
         @media screen and (min-width: 540px) {
           html .site header.site-header .site-branding {
-            height: 40vw; } }
+            background-position-y: 70%;
+            height: 35vw; } }
         @media screen and (min-width: 1080px) {
           html .site header.site-header .site-branding {
-            height: 432px; } }
+            height: 378px; } }
         html .site header.site-header .site-branding .logo-link {
           display: block;
           width: 100%;
-          padding: 5vw 24px;
-          text-align: center; }
+          padding: 8.5vw 32px; }
           @media screen and (min-width: 540px) {
             html .site header.site-header .site-branding .logo-link {
-              text-align: left;
-              padding: 4vw 36px; } }
-          @media screen and (min-width: 1080px) {
+              padding: 7vw 6vw; } }
+          @media screen and (min-width: 810px) {
             html .site header.site-header .site-branding .logo-link {
-              padding: 43.2px 36px; } }
+              padding: 56.7px 48.6px; } }
           html .site header.site-header .site-branding .logo-link .logo {
             display: inline-block;
             height: 18.5vw;
@@ -872,7 +939,7 @@ html {
       background-position-y: top;
       background-size: cover;
       height: 60vw;
-      font-size: 15px; }
+      font-size: 0.9em; }
       @media screen and (min-width: 540px) {
         html .site footer.site-footer {
           height: 40vw; } }
@@ -880,6 +947,7 @@ html {
         html .site footer.site-footer {
           height: 432px; } }
       html .site footer.site-footer nav.footer-navigation {
+        padding: 32px;
         margin-top: 40vw; }
         @media screen and (min-width: 540px) {
           html .site footer.site-footer nav.footer-navigation {
@@ -889,11 +957,13 @@ html {
             margin-top: 324px; } }
         html .site footer.site-footer nav.footer-navigation .menu-footer-container ul.menu {
           display: flex;
+          gap: 16px;
           justify-content: center;
-          margin: 6px; }
+          margin: 0;
+          padding: 0; }
           @media screen and (min-width: 540px) {
             html .site footer.site-footer nav.footer-navigation .menu-footer-container ul.menu {
-              margin: 6px 12px; } }
+              gap: 32px; } }
           html .site footer.site-footer nav.footer-navigation .menu-footer-container ul.menu li {
             display: block; }
             html .site footer.site-footer nav.footer-navigation .menu-footer-container ul.menu li a {
@@ -904,19 +974,17 @@ html {
               font-family: "Architects Daughter", Helvetica, Arial, sans-serif;
               background: #07375e;
               border-radius: 8px;
-              padding: 0 12px;
-              margin: 6px; }
+              padding: 0.2em 1em; }
               @media screen and (min-width: 540px) {
                 html .site footer.site-footer nav.footer-navigation .menu-footer-container ul.menu li a {
-                  padding: 0 24px;
-                  margin: 6px 12px; } }
+                  padding: 0.2em 1.25em; } }
               html .site footer.site-footer nav.footer-navigation .menu-footer-container ul.menu li a:hover, html .site footer.site-footer nav.footer-navigation .menu-footer-container ul.menu li a:focus, html .site footer.site-footer nav.footer-navigation .menu-footer-container ul.menu li a:active {
                 background: #00adef; }
     html .site .site-content img, html .site .site-content audio, html .site .site-content video, html .site .site-content .mapp-layout {
       border-radius: 8px;
       overflow: hidden; }
     html .site .site-content .mapp-layout {
-      border: 2px solid rgba(3, 27, 47, 0.3); }
+      border: 2px solid rgba(7, 55, 94, 0.3); }
     html .site .site-content .sharp-corners {
       border-radius: 0; }
       html .site .site-content .sharp-corners figure {
@@ -924,7 +992,7 @@ html {
       html .site .site-content .sharp-corners img {
         border-radius: 0; }
     html .site .site-content .hero {
-      padding: 24px;
+      padding: 32px;
       max-width: 810px;
       margin: 0 auto; }
       html .site .site-content .hero .entry-thumbnail {
@@ -941,17 +1009,17 @@ html {
           right: 0;
           pointer-events: none;
           border-radius: 16px;
-          box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(3, 27, 47, 0.2), 3px 6px 6px 0 rgba(3, 27, 47, 0.1);
+          box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(7, 55, 94, 0.2), 4px 8px 8px 0 rgba(7, 55, 94, 0.1);
           transition: box-shadow 0.15s ease; }
         html .site .site-content .hero .entry-thumbnail:hover:after {
-          box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2), inset -8px -8px 8px 0 rgba(3, 27, 47, 0.15), 0 3px 3px 0 rgba(3, 27, 47, 0.1); }
+          box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2), inset -8px -8px 8px 0 rgba(7, 55, 94, 0.15), 0 4px 4px 0 rgba(7, 55, 94, 0.1); }
         html .site .site-content .hero .entry-thumbnail img, html .site .site-content .hero .entry-thumbnail video {
           border-radius: 16px; }
         html .site .site-content .hero .entry-thumbnail img {
           object-fit: cover;
           max-height: 50vh; }
     html .site .site-content .content-wrapper {
-      padding: 24px;
+      padding: 0 32px;
       position: relative;
       -webkit-hyphens: auto;
       -ms-hyphens: auto;
@@ -966,53 +1034,49 @@ html {
         @media screen and (min-width: 1080px) {
           html .site .site-content .content-wrapper .content-area {
             width: 100%; } }
-        html .site .site-content .content-wrapper .content-area h1, html .site .site-content .content-wrapper .content-area h2, html .site .site-content .content-wrapper .content-area h3, html .site .site-content .content-wrapper .content-area h4 {
-          font-family: "Architects Daughter", Helvetica, Arial, sans-serif; }
         html .site .site-content .content-wrapper .content-area .entry-header {
-          margin-top: 24px; }
-          html .site .site-content .content-wrapper .content-area .entry-header .entry-title {
-            text-transform: uppercase;
-            margin-bottom: 24px; }
-            @media screen and (min-width: 810px) {
-              html .site .site-content .content-wrapper .content-area .entry-header .entry-title {
-                margin-bottom: 48px; } }
+          margin-bottom: 16px; }
         html .site .site-content .content-wrapper .content-area .entry-summary {
-          margin: 0 0 24px; }
+          margin: 0 0 32px; }
+        html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-sharing {
+          margin: 0; }
         html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-title {
-          font-size: inherit;
-          margin-bottom: 24px;
-          font-weight: bold; }
+          font-size: 1.25em;
+          margin-bottom: 32px;
+          font-weight: 400; }
           html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-title:before {
             display: none; }
         html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content ul {
           display: flex;
           flex-wrap: wrap;
-          gap: 12px;
-          margin-bottom: 24px; }
+          gap: 16px;
+          margin-bottom: 16px !important; }
           html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content ul li {
             margin: 0;
             padding: 0; }
             html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content ul li a {
-              font-family: "Architects Daughter", Helvetica, Arial, sans-serif;
               background: #07375e;
               color: #fff !important;
               border: none;
-              text-transform: uppercase;
-              line-height: 1.75;
-              padding: 4.8px 12px 2.4px;
               text-align: center;
               vertical-align: middle;
               border-radius: 8px;
-              transition: background 0.1s; }
+              transition: background 0.1s;
+              font-size: 1.225em;
+              padding: 0.4em 0.75em; }
+              @media screen and (min-width: 810px) {
+                html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content ul li a {
+                  padding: 0.3em 0.5em; } }
               html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content ul li a:hover, html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content ul li a:focus, html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content ul li a:active {
                 background: #00adef; }
               html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content ul li a:before {
-                padding-right: 12px;
-                top: 1.5px; }
+                padding-right: 0.5em;
+                top: auto;
+                font-size: 1em; }
               html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content ul li a span {
                 margin: 0; }
         html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content .share-customizable-link a {
-          font-size: inherit;
+          font-size: 1em;
           font-family: inherit; }
         html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content .sharing-hidden .inner {
           padding: 0;
@@ -1022,9 +1086,9 @@ html {
           html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content .sharing-hidden .inner:before, html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content .sharing-hidden .inner:after {
             display: none; }
         html .site .site-content .content-wrapper .content-area .entry-meta, html .site .site-content .content-wrapper .content-area .entry-footer {
-          color: rgba(3, 27, 47, 0.7); }
+          color: rgba(7, 55, 94, 0.7); }
           html .site .site-content .content-wrapper .content-area .entry-meta > span, html .site .site-content .content-wrapper .content-area .entry-footer > span {
-            margin-right: 12px;
+            margin-right: 16px;
             display: inline-block; }
       html .site .site-content .content-wrapper .hentry:after {
         width: 100%; }
@@ -1080,19 +1144,6 @@ html {
 .blog .hentry, .archive .hentry, .search .hentry {
   margin: 0 0 3.2em 0; }
 
-.archive .page-header, .archive .page-header, .search .page-header, .search .page-header {
-  margin: 0 0 1.6em; }
-.archive .page-title, .search .page-title {
-  color: #a8a6a1;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase; }
-
-.taxonomy-description {
-  font-size: 16px; }
-
 .hentry:after, .page-header:after {
   background: #f2f2f2;
   display: block;
@@ -1110,20 +1161,6 @@ html {
   margin: .4em 0;
   padding: 0; }
 
-.cat-links {
-  display: inline-block;
-  margin-bottom: .4em; }
-  .cat-links a {
-    color: #07375e;
-    display: inline-block;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
-    font-style: normal;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin: 0;
-    text-transform: uppercase; }
-
 .updated:not(.published) {
   display: none; }
 
@@ -1137,34 +1174,6 @@ html {
 
 .thumbnail-placeholder {
   display: block; }
-
-.flex-container a:hover,
-.flex-slider a:hover {
-  outline: none; }
-
-.slides,
-.slides > li,
-.flex-control-nav,
-.flex-direction-nav {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-
-.flex-pauseplay span {
-  text-transform: capitalize; }
-
-.flex-viewport {
-  max-height: 2000px;
-  transition: all 1s ease; }
-
-.loading .flex-viewport {
-  max-height: 300px; }
-
-.project-types, .project-tags {
-  color: #a8a6a1;
-  font-size: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px; }
 
 embed, iframe, object, audio, video {
   display: block;
@@ -1187,168 +1196,7 @@ embed, iframe, object, audio, video {
 .wp-caption-dd,
 .wp-caption-text {
   clear: both;
-  font-size: 15px;
   font-style: italic;
-  text-align: center;
   width: 100%; }
-
-.gallery-item {
-  display: inline-block;
-  overflow: hidden;
-  padding: 0 4px;
-  position: relative;
-  text-align: center;
-  vertical-align: top;
-  width: 100%; }
-  .gallery-item:hover .gallery-caption, .gallery-item:focus .gallery-caption, .gallery-item:active .gallery-caption {
-    opacity: 1; }
-
-.gallery-columns-1 .gallery-item {
-  padding: 0; }
-
-.gallery-columns-2 .gallery-item {
-  max-width: 50%; }
-
-.gallery-columns-3 .gallery-item {
-  max-width: 33.3333333333%; }
-
-.gallery-columns-4 .gallery-item {
-  max-width: 25%; }
-
-.gallery-columns-5 .gallery-item {
-  max-width: 20%; }
-
-.gallery-columns-6 .gallery-item {
-  max-width: 16.6666666667%; }
-
-.gallery-columns-7 .gallery-item {
-  max-width: 14.2857142857%; }
-
-.gallery-columns-8 .gallery-item {
-  max-width: 12.5%; }
-
-.gallery-columns-9 .gallery-item {
-  max-width: 11.1111111111%; }
-
-.gallery-caption {
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.7);
-  font-size: 15px;
-  margin: 0;
-  max-height: 100%;
-  opacity: 0;
-  padding: 6px 8px;
-  position: absolute;
-  bottom: 7px;
-  left: 0;
-  text-align: left;
-  width: 100%; }
-  .gallery-caption:before {
-    content: "";
-    min-height: 49px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; }
-
-.gallery-columns-7 .gallery-caption,
-.gallery-columns-8 .gallery-caption,
-.gallery-columns-9 .gallery-caption {
-  display: none; }
-
-@media screen and (min-width: 800px) {
-  .site-title, h1 {
-    font-size: 47px;
-    line-height: 1.1;
-    margin-bottom: 0.2em; }
-
-  h2 {
-    font-size: 29px;
-    margin-bottom: 0.4em; }
-
-  .site-description, h4, body, button, input, select, textarea {
-    font-size: 18px; }
-
-  h5 {
-    font-size: 16px; }
-
-  h6, .cat-links a {
-    font-size: 15px; }
-
-  .hentry:after, .post-navigation:after, .posts-navigation:after, .page-header:after {
-    width: 100%; }
-
-  [class*="navigation"] .nav-previous {
-    float: left;
-    width: 48%; }
-  [class*="navigation"] .nav-next {
-    border-top: 0;
-    margin-top: 0;
-    padding-top: 0;
-    float: right;
-    width: 48%; } }
-@media screen and (min-width: 1080px) {
-  .flex-direction-nav a {
-    width: 52px;
-    height: 52px; }
-    .flex-direction-nav a:before {
-      font-size: 64px; }
-  .flex-direction-nav .flex-prev {
-    opacity: 1;
-    right: 6.4em; }
-  .flex-direction-nav .flex-next {
-    opacity: 1;
-    right: 3.2em; }
-
-  .cat-links {
-    margin-bottom: .2em; }
-
-  .entry-meta {
-    line-height: 2;
-    position: absolute;
-    text-align: right;
-    width: 121px;
-    left: 0; }
-    .entry-meta > span {
-      display: block;
-      margin-right: 0; }
-
-  .post-navigation .nav-links, .posts-navigation .nav-links {
-    margin-left: 150px; }
-
-  .single-jetpack-testimonial .post-navigation {
-    margin-left: 0; }
-
-  .entry-thumbnail {
-    min-height: 80px; }
-
-  .entry-body {
-    margin-top: 1.6em;
-    padding: 0 0 0 150px; }
-
-  .post-thumbnail {
-    margin-left: -55px;
-    margin-right: -55px;
-    width: auto; }
-    .post-thumbnail + .entry-header {
-      background-color: #fff;
-      padding: 1.3em 1.6em 0 1.9em;
-      position: absolute;
-      transform: translateY(-100%) translateY(0.4em);
-      margin: 0 0 0 120px;
-      width: calc(100% - 65px); }
-
-  .blog .without-featured-image > .entry-header, .single .without-featured-image > .entry-header, .archive .without-featured-image > .entry-header, .search .without-featured-image > .entry-header {
-    margin-left: 150px; }
-
-  .archive .page-header, .search .page-header {
-    margin: 0 0 2.4em; }
-
-  .page-title, .taxonomy-description, .no-results .page-content {
-    padding-left: 150px; }
-
-  .search .no-results .page-title, .search .no-results .page-content, .error404 .page-title {
-    padding-left: 0; } }
 
 /*# sourceMappingURL=style.css.map */

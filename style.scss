@@ -4,49 +4,72 @@ Theme URI: https://github.com/heinrichreimer/klasse-wir-singen-theme
 Author: Jan Heinrich Reimer
 Author URI: https://reimer.dev
 Description: Klasse! Wir singen theme, based on the Dara theme.
-Version: 2.0.2
+Version: 3.0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: klasse-wir-singen
 */
 
-$primary-color: #07375e;
-$secondary-color: #00adef;
-$accent-color: #fab30c;
-$accent-color-green: #0d733a;
-$background-content: #e1f19f;
-$background-content-dark: #bfe259;
-$background-site: #edf5d7;
-$background-box: #cceffc;
-$background-box-accent: #fdd207;
-$primary-color-dimmed-light: mix($primary-color, $background-content, 20%);
-$primary-color-dimmed-dark: mix($primary-color, $background-content, 85%);
+$palette-dark-blue: #07375e;
+$palette-blue: #00adef;
+$palette-light-blue: #cceffc;
+$palette-very-light-blue: #edf5d7;
+$palette-dark-orange: #f5821f;
+$palette-orange: #fab30c;
+$palette-yellow: #fdd207;
+$palette-dark-green: #0d733a;
+$palette-green: #c0e25a;
+$palette-light-green: #bfe259;
+$palette-very-light-green: #e1f19f;
+
+$primary-color: $palette-dark-blue;
+$secondary-color: saturate(darken(mix($palette-dark-green, $palette-green), 7.5%), 12.5%);
+$active-color: $palette-blue;
+$accent-color: $palette-dark-orange;
+
+$background-content: $palette-very-light-green;
+$background-content-dark: $palette-light-green;
+$background-site: $palette-very-light-blue;
+$background-box: $palette-light-blue;
+$background-preformatted: darken($background-content, 6%);
+$background-mark: #fff9c0;
+$background-box-accent: $palette-yellow;
+$border-color-box-accent: $palette-orange;
+$border-color-song-button: $palette-dark-green;
+
 $font-family: "Open Sans", Helvetica, Arial, sans-serif;
 $font-family-heading: "Architects Daughter", Helvetica, Arial, sans-serif;
 $font-family-typewriter: "Courier 10 Pitch", Courier, monospace;
 $font-family-icons: Genericons, monospace;
-$background-preformatted: darken($background-content, 6%);
-$background-mark: #fff9c0;
-//$text-color: #051826;
-//$text-color: $primary-color;
-$text-color: darken($primary-color, 10%);
-$text-color-heading: $primary-color;
+
+$font-size: 16px;
+$font-size-desktop: 18px;
+$font-size-button: 1.25rem;
+$line-height: 1.25;
+$line-height-button: 1.5;
+
+$text-color: $primary-color;
+$text-color-heading: $text-color;
 $text-color-disabled: transparentize($text-color, 0.3);
 $text-color-inverse: #fff;
-$line-height: 1.4;
+
 $site-width: 1080px;
 $content-width: $site-width * 0.75;
-$block-margin: 24px;
+$block-margin: 32px;
 $border-radius: 8px;
 $border-radius-large: $border-radius * 2;
-$size-image-button: ($content-width - ($block-margin * 4)) / 3;
+$gap-image-button: $block-margin * 1.5;
+$size-image-button: ($content-width - ($block-margin * 2) - ($gap-image-button * 2)) / 3;
+
 $divider-color: transparentize($text-color, 0.7);
 $secondary-divider-color: transparentize($divider-color, 0.2);
+
 $z-index-above-current: 1;
 $z-index-above-everything: 100000; // Above everything, even the WordPress toolbar.
 $z-index-menu: $z-index-above-everything;
 $z-index-screen-reader: $z-index-above-everything;
 $z-index-glow: $z-index-above-current;
+
 $theme-base-path: "/wp-content/themes/klasse-wir-singen";
 
 @mixin button-3d {
@@ -110,31 +133,23 @@ $theme-base-path: "/wp-content/themes/klasse-wir-singen";
 @import "normalize.css";
 
 * {
-  font-family: inherit;
-  font-size: 100%;
-  font-weight: inherit;
-  font-style: inherit;
-  margin: 0;
-  padding: 0;
-  vertical-align: baseline;
-  border: 0;
-  outline: 0;
   box-sizing: border-box;
 }
 
 html {
-  font-size: 10px;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
+  font-size: $font-size;
+
+  @media screen and (min-width: $content-width) {
+    font-size: $font-size-desktop;
+  }
 
   body {
     background: $background-site;
     color: $text-color;
     font-family: $font-family;
-    font-size: 16px;
     line-height: $line-height;
 
-    &.home {
+    &.home, &.tag-hide-title {
       .site {
         .site-content {
           .content-wrapper {
@@ -175,23 +190,26 @@ html {
     }
 
     ol, ul {
-      margin: 0 0 $block-margin $block-margin;
+      margin: 0 0 $block-margin;
 
-      li > ul,
-      li > ol {
+      &:first-child {
         margin-bottom: 0;
-        margin-left: 1em;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
       }
     }
 
     ol {
       &.lyrics {
-        margin-left: 0;
+        margin: $block-margin 0;
+        padding: 0;
 
         li {
           display: block;
           position: relative;
-          margin-bottom: $block-margin * 0.5;
+          margin-bottom: $block-margin;
           padding-left: $block-margin * 2;
 
           @media screen and (min-width: $site-width * 0.5) {
@@ -259,43 +277,34 @@ html {
       quotes: "" "";
     }
 
-    blockquote {
+    blockquote, blockquote.wp-block-quote {
       clear: both;
       border: none;
-      font-size: 23px;
+      font-size: 1.2em;
+      margin-top: 2ex;
       margin-left: 0;
-      margin-bottom: $block-margin;
-      padding-left: $block-margin * 1.5;
+      padding: 0 0 0 $block-margin;
+      border-left: 3px solid $divider-color;
       position: relative;
-      border-left: 2px solid $secondary-divider-color;
       font-style: italic;
-
-      &:before {
-        content: "\201C";
-        font-size: 80px;
-        font-style: normal;
-        line-height: 1;
-        position: absolute;
-        top: 0;
-        left: -0.2em;
-      }
 
       &.joke {
         background: $background-box;
         border: 2px solid $primary-color;
         border-radius: $border-radius;
-        margin-top: $block-margin * 1.5;
+        margin-top: 3ex;
         font-family: "Comic Neue", "Comic Sans", Lobster, cursive;
         font-weight: bold;
-        padding: ($block-margin * 0.5) ($block-margin * 0.5) ($block-margin * 0.5) ($block-margin * 4.5);
+        font-style: normal;
+        padding: 1em 1em 1em 5em;
 
         &:before {
           content: "😂";
-          font-size: $block-margin * 2.5;
+          position: absolute;
+          font-size: 3em;
           color: $text-color;
-          top: -$block-margin * 0.5;
-          left: $block-margin;
-          transform: rotate(10deg);
+          top: -0.75ex;
+          left: 0.3em;
           text-shadow: 0 ($block-margin * 0.125) ($block-margin * 0.125) transparentize($text-color, 0.5);
         }
 
@@ -318,6 +327,7 @@ html {
 
       &.diary {
         font-family: $font-family-heading;
+        font-style: normal;
 
         cite {
           font-family: $font-family-heading;
@@ -327,7 +337,7 @@ html {
       cite {
         display: block;
         font-family: $font-family;
-        font-size: 16px;
+        font-size: 0.75em;
         font-weight: bold;
         margin: ($block-margin * 0.5) 0;
         text-transform: uppercase;
@@ -341,9 +351,10 @@ html {
     a {
       color: $primary-color;
       text-decoration: underline;
+      transition: color 0.1s ease;
 
       &:hover, &:focus, &:active {
-        color: $primary-color-dimmed-dark;
+        color: $active-color;
       }
     }
 
@@ -357,7 +368,7 @@ html {
       }
 
       .wp-block-columns {
-        gap: $block-margin;
+        gap: $gap-image-button;
 
         @media screen and (max-width: $content-width - 1px) {
           position: relative;
@@ -371,14 +382,14 @@ html {
           flex: $size-image-button 0 !important;
           min-width: $size-image-button;
           margin: 0;
-          text-align: center;
+          hyphens: none;
 
           figure {
-            margin-bottom: $block-margin * 0.5;
+            margin-bottom: 0.5em;
           }
 
-          h1 {
-            margin-bottom: $block-margin * 0.5;
+          h2 {
+            margin-top: 0;
           }
 
           a {
@@ -399,7 +410,7 @@ html {
       .wp-block-columns {
         align-items: center;
         justify-content: center;
-        gap: $block-margin;
+        gap: $gap-image-button;
 
         .wp-block-column {
           // Needs !important because WordPress-internal CSS uses !important.
@@ -412,10 +423,15 @@ html {
             flex: $size-image-button 0 !important;
           }
 
+          figure {
+            margin-bottom: 0;
+          }
+
           a {
             text-decoration: none;
             color: $text-color;
             display: block;
+            hyphens: none;
 
             img {
               margin: 0;
@@ -425,13 +441,46 @@ html {
       }
     }
 
+    .song-title-header {
+
+      .wp-block-columns {
+        align-items: center;
+        justify-content: center;
+        gap: $gap-image-button;
+
+        .wp-block-column {
+          // Needs !important because WordPress-internal CSS uses !important.
+          flex: ($size-image-button * 0.75) 1 !important;
+          min-width: $size-image-button * 0.75;
+          margin: 0;
+
+          &:first-child {
+            // Needs !important because WordPress-internal CSS uses !important.
+            flex: ($size-image-button * 0.75) 0 !important;
+          }
+
+          figure {
+            margin-bottom: 0;
+
+            img {
+              margin: 0;
+              width: $size-image-button * 0.75;
+              height: $size-image-button * 0.75;
+              border: 2px solid $border-color-song-button;
+            }
+          }
+        }
+      }
+    }
+
     .song-grid {
+      margin-top: $block-margin * 0.75;
       margin-bottom: $block-margin;
 
       .grids-section {
         > div {
           display: flex;
-          gap: ($block-margin * 2) $block-margin;
+          gap: ($gap-image-button * 1.5) $gap-image-button;
           flex-flow: row wrap;
           justify-content: space-evenly;
 
@@ -475,10 +524,26 @@ html {
                 box-shadow: 0 0 ($block-margin * 0.5) 0 transparentize($text-color, 0.9);
               }
 
+              &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: $block-margin * 1.5;
+                height: $block-margin * 1.5;
+                z-index: $z-index-above-current;
+                background-image: url($theme-base-path + "/images/hint-song.svg");
+                background-repeat: no-repeat;
+                background-position: bottom center;
+                background-size: contain;
+              }
+
               a {
                 img {
                   margin: 0;
-                  border: 2px solid $accent-color-green;
+                  border: 2px solid $border-color-song-button;
                 }
               }
             }
@@ -493,15 +558,17 @@ html {
               }
             }
 
-            h2 {
+            h3 {
               margin-top: $block-margin * 0.5;
               margin-bottom: 0;
-              line-height: 1.2;
+              hyphens: none;
+              font-size: 1.35em;
+              font-weight: bold;
             }
 
             a {
               text-decoration: none;
-              color: $text-color;
+              color: $palette-dark-green;
               display: block;
             }
           }
@@ -511,40 +578,39 @@ html {
 
     h1, h2, h3, h4, h5, h6 {
       clear: both;
-      font-weight: bold;
+      font-weight: 400;
+      margin: 0.5em 0;
       color: $text-color-heading;
-      margin: $block-margin 0;
-
-      strong {
-        // Fake bold as the font family only has one weight.
-        text-shadow: 1px 0 0 currentColor, 0 1px 0 currentColor;
-      }
     }
 
     h1 {
-      font-size: 29px;
+      font-size: 2.25em;
       text-transform: uppercase;
+      font-family: $font-family-heading;
+      hyphens: none;
     }
 
     h2 {
-      font-size: 23px;
+      font-size: 2em;
       text-transform: uppercase;
+      font-family: $font-family-heading;
+      hyphens: none;
     }
 
     h3 {
-      font-size: 18px;
+      font-size: 1.75em;
     }
 
     h4 {
-      font-size: 16px;
+      font-size: 1.5em;
     }
 
     h5 {
-      font-size: 15px;
+      font-size: 1.25em;
     }
 
     h6 {
-      font-size: 14px;
+      font-size: 1em;
     }
 
     hr {
@@ -556,6 +622,7 @@ html {
   }
 
   p {
+    margin-top: 0;
     margin-bottom: $block-margin;
 
     &:last-child {
@@ -609,8 +676,22 @@ html {
     margin: 0;
   }
 
-  .wp-block-column .wp-block-image:last-child figure {
-    margin-bottom: 0;
+  .wp-block-columns {
+    .wp-block-column {
+      margin-bottom: $block-margin;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @media screen and (min-width: $site-width * 0.5) {
+        margin-bottom: 0;
+      }
+
+      .wp-block-image:last-child figure {
+        margin-bottom: 0;
+      }
+    }
   }
 
   figure, [class^="wp-block-"] figure, figure[class^="wp-block-"] {
@@ -633,7 +714,7 @@ html {
 
       figcaption {
         font-style: normal;
-        font-size: inherit;
+        text-align: center;
 
         &:before {
           content: "";
@@ -642,42 +723,21 @@ html {
           width: $block-margin * 2;
           height: $block-margin;
           display: block;
-          margin: 0 auto;
+          margin: 0 auto 0.2em;
         }
       }
     }
 
     figcaption {
       margin: 0;
+      text-align: left;
+      font-size: 1em;
     }
 
-    &.image-button, &.song-title-button {
+    &.image-button {
       display: inline-block;
       position: relative;
       margin: 0 0 $block-margin;
-
-      &.song-title-button {
-
-        @media screen and (min-width: $content-width) {
-          float: left;
-          margin-right: $block-margin;
-        }
-
-        a {
-
-          img {
-            display: block;
-            width: $size-image-button * 0.65;
-            height: $size-image-button * 0.65;
-            margin: 0;
-            border: 2px solid $accent-color-green;
-          }
-        }
-
-        + .wp-block-buttons + * {
-          clear: both;
-        }
-      }
 
       a {
         @include button-3d;
@@ -736,6 +796,61 @@ html {
     }
   }
 
+  .h5p-content {
+    color: inherit;
+    background: none;
+
+    .h5p-container {
+      ul[role="application"] {
+        margin: 0;
+        overflow: visible;
+
+        .h5p-memory-wrap {
+          .h5p-memory-card {
+            margin: 0;
+
+            .h5p-front, .h5p-back {
+              color: inherit !important;
+              background-color: $background-box !important;
+              border: 2px solid $primary-color !important;
+              border-radius: $border-radius;
+              overflow: hidden;
+
+              &:after {
+                display: none;
+              }
+
+              .h5p-memory-audio-button {
+                color: $text-color-inverse;
+              }
+            }
+          }
+        }
+      }
+
+      .h5p-memory-pop {
+        background: $background-box;
+        border: 2px solid $primary-color;
+        border-radius: $border-radius;
+        min-width: $content-width - $block-margin !important;
+        box-shadow: none;
+
+        .h5p-memory-top {
+          background: none;
+          border: 0;
+
+          .h5p-memory-image {
+            color: inherit !important;
+            background-color: $background-box !important;
+            border: 2px solid $primary-color !important;
+            border-radius: $border-radius;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+
   .box, .information, .appendix, .accent-gallery {
     clear: both;
     border-radius: $border-radius;
@@ -746,7 +861,7 @@ html {
 
     &.accent-gallery {
       background: $background-box-accent;
-      border-color: $accent-color;
+      border-color: $border-color-box-accent;
     }
 
     .wp-block-group__inner-container {
@@ -761,6 +876,14 @@ html {
       figure {
         &.box-header {
           margin: (-$block-margin) (-$block-margin) $block-margin (-$block-margin);
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+
+        &.wp-block-video {
+          @media screen and (min-width: $content-width) {
+            margin: $block-margin * 0.5;
+          }
         }
       }
     }
@@ -770,28 +893,30 @@ html {
     border-radius: $border-radius;
     border: 2px solid $primary-color;
     background: $background-box;
-    padding: $block-margin * 0.5;
-    margin-bottom: 1.5em;
+    padding: $block-margin;
+    margin: 0 0 $block-margin;
+    min-height: 0;
 
     form {
       margin-bottom: 0;
 
+      .pretix-widget-action {
+        width: auto;
+        margin: 0;
+      }
+
       button {
         border: none;
         border-radius: $border-radius;
-        font-size: inherit;
-        line-height: inherit;
+        font-size: $font-size-button;
+        line-height: $line-height-button;
+        padding: 0;
+        width: auto;
 
-        &:hover {
+        &:hover, &:focus, &:active, &:hover:focus, &:hover:active {
           border: none;
-          background: $primary-color-dimmed-dark;
+          background: $active-color;
           color: $text-color-inverse;
-        }
-
-        &:focus, &:active, &:hover:focus, &:hover:active {
-          border: none;
-          background: $primary-color-dimmed-light;
-          color: $text-color;
         }
       }
 
@@ -825,88 +950,91 @@ html {
 
   button, input, select, textarea {
     margin: 0;
-    vertical-align: baseline;
-    line-height: normal;
-
-    &::-moz-focus-inner {
-      border: 0;
-      padding: 0;
-    }
   }
 
-  button, input[type="button"], input[type="reset"], input[type="submit"], .button, .wp-block-button, .wp-block-file__button {
+  button, input[type="button"], input[type="reset"], input[type="submit"], .button, .wp-block-button {
     display: inline-block;
-    font-family: $font-family-heading;
-    background: $primary-color;
+    background: $secondary-color;
     color: $text-color-inverse;
     cursor: pointer;
     border: none;
-    text-transform: uppercase;
-    line-height: 1.75;
-    padding: ($block-margin * 0.2) ($block-margin * 0.5) ($block-margin * 0.1);
+    font-size: $font-size-button;
     text-align: center;
     vertical-align: middle;
     border-radius: $border-radius;
+    line-height: $line-height-button;
     transition: background 0.1s, color 0.1s, box-shadow 0.15s ease;
-
+    padding: 0 0.75em;
 
     &:hover, &:focus, &:active {
-      background: $secondary-color;
+      background: $active-color;
     }
 
     &.call-to-action {
       @include button-3d;
 
-      font-size: 24px;
-      padding: ($block-margin * 0.3) $block-margin ($block-margin * 0.2);
+      font-size: 1.5em;
+      padding: 0 1em;
+      line-height: 2;
+      font-weight: bold;
       transition: background 0.15s;
-      margin-top: $block-margin;
+      background: $accent-color;
     }
 
     &.outline, &.is-style-outline {
       background: $background-site;
-      color: $primary-color;
-      box-shadow: inset 0 0 0 2px $primary-color;
+      color: mix($secondary-color, $text-color);
+      box-shadow: inset 0 0 0 2px $secondary-color;
 
       &:hover, &:focus, &:active {
         color: $text-color-inverse;
-        background: $secondary-color;
+        background: $active-color;
         box-shadow: none;
-      }
-
-      &.wp-block-button a.wp-block-button__link {
-        background: none;
-        color: inherit;
-        border: none;
-      }
-    }
-
-    &.wp-block-button a.wp-block-button__link {
-      background: none;
-      color: $text-color-inverse;
-      cursor: inherit;
-      display: inline;
-      font-size: inherit;
-      font-weight: inherit;
-      letter-spacing: inherit;
-      line-height: inherit;
-      padding: 0;
-      text-align: inherit;
-      vertical-align: inherit;
-      text-transform: inherit;
-      box-shadow: none;
-
-      &:hover, &:focus, &:active {
-        background: none;
-        color: inherit;
-        opacity: inherit;
       }
     }
   }
 
   .wp-block-buttons {
-    margin-bottom: $block-margin;
-    gap: $block-margin ($block-margin * 0.5);
+    margin: $block-margin 0;
+    gap: 0 ($block-margin * 0.5);
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .wp-block-button {
+      margin: 0;
+
+      .wp-block-button__link {
+        display: inline;
+        font-size: inherit;
+        font-weight: inherit;
+        letter-spacing: inherit;
+        line-height: inherit;
+        padding: 0;
+        text-align: inherit;
+        vertical-align: inherit;
+        text-transform: inherit;
+        box-shadow: none;
+        text-decoration: inherit;
+        background: none;
+        border-radius: 0;
+        overflow-wrap: inherit;
+        box-sizing: inherit;
+        color: inherit;
+        border: none;
+
+        &:hover, &:focus, &:active {
+          background: none;
+          color: inherit;
+          opacity: inherit;
+        }
+      }
+    }
   }
 
   form {
@@ -917,7 +1045,7 @@ html {
       border: 2px solid $primary-color;
       background: $background-box;
       border-radius: $border-radius;
-      padding: $block-margin / 2;
+      padding: $block-margin;
       margin-bottom: $block-margin;
       width: 100%;
       min-width: auto;
@@ -930,8 +1058,8 @@ html {
     input:not([type="button"], [type="reset"], [type="submit"], [type="range"], [type="file"]), textarea {
       border: 1px solid $divider-color;
       background: white;
-      font-size: 15px;
-      padding: 0.8em;
+      font-size: 0.9em;
+      padding: 0.5em 1em;
       border-radius: $border-radius;
       transition: border-color 0.1s;
 
@@ -961,7 +1089,7 @@ html {
     }
 
     label input, label textarea {
-      margin-bottom: $block-margin / 3;
+      margin-bottom: $block-margin / 2;
     }
   }
 
@@ -1003,7 +1131,7 @@ html {
     }
 
     header.site-header {
-      margin-bottom: $block-margin;
+      margin-bottom: $block-margin * 1.5;
 
       @media screen and (min-width: $content-width) {
         margin-bottom: $block-margin * 2;
@@ -1011,7 +1139,8 @@ html {
 
       nav.main-navigation {
         font-family: $font-family-heading;
-        font-size: 18px;
+        font-size: $font-size-button;
+        line-height: $line-height-button;
         padding: 0 $block-margin;
 
         @media screen and (min-width: $content-width) {
@@ -1025,7 +1154,7 @@ html {
           width: 100%;
           background: $primary-color;
           color: $text-color-inverse;
-          padding: ($block-margin * 0.3) ($block-margin * 0.5) ($block-margin * 0.2);
+          padding: 0.2em 0.75em;
           text-transform: uppercase;
           letter-spacing: 4px;
           border-radius: $border-radius;
@@ -1036,15 +1165,15 @@ html {
           }
 
           &:hover, &:focus, &:active {
-            background: $secondary-color;
+            background: $active-color;
           }
 
           &:before {
             display: inline-block;
             content: "\f419";
             font-family: $font-family-icons;
-            margin-right: $block-margin * 0.5;
-            font-size: 1.75ex;
+            margin-right: 1em;
+            font-size: 0.65em;
           }
         }
 
@@ -1053,12 +1182,14 @@ html {
             display: none;
             overflow: hidden;
             margin: 0;
+            padding: 0;
 
             @media screen and (min-width: $content-width) {
               display: flex;
+              gap: $block-margin * 0.5;
               justify-content: space-between;
               overflow: visible;
-              margin: 0 $block-margin * 0.75;
+              margin: 0 $block-margin;
             }
 
             li.menu-item {
@@ -1072,23 +1203,24 @@ html {
                 outline: none;
                 background: $primary-color;
                 color: $text-color-inverse;
-                padding: ($block-margin * 0.3) ($block-margin * 0.5) ($block-margin * 0.2);
                 text-decoration: none;
                 text-transform: uppercase;
                 transition: color 0.1s, background 0.1s;
                 white-space: nowrap;
+                padding: 0.2em 0.75em;
 
                 @media screen and (min-width: $content-width) {
-                  padding: ($block-margin * 0.15) ($block-margin * 0.75);
+                  padding: 0.1em 0.5em;
                 }
 
                 &:hover, &:focus, &:active {
-                  background: $secondary-color;
+                  background: $active-color;
                 }
               }
 
               ul.sub-menu {
                 margin: 0;
+                padding: 0;
                 font-family: $font-family;
 
                 li.menu-item {
@@ -1102,9 +1234,8 @@ html {
             > li.menu-item {
 
               @media screen and (min-width: $content-width) {
-                flex: 0;
+                flex: content 1;
                 position: relative;
-                margin: 0 ($block-margin * 0.25);
 
                 &:hover, &:focus, &:active {
                   > ul.sub-menu {
@@ -1112,7 +1243,7 @@ html {
                   }
 
                   > a {
-                    background: $secondary-color;
+                    background: $active-color;
                   }
                 }
 
@@ -1123,9 +1254,9 @@ html {
 
               > a {
                 @media screen and (min-width: $content-width) {
+                  text-align: center;
                   border-top-width: 0;
                   border-radius: $border-radius;
-                  padding: ($block-margin * 0.1) ($block-margin * 0.75);
                 }
               }
 
@@ -1135,7 +1266,7 @@ html {
                   display: none;
                   position: absolute;
                   z-index: $z-index-menu;
-                  padding-top: $block-margin * 0.25;
+                  padding-top: 0.2em;
                   min-width: 100%;
                 }
 
@@ -1160,10 +1291,10 @@ html {
                   }
 
                   > a {
-                    padding-left: $block-margin * 1;
+                    padding-left: 1.5em;
 
                     @media screen and (min-width: $content-width) {
-                      padding-left: $block-margin * 0.75;
+                      padding-left: 0.5em;
                     }
                   }
 
@@ -1172,7 +1303,7 @@ html {
                       border-top: 0;
 
                       > a {
-                        padding-left: $block-margin * 1.5;
+                        padding-left: 2em;
 
                         @media screen and (min-width: $content-width) {
                           padding-left: $block-margin * 1.25;
@@ -1182,7 +1313,7 @@ html {
                       > ul.sub-menu {
                         > li.menu-item {
                           > a {
-                            padding-left: $block-margin * 2;
+                            padding-left: 2.5em;
 
                             @media screen and (min-width: $content-width) {
                               padding-left: $block-margin * 1.5;
@@ -1192,7 +1323,7 @@ html {
                           > ul.sub-menu {
                             > li.menu-item {
                               > a {
-                                padding-left: $block-margin * 2.5;
+                                padding-left: 3em;
 
                                 @media screen and (min-width: $content-width) {
                                   padding-left: $block-margin * 1.75;
@@ -1202,7 +1333,7 @@ html {
                               > ul.sub-menu {
                                 > li.menu-item {
                                   > a {
-                                    padding-left: $block-margin * 3;
+                                    padding-left: 3.5em;
 
                                     @media screen and (min-width: $content-width) {
                                       padding-left: $block-margin * 2;
@@ -1242,31 +1373,30 @@ html {
         background-image: url($theme-base-path + "/images/header-notes.svg");
         background-repeat: no-repeat;
         background-position-x: center;
-        background-position-y: bottom;
+        background-position-y: 25%;
         background-size: cover;
-        height: 60vw;
+        height: 45vw;
 
         @media screen and (min-width: $site-width * 0.5) {
-          height: 40vw;
+          background-position-y: 70%;
+          height: 35vw;
         }
 
         @media screen and (min-width: $site-width) {
-          height: $site-width  / 100  * 40;
+          height: $site-width  / 100  * 35;
         }
 
         .logo-link {
           display: block;
           width: 100%;
-          padding: 5vw (1 * $block-margin);
-          text-align: center;
+          padding: 8.5vw $block-margin;
 
           @media screen and (min-width: $site-width * 0.5) {
-            text-align: left;
-            padding: 4vw (1.5 * $block-margin);
+            padding: 7vw 6vw;
           }
 
-          @media screen and (min-width: $site-width) {
-            padding: ($site-width / 100 * 4) (1.5 * $block-margin);
+          @media screen and (min-width: $content-width) {
+            padding: ($content-width / 100 * 7) ($content-width / 100 * 6);
           }
 
           .logo {
@@ -1296,7 +1426,7 @@ html {
       background-position-y: top;
       background-size: cover;
       height: 60vw;
-      font-size: 15px;
+      font-size: 0.9em;
 
       @media screen and (min-width: $site-width * 0.5) {
         height: 40vw;
@@ -1307,6 +1437,7 @@ html {
       }
 
       nav.footer-navigation {
+        padding: $block-margin;
         margin-top: 40vw;
 
         @media screen and (min-width: $site-width * 0.5) {
@@ -1321,11 +1452,13 @@ html {
 
           ul.menu {
             display: flex;
+            gap: $block-margin * 0.5;
             justify-content: center;
-            margin: $block-margin * 0.25;
+            margin: 0;
+            padding: 0;
 
             @media screen and (min-width: $site-width * 0.5) {
-              margin: ($block-margin * 0.25) ($block-margin * 0.5);
+              gap: $block-margin;
             }
 
             li {
@@ -1339,16 +1472,14 @@ html {
                 font-family: $font-family-heading;
                 background: $primary-color;
                 border-radius: $border-radius;
-                padding: 0 ($block-margin * 0.5);
-                margin: $block-margin * 0.25;
+                padding: 0.2em 1em;
 
                 @media screen and (min-width: $site-width * 0.5) {
-                  padding: 0 $block-margin;
-                  margin: ($block-margin * 0.25) ($block-margin * 0.5);
+                  padding: 0.2em 1.25em;
                 }
 
                 &:hover, &:focus, &:active {
-                  background: $secondary-color;
+                  background: $active-color;
                 }
               }
             }
@@ -1395,7 +1526,7 @@ html {
       }
 
       .content-wrapper {
-        padding: $block-margin;
+        padding: 0 $block-margin;
         position: relative;
         -webkit-hyphens: auto;
         -ms-hyphens: auto;
@@ -1414,24 +1545,8 @@ html {
             width: 100%;
           }
 
-          h1, h2, h3, h4 {
-            font-family: $font-family-heading;
-          }
-
           .entry-header {
-            margin-top: $block-margin;
-
-            .entry-title {
-              text-transform: uppercase;
-              margin-bottom: $block-margin;
-
-              @media screen and (min-width: $content-width) {
-                margin-bottom: $block-margin * 2;
-              }
-
-              @media screen and (min-width: $site-width) {
-              }
-            }
+            margin-bottom: $block-margin * 0.5;
           }
 
           .entry-summary {
@@ -1441,10 +1556,15 @@ html {
           .entry-content {
             .sharedaddy {
               // Social media sharing buttons.
+
+              .sd-sharing {
+                margin: 0;
+              }
+
               .sd-title {
-                font-size: inherit;
+                font-size: 1.25em;
                 margin-bottom: $block-margin;
-                font-weight: bold;
+                font-weight: 400;
 
                 &:before {
                   display: none;
@@ -1456,33 +1576,37 @@ html {
                   display: flex;
                   flex-wrap: wrap;
                   gap: $block-margin * 0.5;
-                  margin-bottom: $block-margin;
+                  // Needs !important because WordPress plugin-internal CSS uses !important.
+                  margin-bottom: $block-margin * 0.5 !important;
 
                   li {
                     margin: 0;
                     padding: 0;
 
                     a {
-                      font-family: $font-family-heading;
                       background: $primary-color;
                       // Needs !important because WordPress plugin-internal CSS uses !important.
                       color: $text-color-inverse !important;
                       border: none;
-                      text-transform: uppercase;
-                      line-height: 1.75;
-                      padding: ($block-margin * 0.2) ($block-margin * 0.5) ($block-margin * 0.1);
                       text-align: center;
                       vertical-align: middle;
                       border-radius: $border-radius;
                       transition: background 0.1s;
+                      font-size: 1.225em;
+                      padding: 0.4em 0.75em;
+
+                      @media screen and (min-width: $content-width) {
+                        padding: 0.3em 0.5em;
+                      }
 
                       &:hover, &:focus, &:active {
-                        background: $secondary-color;
+                        background: $active-color;
                       }
 
                       &:before {
-                        padding-right: $block-margin * 0.5;
-                        top: 1.5px;
+                        padding-right: 0.5em;
+                        top: auto;
+                        font-size: 1em;
                       }
 
                       span {
@@ -1494,7 +1618,7 @@ html {
 
                 .share-customizable-link {
                   a {
-                    font-size: inherit;
+                    font-size: 1em;
                     font-family: inherit;
                   }
                 }
@@ -1595,25 +1719,6 @@ html {
   margin: 0 0 3.2em 0;
 }
 
-.archive, .search {
-  .page-header, .page-header {
-    margin: 0 0 1.6em;
-  }
-
-  .page-title {
-    color: #a8a6a1;
-    font-family: $font-family;
-    font-size: 15px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-}
-
-.taxonomy-description {
-  font-size: 16px;
-}
-
 .hentry:after, .page-header:after {
   background: #f2f2f2;
   display: block;
@@ -1636,23 +1741,6 @@ html {
   padding: 0;
 }
 
-.cat-links {
-  display: inline-block;
-  margin-bottom: .4em;
-
-  a {
-    color: $primary-color;
-    display: inline-block;
-    font-family: $font-family;
-    font-style: normal;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin: 0;
-    text-transform: uppercase;
-  }
-}
-
 .updated:not(.published) {
   display: none;
 }
@@ -1669,40 +1757,6 @@ html {
 
 .thumbnail-placeholder {
   display: block;
-}
-
-.flex-container a:hover,
-.flex-slider a:hover {
-  outline: none;
-}
-
-.slides,
-.slides > li,
-.flex-control-nav,
-.flex-direction-nav {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.flex-pauseplay span {
-  text-transform: capitalize;
-}
-
-.flex-viewport {
-  max-height: 2000px;
-  transition: all 1s ease;
-}
-
-.loading .flex-viewport {
-  max-height: 300px;
-}
-
-.project-types, .project-tags {
-  color: #a8a6a1;
-  font-size: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 embed, iframe, object, audio, video {
@@ -1733,223 +1787,6 @@ embed, iframe, object, audio, video {
 .wp-caption-dd,
 .wp-caption-text {
   clear: both;
-  font-size: 15px;
   font-style: italic;
-  text-align: center;
   width: 100%;
-}
-
-.gallery-item {
-  display: inline-block;
-  overflow: hidden;
-  padding: 0 4px;
-  position: relative;
-  text-align: center;
-  vertical-align: top;
-  width: 100%;
-
-  &:hover, &:focus, &:active {
-    .gallery-caption {
-      opacity: 1;
-    }
-  }
-}
-
-.gallery-columns-1 .gallery-item {
-  padding: 0;
-}
-
-@for $i from 2 through 9 {
-  .gallery-columns-#{$i} .gallery-item {
-    max-width: 100% / $i;
-  }
-}
-
-.gallery-caption {
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.7);
-  font-size: 15px;
-  margin: 0;
-  max-height: 100%;
-  opacity: 0;
-  padding: 6px 8px;
-  position: absolute;
-  bottom: 7px;
-  left: 0;
-  text-align: left;
-  width: 100%;
-
-  &:before {
-    content: "";
-    min-height: 49px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.gallery-columns-7 .gallery-caption,
-.gallery-columns-8 .gallery-caption,
-.gallery-columns-9 .gallery-caption {
-  display: none;
-}
-
-
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-
-@media screen and (min-width: 800px) {
-
-  .site-title, h1 {
-    font-size: 47px;
-    line-height: 1.1;
-    margin-bottom: 0.2em;
-  }
-  h2 {
-    font-size: 29px;
-    margin-bottom: 0.4em;
-  }
-  .site-description, h4, body, button, input, select, textarea {
-    font-size: 18px;
-  }
-  h5 {
-    font-size: 16px;
-  }
-  h6, .cat-links a {
-    font-size: 15px;
-  }
-
-  .hentry:after, .post-navigation:after, .posts-navigation:after, .page-header:after {
-    width: 100%;
-  }
-
-  [class*="navigation"] {
-
-    .nav-previous {
-      float: left;
-      width: 48%;
-    }
-
-    .nav-next {
-      border-top: 0;
-      margin-top: 0;
-      padding-top: 0;
-      float: right;
-      width: 48%;
-    }
-  }
-}
-
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-// TODO
-
-
-@media screen and (min-width: $site-width) {
-
-  .flex-direction-nav {
-
-    a {
-      width: 52px;
-      height: 52px;
-
-      &:before {
-        font-size: 64px;
-      }
-    }
-
-    .flex-prev {
-      opacity: 1;
-      right: 6.4em;
-    }
-
-    .flex-next {
-      opacity: 1;
-      right: 3.2em;
-    }
-  }
-
-  .cat-links {
-    margin-bottom: .2em;
-  }
-  .entry-meta {
-    line-height: 2;
-    position: absolute;
-    text-align: right;
-    width: 121px;
-    left: 0;
-
-    > span {
-      display: block;
-      margin-right: 0;
-    }
-  }
-  .post-navigation .nav-links, .posts-navigation .nav-links {
-    margin-left: 150px;
-  }
-  .single-jetpack-testimonial .post-navigation {
-    margin-left: 0;
-  }
-
-  .entry-thumbnail {
-    min-height: 80px;
-  }
-
-  .entry-body {
-    margin-top: 1.6em;
-    padding: 0 0 0 150px;
-  }
-  .post-thumbnail {
-    margin-left: -55px;
-    margin-right: -55px;
-    width: auto;
-
-    + .entry-header {
-      background-color: #fff;
-      padding: 1.3em 1.6em 0 1.9em;
-      position: absolute;
-      transform: translateY(-100%) translateY(.4em);
-      margin: 0 0 0 120px;
-      width: calc(100% - 65px);
-    }
-  }
-  .blog, .single, .archive, .search {
-    .without-featured-image > .entry-header {
-      margin-left: 150px;
-    }
-  }
-  .archive .page-header, .search .page-header {
-    margin: 0 0 2.4em;
-  }
-  .page-title, .taxonomy-description, .no-results .page-content {
-    padding-left: 150px;
-  }
-  .search .no-results .page-title, .search .no-results .page-content, .error404 .page-title {
-    padding-left: 0;
-  }
 }
