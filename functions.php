@@ -140,6 +140,22 @@ function dara_auto_excerpt_more() {
 add_filter( 'excerpt_more', 'dara_auto_excerpt_more' );
 
 /**
+ * Add tag support to pages.
+ */
+function tags_support_all() {
+    register_taxonomy_for_object_type('post_tag', 'page');
+}
+add_action('init', 'tags_support_all');
+
+/**
+ * Ensure all tags are included in queries.
+ */
+function tags_support_query($wp_query) {
+    if ($wp_query->get('tag')) $wp_query->set('post_type', 'any');
+}
+add_action('pre_get_posts', 'tags_support_query');
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
