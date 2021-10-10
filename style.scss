@@ -296,6 +296,7 @@ html {
           top: -$block-margin * 0.5;
           left: $block-margin;
           transform: rotate(10deg);
+          text-shadow: 0 ($block-margin * 0.125) ($block-margin * 0.125) transparentize($text-color, 0.5);
         }
 
         &:nth-child(4n+0):before {
@@ -527,6 +528,7 @@ html {
 
     h2 {
       font-size: 23px;
+      text-transform: uppercase;
     }
 
     h3 {

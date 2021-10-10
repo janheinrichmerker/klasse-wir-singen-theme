@@ -174,7 +174,8 @@ html {
           color: #031b2f;
           top: -12px;
           left: 24px;
-          transform: rotate(10deg); }
+          transform: rotate(10deg);
+          text-shadow: 0 3px 3px rgba(3, 27, 47, 0.5); }
         html body blockquote.joke:nth-child(4n+0):before {
           content: "😂"; }
         html body blockquote.joke:nth-child(4n+1):before {
@@ -343,7 +344,8 @@ html {
       font-size: 29px;
       text-transform: uppercase; }
     html body h2 {
-      font-size: 23px; }
+      font-size: 23px;
+      text-transform: uppercase; }
     html body h3 {
       font-size: 18px; }
     html body h4 {
