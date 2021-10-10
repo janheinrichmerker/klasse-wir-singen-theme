@@ -492,14 +492,8 @@ html {
       border-top-width: 2px; }
     html table tfoot tr:last-child th {
       border-bottom-width: 2px; }
-  html .negative-margin-left {
-    margin-left: -24px; }
-  html .negative-margin-right {
-    margin-right: -24px; }
-  html .double-negative-margin-top {
-    margin-top: -48px; }
-  html .extra-margin-top {
-    margin-top: 36px; }
+  html .h5p-iframe-wrapper iframe.h5p-iframe {
+    overflow: visible; }
   html .box, html .information, html .appendix, html .accent-gallery {
     clear: both;
     border-radius: 8px;
@@ -1034,9 +1028,6 @@ html {
             display: inline-block; }
       html .site .site-content .content-wrapper .hentry:after {
         width: 100%; }
-
-.h5p-inner {
-  border-radius: 8px; }
 
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);

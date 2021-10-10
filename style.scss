@@ -730,20 +730,10 @@ html {
     }
   }
 
-  .negative-margin-left {
-    margin-left: -$block-margin;
-  }
-
-  .negative-margin-right {
-    margin-right: -$block-margin;
-  }
-
-  .double-negative-margin-top {
-    margin-top: -$block-margin * 2;
-  }
-
-  .extra-margin-top {
-    margin-top: $block-margin * 1.5;
+  .h5p-iframe-wrapper {
+    iframe.h5p-iframe {
+      overflow: visible;
+    }
   }
 
   .box, .information, .appendix, .accent-gallery {
@@ -1541,10 +1531,6 @@ html {
       }
     }
   }
-}
-
-.h5p-inner {
-  border-radius: $border-radius;
 }
 
 .screen-reader-text {
