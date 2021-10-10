@@ -96,7 +96,9 @@ function dara_scripts() {
 
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/assets/genericons/genericons.css', array(), '3.4.1' );
 
-	wp_enqueue_script( 'dara-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
+    wp_enqueue_script( 'dara-h5p', get_template_directory_uri() . '/assets/js/h5p.js', array(), '20151215', true );
+
+    wp_enqueue_script( 'dara-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'dara-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 
