@@ -13,6 +13,7 @@ Text Domain: klasse-wir-singen
 $primary-color: #07375e;
 $secondary-color: #00adef;
 $accent-color: #fab30c;
+$accent-color-green: #0d733a;
 $background-content: #e1f19f;
 $background-content-dark: #bfe259;
 $background-site: #edf5d7;
@@ -26,9 +27,13 @@ $font-family-typewriter: "Courier 10 Pitch", Courier, monospace;
 $font-family-icons: Genericons, monospace;
 $background-preformatted: darken($background-content, 6%);
 $background-mark: #fff9c0;
-$text-color: #051826;
+//$text-color: #051826;
+//$text-color: $primary-color;
+$text-color: darken($primary-color, 10%);
+$text-color-heading: $primary-color;
 $text-color-disabled: transparentize($text-color, 0.3);
 $text-color-inverse: #fff;
+$line-height: 1.4;
 $site-width: 1080px;
 $content-width: $site-width * 0.75;
 $block-margin: 24px;
@@ -37,7 +42,69 @@ $border-radius-large: $border-radius * 2;
 $size-image-button: ($content-width - ($block-margin * 4)) / 3;
 $divider-color: transparentize($text-color, 0.7);
 $secondary-divider-color: transparentize($divider-color, 0.2);
+$z-index-above-current: 1;
+$z-index-above-everything: 100000; // Above everything, even the WordPress toolbar.
+$z-index-menu: $z-index-above-everything;
+$z-index-screen-reader: $z-index-above-everything;
+$z-index-glow: $z-index-above-current;
 $theme-base-path: "/wp-content/themes/klasse-wir-singen";
+
+@mixin button-3d {
+  display: block;
+  position: relative;
+  border-radius: $border-radius-large;
+
+  &:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+    border-radius: $border-radius-large;
+    box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.75),
+    inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.8),
+            ($block-margin * 0.125) ($block-margin * 0.25) ($block-margin * 0.25) 0 transparentize($text-color, 0.9);
+    transition: box-shadow 0.15s ease;
+  }
+
+  &:hover:after {
+    box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.8),
+    inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.85),
+    0 ($block-margin * 0.125) ($block-margin * 0.125) 0 transparentize($text-color, 0.9);
+  }
+
+  img, video {
+    border-radius: $border-radius-large;
+  }
+}
+
+@mixin horizontal-scroll-glow {
+  position: relative;
+
+  &:after, &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: $block-margin * 3;
+    pointer-events: none;
+    z-index: $z-index-glow;
+  }
+
+  &:before {
+    left: 0;
+    background: radial-gradient(ellipse farthest-side at left, transparentize($background-content, 0.1), transparent);
+  }
+
+  &:after {
+    right: 0;
+    background: radial-gradient(ellipse farthest-side at right, transparentize($background-content, 0.1), transparent);
+  }
+}
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Architects+Daughter&family=Slackey&family=Comic+Neue:wght@700&display=swap");
 @import "normalize.css";
@@ -65,7 +132,7 @@ html {
     color: $text-color;
     font-family: $font-family;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: $line-height;
 
     &.home {
       .site {
@@ -83,11 +150,25 @@ html {
       }
     }
 
-    &.tag-jubilaeum {
-      .site {
-        .site-header {
-          .site-branding {
-            background-image: url($theme-base-path + "/images/header-animals.svg");
+    $header-tags: "animals", "bells", "coast", "cows", "leafs", "love", "math", "nature", "notes", "sheep", "wolves";
+    @each $tag in $header-tags {
+      &.tag-header-#{$tag} {
+        .site {
+          header.site-header {
+            .site-branding {
+              background-image: url($theme-base-path + "/images/header-#{$tag}.svg");
+            }
+          }
+        }
+      }
+    }
+
+    $footer-tags: "horses", "notes";
+    @each $tag in $footer-tags {
+      &.tag-footer-#{$tag} {
+        .site {
+          footer.site-footer {
+            background-image: url($theme-base-path + "/images/footer-#{$tag}.svg");
           }
         }
       }
@@ -162,6 +243,10 @@ html {
       }
     }
 
+    .clear {
+      clear: both;
+    }
+
     table {
       border-spacing: 0;
     }
@@ -186,7 +271,6 @@ html {
       font-style: italic;
 
       &:before {
-        color: $text-color-disabled;
         content: "\201C";
         font-size: 80px;
         font-style: normal;
@@ -197,36 +281,36 @@ html {
       }
 
       &.joke {
-        background: $background-box-accent;
-        border: 2px solid $accent-color;
+        background: $background-box;
+        border: 2px solid $primary-color;
         border-radius: $border-radius;
-        margin-top: 0.25em;
+        margin-top: $block-margin * 1.5;
         font-family: "Comic Neue", "Comic Sans", Lobster, cursive;
         font-weight: bold;
-        padding-right: $block-margin * 0.5;
+        padding: ($block-margin * 0.5) ($block-margin * 0.5) ($block-margin * 0.5) ($block-margin * 4.5);
 
         &:before {
           content: "😂";
-          font-size: 50px;
+          font-size: $block-margin * 2.5;
           color: $text-color;
-          top: -0.15em;
-          left: -0.7em;
+          top: -$block-margin * 0.5;
+          left: $block-margin;
           transform: rotate(10deg);
         }
 
-        &#{":nth-child(4n+0)"}:before {
+        &:nth-child(4n+0):before {
           content: "😂";
         }
 
-        &#{":nth-child(4n+1)"}:before {
+        &:nth-child(4n+1):before {
           content: "😄";
         }
 
-        &#{":nth-child(4n+2)"}:before {
+        &:nth-child(4n+2):before {
           content: "🤣";
         }
 
-        &#{":nth-child(4n+3)"}:before {
+        &:nth-child(4n+3):before {
           content: "😜";
         }
       }
@@ -266,29 +350,9 @@ html {
       margin: 0 0 $block-margin;
 
       @media screen and (max-width: $content-width - 1px) {
-        position: relative;
+        @include horizontal-scroll-glow;
+
         margin: 0 (-$block-margin) $block-margin (-$block-margin);
-
-        &:after, &:before {
-          content: "";
-          display: block;
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          width: $block-margin * 3;
-          pointer-events: none;
-          z-index: 1;
-        }
-
-        &:before {
-          left: 0;
-          background: radial-gradient(ellipse farthest-side at left, transparentize($background-content, 0.1), transparent);
-        }
-
-        &:after {
-          right: 0;
-          background: radial-gradient(ellipse farthest-side at right, transparentize($background-content, 0.1), transparent);
-        }
       }
 
       .wp-block-columns {
@@ -389,14 +453,41 @@ html {
               width: auto;
             }
 
-            figure {
+            figure.image-button {
+              position: relative;
               margin: 0;
 
-              a {
-                border: 2px solid #0d733a;
+              &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                top: -$block-margin * 0.75;
+                left: 50%;
+                transform: translateX(-50%);
+                width: $block-margin * 1.5;
+                height: $block-margin * 1.5;
+                z-index: $z-index-above-current;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                border-radius: 50%;
+                box-shadow: 0 0 ($block-margin * 0.5) 0 transparentize($text-color, 0.9);
+              }
 
+              a {
                 img {
                   margin: 0;
+                  border: 2px solid $accent-color-green;
+                }
+              }
+            }
+
+            @for $i from 1 through 10 {
+              &:nth-child(#{$i}) figure.image-button:before {
+                @if ($i < 10) {
+                  background-image: url($theme-base-path + "/images/number-0#{$i}.svg");
+                } @else {
+                  background-image: url($theme-base-path + "/images/number-#{$i}.svg");
                 }
               }
             }
@@ -420,7 +511,13 @@ html {
     h1, h2, h3, h4, h5, h6 {
       clear: both;
       font-weight: bold;
+      color: $text-color-heading;
       margin: $block-margin 0;
+
+      strong {
+        // Fake bold as the font family only has one weight.
+        text-shadow: 1px 0 0 currentColor, 0 1px 0 currentColor;
+      }
     }
 
     h1 {
@@ -506,44 +603,32 @@ html {
     text-decoration: none;
   }
 
-  figure, [class^="wp-block-"] figure {
-    clear: both;
+  .wp-block-image {
     margin: 0;
+  }
+
+  .wp-block-column .wp-block-image:last-child figure {
+    margin-bottom: 0;
+  }
+
+  figure, [class^="wp-block-"] figure, figure[class^="wp-block-"] {
+    clear: both;
+    margin: 0 0 $block-margin;
 
     &.wp-block-video {
-      position: relative;
-      border-radius: $border-radius-large;
-      overflow: hidden;
+      @include button-3d;
 
       video {
-        border-radius: 0;
-        margin: 0;
-      }
-
-      &:after {
         display: block;
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        pointer-events: none;
-        border-radius: $border-radius-large;
-        box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.75),
-        inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.8),
-                ($block-margin * 0.125) ($block-margin * 0.25) ($block-margin * 0.25) 0 transparentize($text-color, 0.9);
-        transition: box-shadow 0.15s ease;
-      }
-
-      &:hover:after {
-        box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.8),
-        inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.85),
-        0 ($block-margin * 0.125) ($block-margin * 0.125) 0 transparentize($text-color, 0.9);
+        margin: 0;
       }
     }
 
     &.wp-block-audio {
+      audio {
+        margin-bottom: $block-margin * 0.25;
+      }
+
       figcaption {
         font-style: normal;
         font-size: inherit;
@@ -558,10 +643,6 @@ html {
           margin: 0 auto;
         }
       }
-    }
-
-    img, audio, video {
-      margin-bottom: $block-margin * 0.25;
     }
 
     figcaption {
@@ -581,43 +662,23 @@ html {
         }
 
         a {
-          border: 2px solid #0d733a;
 
           img {
             display: block;
             width: $size-image-button * 0.65;
             height: $size-image-button * 0.65;
             margin: 0;
+            border: 2px solid $accent-color-green;
           }
+        }
+
+        + .wp-block-buttons + * {
+          clear: both;
         }
       }
 
       a {
-        display: block;
-        overflow: hidden;
-        border-radius: $border-radius-large;
-
-        &:after {
-          display: block;
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          right: 0;
-          pointer-events: none;
-          border-radius: $border-radius-large;
-          box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.75),
-          inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.8),
-                  ($block-margin * 0.125) ($block-margin * 0.25) ($block-margin * 0.25) 0 transparentize($text-color, 0.9);
-          transition: box-shadow 0.15s ease;
-        }
-
-        &:hover:after {
-          box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.8),
-          inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.85),
-          0 ($block-margin * 0.125) ($block-margin * 0.125) 0 transparentize($text-color, 0.9);
-        }
+        @include button-3d;
 
         img {
           display: block;
@@ -696,33 +757,19 @@ html {
       border-color: $accent-color;
     }
 
-    figure {
-      &.box-header {
-        margin: (-$block-margin) (-$block-margin) $block-margin (-$block-margin);
+    .wp-block-group__inner-container {
+      > :first-child {
+        margin-top: 0;
       }
-    }
 
-    :first-child {
-      margin-top: 0;
-    }
-
-    :last-child {
-      margin-bottom: 0;
-    }
-
-    p {
-      margin-bottom: 1em;
-    }
-
-    .wp-block-buttons {
-      margin-bottom: 1em;
-
-      &:last-child {
+      > :last-child {
         margin-bottom: 0;
       }
 
-      .wp-block-button {
-        margin-bottom: 0;
+      figure {
+        &.box-header {
+          margin: (-$block-margin) (-$block-margin) $block-margin (-$block-margin);
+        }
       }
     }
   }
@@ -816,33 +863,12 @@ html {
     }
 
     &.call-to-action {
+      @include button-3d;
+
       font-size: 24px;
-      position: relative;
-      border-radius: $border-radius-large;
       padding: ($block-margin * 0.3) $block-margin ($block-margin * 0.2);
       transition: background 0.15s;
-
-      &:after {
-        display: block;
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        pointer-events: none;
-        border-radius: $border-radius-large;
-        box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.75),
-        inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.8),
-                ($block-margin * 0.125) ($block-margin * 0.25) ($block-margin * 0.25) 0 transparentize($text-color, 0.9);
-        transition: box-shadow 0.15s ease;
-      }
-
-      &:hover:after {
-        box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.8),
-        inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.85),
-        0 ($block-margin * 0.125) ($block-margin * 0.125) 0 transparentize($text-color, 0.9);
-      }
+      margin-top: $block-margin;
     }
 
     &.outline, &.is-style-outline {
@@ -1116,7 +1142,7 @@ html {
                 @media screen and (min-width: $content-width) {
                   display: none;
                   position: absolute;
-                  z-index: 100000;
+                  z-index: $z-index-menu;
                   padding-top: $block-margin * 0.25;
                   min-width: 100%;
                 }
@@ -1272,7 +1298,7 @@ html {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background-image: url($theme-base-path + "/images/footer-horses.svg");
+      background-image: url($theme-base-path + "/images/footer-notes.svg");
       background-repeat: no-repeat;
       background-position-x: center;
       background-position-y: top;
@@ -1354,10 +1380,10 @@ html {
 
         figure {
           border-radius: 0;
+        }
 
-          img {
-            border-radius: 0;
-          }
+        img {
+          border-radius: 0;
         }
       }
 
@@ -1367,30 +1393,11 @@ html {
         margin: 0 auto;
 
         .entry-thumbnail {
-          position: relative;
-          border-radius: $border-radius-large;
-          overflow: hidden;
-
-          &:after {
-            display: block;
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            pointer-events: none;
-            border-radius: $border-radius-large;
-            box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.75),
-            inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.8),
-                    ($block-margin * 0.125) ($block-margin * 0.25) ($block-margin * 0.25) 0 transparentize($text-color, 0.9);
-            transition: box-shadow 0.15s ease;
-          }
+          @include button-3d;
 
           img {
             object-fit: cover;
             max-height: 50vh;
-            border-radius: 0;
           }
         }
       }
@@ -1538,72 +1545,6 @@ html {
   border-radius: $border-radius;
 }
 
-.post-navigation, .posts-navigation {
-  margin: .8em 0 0;
-  position: relative;
-
-  &:after {
-    content: "";
-    background: #f2f2f2;
-    display: block;
-    margin-top: .8em;
-    position: relative;
-    height: 1px;
-  }
-}
-
-[class*="navigation"] {
-  .nav-previous {
-    width: 100%;
-
-    .meta-nav:before {
-      content: "\2190";
-      margin-right: 5px;
-    }
-  }
-
-  .nav-next {
-    border-top: 1px solid #f2f2f2;
-    margin-top: .4em;
-    padding-top: .4em;
-    text-align: right;
-    width: 100%;
-
-    .meta-nav:after {
-      content: "\2192";
-      margin-left: 5px;
-    }
-  }
-}
-
-.post-navigation, .paging-navigation {
-
-  a {
-    display: inline-block;
-    font-size: 18px;
-    max-width: 100%;
-    word-wrap: break-word;
-    transition: color 0.2s;
-
-    &:hover,
-    &:focus,
-    &:active {
-      color: #666;
-    }
-  }
-}
-
-.post-navigation .title {
-  display: block;
-  color: #a8a6a1;
-  clear: both;
-  font-family: $font-family;
-  font-style: normal;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 15px;
-}
-
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
@@ -1627,7 +1568,7 @@ html {
     text-decoration: none;
     top: 5px;
     width: auto;
-    z-index: 100000; /* Above WP toolbar */
+    z-index: $z-index-screen-reader;
   }
 }
 
@@ -1651,28 +1592,6 @@ html {
 
 .display-header-text .site-image {
   margin-bottom: 12px;
-}
-
-.site-title {
-  font-size: 29px;
-  line-height: 1.2;
-  margin-bottom: 0;
-
-  a {
-    color: #444340;
-    text-decoration: none;
-  }
-}
-
-.site-description {
-  color: #a8a6a1;
-  font-size: 16px;
-  font-weight: normal;
-  margin-bottom: .4em;
-
-  a {
-    text-decoration: none;
-  }
 }
 
 .hentry {
@@ -1716,9 +1635,6 @@ html {
 }
 
 .entry-thumbnail, .post-thumbnail {
-  background: -webkit-linear-gradient(135deg, white 25%, #f0f2f0 25%, #f0f2f0 50%, white 50%, white 75%, #f0f2f0 75%, #f0f2f0);
-  background: -moz-linear-gradient(135deg, white 25%, #f0f2f0 25%, #f0f2f0 50%, white 50%, white 75%, #f0f2f0 75%, #f0f2f0);
-  background: -o-linear-gradient(135deg, white 25%, #f0f2f0 25%, #f0f2f0 50%, white 50%, white 75%, #f0f2f0 75%, #f0f2f0);
   background: linear-gradient(135deg, white 25%, #f0f2f0 25%, #f0f2f0 50%, white 50%, white 75%, #f0f2f0 75%, #f0f2f0);
   background-size: 4px 4px;
 
@@ -1856,7 +1772,6 @@ embed, iframe, object, audio, video {
 }
 
 @for $i from 2 through 9 {
-
   .gallery-columns-#{$i} .gallery-item {
     max-width: 100% / $i;
   }

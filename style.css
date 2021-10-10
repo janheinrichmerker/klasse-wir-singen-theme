@@ -30,14 +30,38 @@ html {
   -ms-text-size-adjust: 100%; }
   html body {
     background: #edf5d7;
-    color: #051826;
+    color: #031b2f;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 16px;
-    line-height: 1.6; }
+    line-height: 1.4; }
     html body.home .site .site-content .content-wrapper .content-area .entry-header .entry-title {
       display: none; }
-    html body.tag-jubilaeum .site .site-header .site-branding {
+    html body.tag-header-animals .site header.site-header .site-branding {
       background-image: url("/wp-content/themes/klasse-wir-singen/images/header-animals.svg"); }
+    html body.tag-header-bells .site header.site-header .site-branding {
+      background-image: url("/wp-content/themes/klasse-wir-singen/images/header-bells.svg"); }
+    html body.tag-header-coast .site header.site-header .site-branding {
+      background-image: url("/wp-content/themes/klasse-wir-singen/images/header-coast.svg"); }
+    html body.tag-header-cows .site header.site-header .site-branding {
+      background-image: url("/wp-content/themes/klasse-wir-singen/images/header-cows.svg"); }
+    html body.tag-header-leafs .site header.site-header .site-branding {
+      background-image: url("/wp-content/themes/klasse-wir-singen/images/header-leafs.svg"); }
+    html body.tag-header-love .site header.site-header .site-branding {
+      background-image: url("/wp-content/themes/klasse-wir-singen/images/header-love.svg"); }
+    html body.tag-header-math .site header.site-header .site-branding {
+      background-image: url("/wp-content/themes/klasse-wir-singen/images/header-math.svg"); }
+    html body.tag-header-nature .site header.site-header .site-branding {
+      background-image: url("/wp-content/themes/klasse-wir-singen/images/header-nature.svg"); }
+    html body.tag-header-notes .site header.site-header .site-branding {
+      background-image: url("/wp-content/themes/klasse-wir-singen/images/header-notes.svg"); }
+    html body.tag-header-sheep .site header.site-header .site-branding {
+      background-image: url("/wp-content/themes/klasse-wir-singen/images/header-sheep.svg"); }
+    html body.tag-header-wolves .site header.site-header .site-branding {
+      background-image: url("/wp-content/themes/klasse-wir-singen/images/header-wolves.svg"); }
+    html body.tag-footer-horses .site footer.site-footer {
+      background-image: url("/wp-content/themes/klasse-wir-singen/images/footer-horses.svg"); }
+    html body.tag-footer-notes .site footer.site-footer {
+      background-image: url("/wp-content/themes/klasse-wir-singen/images/footer-notes.svg"); }
     html body ol, html body ul {
       margin: 0 0 24px 24px; }
       html body ol li > ul,
@@ -110,6 +134,8 @@ html {
         background-image: url("/wp-content/themes/klasse-wir-singen/images/number-09.svg"); }
       html body ol.lyrics[start="0"] li:nth-child(11):before {
         background-image: url("/wp-content/themes/klasse-wir-singen/images/number-10.svg"); }
+    html body .clear {
+      clear: both; }
     html body table {
       border-spacing: 0; }
     html body caption, html body th, html body td {
@@ -124,10 +150,9 @@ html {
       margin-bottom: 24px;
       padding-left: 36px;
       position: relative;
-      border-left: 2px solid rgba(5, 24, 38, 0.1);
+      border-left: 2px solid rgba(3, 27, 47, 0.1);
       font-style: italic; }
       html body blockquote:before {
-        color: rgba(5, 24, 38, 0.7);
         content: "\201C";
         font-size: 80px;
         font-style: normal;
@@ -136,19 +161,19 @@ html {
         top: 0;
         left: -0.2em; }
       html body blockquote.joke {
-        background: #fdd207;
-        border: 2px solid #fab30c;
+        background: #cceffc;
+        border: 2px solid #07375e;
         border-radius: 8px;
-        margin-top: 0.25em;
+        margin-top: 36px;
         font-family: "Comic Neue", "Comic Sans", Lobster, cursive;
         font-weight: bold;
-        padding-right: 12px; }
+        padding: 12px 12px 12px 108px; }
         html body blockquote.joke:before {
           content: "😂";
-          font-size: 50px;
-          color: #051826;
-          top: -0.15em;
-          left: -0.7em;
+          font-size: 60px;
+          color: #031b2f;
+          top: -12px;
+          left: 24px;
           transform: rotate(10deg); }
         html body blockquote.joke:nth-child(4n+0):before {
           content: "😂"; }
@@ -216,7 +241,7 @@ html {
             margin-bottom: 12px; }
           html body .featured-columns .wp-block-columns .wp-block-column a {
             text-decoration: none;
-            color: #051826;
+            color: #031b2f;
             display: block; }
             html body .featured-columns .wp-block-columns .wp-block-column a img {
               margin: 0; }
@@ -232,7 +257,7 @@ html {
           flex: 238px 0 !important; }
         html body .teaser-columns .wp-block-columns .wp-block-column a {
           text-decoration: none;
-          color: #051826;
+          color: #031b2f;
           display: block; }
           html body .teaser-columns .wp-block-columns .wp-block-column a img {
             margin: 0; }
@@ -258,24 +283,62 @@ html {
           @media screen and (min-width: 810px) {
             html body .song-grid .grids-section > div .grids-area {
               width: auto; } }
-          html body .song-grid .grids-section > div .grids-area figure {
+          html body .song-grid .grids-section > div .grids-area figure.image-button {
+            position: relative;
             margin: 0; }
-            html body .song-grid .grids-section > div .grids-area figure a {
+            html body .song-grid .grids-section > div .grids-area figure.image-button:before {
+              content: "";
+              display: block;
+              position: absolute;
+              top: -18px;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 36px;
+              height: 36px;
+              z-index: 1;
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: contain;
+              border-radius: 50%;
+              box-shadow: 0 0 12px 0 rgba(3, 27, 47, 0.1); }
+            html body .song-grid .grids-section > div .grids-area figure.image-button a img {
+              margin: 0;
               border: 2px solid #0d733a; }
-              html body .song-grid .grids-section > div .grids-area figure a img {
-                margin: 0; }
+          html body .song-grid .grids-section > div .grids-area:nth-child(1) figure.image-button:before {
+            background-image: url("/wp-content/themes/klasse-wir-singen/images/number-01.svg"); }
+          html body .song-grid .grids-section > div .grids-area:nth-child(2) figure.image-button:before {
+            background-image: url("/wp-content/themes/klasse-wir-singen/images/number-02.svg"); }
+          html body .song-grid .grids-section > div .grids-area:nth-child(3) figure.image-button:before {
+            background-image: url("/wp-content/themes/klasse-wir-singen/images/number-03.svg"); }
+          html body .song-grid .grids-section > div .grids-area:nth-child(4) figure.image-button:before {
+            background-image: url("/wp-content/themes/klasse-wir-singen/images/number-04.svg"); }
+          html body .song-grid .grids-section > div .grids-area:nth-child(5) figure.image-button:before {
+            background-image: url("/wp-content/themes/klasse-wir-singen/images/number-05.svg"); }
+          html body .song-grid .grids-section > div .grids-area:nth-child(6) figure.image-button:before {
+            background-image: url("/wp-content/themes/klasse-wir-singen/images/number-06.svg"); }
+          html body .song-grid .grids-section > div .grids-area:nth-child(7) figure.image-button:before {
+            background-image: url("/wp-content/themes/klasse-wir-singen/images/number-07.svg"); }
+          html body .song-grid .grids-section > div .grids-area:nth-child(8) figure.image-button:before {
+            background-image: url("/wp-content/themes/klasse-wir-singen/images/number-08.svg"); }
+          html body .song-grid .grids-section > div .grids-area:nth-child(9) figure.image-button:before {
+            background-image: url("/wp-content/themes/klasse-wir-singen/images/number-09.svg"); }
+          html body .song-grid .grids-section > div .grids-area:nth-child(10) figure.image-button:before {
+            background-image: url("/wp-content/themes/klasse-wir-singen/images/number-10.svg"); }
           html body .song-grid .grids-section > div .grids-area h2 {
             margin-top: 12px;
             margin-bottom: 0;
             line-height: 1.2; }
           html body .song-grid .grids-section > div .grids-area a {
             text-decoration: none;
-            color: #051826;
+            color: #031b2f;
             display: block; }
     html body h1, html body h2, html body h3, html body h4, html body h5, html body h6 {
       clear: both;
       font-weight: bold;
+      color: #07375e;
       margin: 24px 0; }
+      html body h1 strong, html body h2 strong, html body h3 strong, html body h4 strong, html body h5 strong, html body h6 strong {
+        text-shadow: 1px 0 0 currentColor, 0 1px 0 currentColor; }
     html body h1 {
       font-size: 29px;
       text-transform: uppercase; }
@@ -293,7 +356,7 @@ html {
       border: 0;
       height: 1px;
       margin: 1.5em 0;
-      background-color: rgba(5, 24, 38, 0.3); }
+      background-color: rgba(3, 27, 47, 0.3); }
   html p {
     margin-bottom: 24px; }
     html p:last-child {
@@ -316,22 +379,23 @@ html {
     overflow-x: scroll;
     padding: 1em; }
   html abbr, html acronym {
-    border-bottom: 1px dotted rgba(5, 24, 38, 0.5);
+    border-bottom: 1px dotted rgba(3, 27, 47, 0.5);
     cursor: help; }
   html mark, html ins {
     background-color: #fff9c0;
     text-decoration: none; }
-  html figure, html [class^="wp-block-"] figure {
-    clear: both;
+  html .wp-block-image {
     margin: 0; }
-    html figure.wp-block-video, html [class^="wp-block-"] figure.wp-block-video {
+  html .wp-block-column .wp-block-image:last-child figure {
+    margin-bottom: 0; }
+  html figure, html [class^="wp-block-"] figure, html figure[class^="wp-block-"] {
+    clear: both;
+    margin: 0 0 24px; }
+    html figure.wp-block-video, html [class^="wp-block-"] figure.wp-block-video, html figure[class^="wp-block-"].wp-block-video {
+      display: block;
       position: relative;
-      border-radius: 16px;
-      overflow: hidden; }
-      html figure.wp-block-video video, html [class^="wp-block-"] figure.wp-block-video video {
-        border-radius: 0;
-        margin: 0; }
-      html figure.wp-block-video:after, html [class^="wp-block-"] figure.wp-block-video:after {
+      border-radius: 16px; }
+      html figure.wp-block-video:after, html [class^="wp-block-"] figure.wp-block-video:after, html figure[class^="wp-block-"].wp-block-video:after {
         display: block;
         content: "";
         position: absolute;
@@ -341,14 +405,21 @@ html {
         right: 0;
         pointer-events: none;
         border-radius: 16px;
-        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(5, 24, 38, 0.2), 3px 6px 6px 0 rgba(5, 24, 38, 0.1);
+        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(3, 27, 47, 0.2), 3px 6px 6px 0 rgba(3, 27, 47, 0.1);
         transition: box-shadow 0.15s ease; }
-      html figure.wp-block-video:hover:after, html [class^="wp-block-"] figure.wp-block-video:hover:after {
-        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2), inset -8px -8px 8px 0 rgba(5, 24, 38, 0.15), 0 3px 3px 0 rgba(5, 24, 38, 0.1); }
-    html figure.wp-block-audio figcaption, html [class^="wp-block-"] figure.wp-block-audio figcaption {
+      html figure.wp-block-video:hover:after, html [class^="wp-block-"] figure.wp-block-video:hover:after, html figure[class^="wp-block-"].wp-block-video:hover:after {
+        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2), inset -8px -8px 8px 0 rgba(3, 27, 47, 0.15), 0 3px 3px 0 rgba(3, 27, 47, 0.1); }
+      html figure.wp-block-video img, html figure.wp-block-video video, html [class^="wp-block-"] figure.wp-block-video img, html [class^="wp-block-"] figure.wp-block-video video, html figure[class^="wp-block-"].wp-block-video img, html figure[class^="wp-block-"].wp-block-video video {
+        border-radius: 16px; }
+      html figure.wp-block-video video, html [class^="wp-block-"] figure.wp-block-video video, html figure[class^="wp-block-"].wp-block-video video {
+        display: block;
+        margin: 0; }
+    html figure.wp-block-audio audio, html [class^="wp-block-"] figure.wp-block-audio audio, html figure[class^="wp-block-"].wp-block-audio audio {
+      margin-bottom: 6px; }
+    html figure.wp-block-audio figcaption, html [class^="wp-block-"] figure.wp-block-audio figcaption, html figure[class^="wp-block-"].wp-block-audio figcaption {
       font-style: normal;
       font-size: inherit; }
-      html figure.wp-block-audio figcaption:before, html [class^="wp-block-"] figure.wp-block-audio figcaption:before {
+      html figure.wp-block-audio figcaption:before, html [class^="wp-block-"] figure.wp-block-audio figcaption:before, html figure[class^="wp-block-"].wp-block-audio figcaption:before {
         content: "";
         background: url("/wp-content/themes/klasse-wir-singen/images/hint-audio.svg") center no-repeat;
         background-size: contain;
@@ -356,30 +427,29 @@ html {
         height: 24px;
         display: block;
         margin: 0 auto; }
-    html figure img, html figure audio, html figure video, html [class^="wp-block-"] figure img, html [class^="wp-block-"] figure audio, html [class^="wp-block-"] figure video {
-      margin-bottom: 6px; }
-    html figure figcaption, html [class^="wp-block-"] figure figcaption {
+    html figure figcaption, html [class^="wp-block-"] figure figcaption, html figure[class^="wp-block-"] figcaption {
       margin: 0; }
-    html figure.image-button, html figure.song-title-button, html [class^="wp-block-"] figure.image-button, html [class^="wp-block-"] figure.song-title-button {
+    html figure.image-button, html figure.song-title-button, html [class^="wp-block-"] figure.image-button, html [class^="wp-block-"] figure.song-title-button, html figure[class^="wp-block-"].image-button, html figure[class^="wp-block-"].song-title-button {
       display: inline-block;
       position: relative;
       margin: 0 0 24px; }
       @media screen and (min-width: 810px) {
-        html figure.image-button.song-title-button, html figure.song-title-button.song-title-button, html [class^="wp-block-"] figure.image-button.song-title-button, html [class^="wp-block-"] figure.song-title-button.song-title-button {
+        html figure.image-button.song-title-button, html figure.song-title-button.song-title-button, html [class^="wp-block-"] figure.image-button.song-title-button, html [class^="wp-block-"] figure.song-title-button.song-title-button, html figure[class^="wp-block-"].image-button.song-title-button, html figure[class^="wp-block-"].song-title-button.song-title-button {
           float: left;
           margin-right: 24px; } }
-      html figure.image-button.song-title-button a, html figure.song-title-button.song-title-button a, html [class^="wp-block-"] figure.image-button.song-title-button a, html [class^="wp-block-"] figure.song-title-button.song-title-button a {
-        border: 2px solid #0d733a; }
-        html figure.image-button.song-title-button a img, html figure.song-title-button.song-title-button a img, html [class^="wp-block-"] figure.image-button.song-title-button a img, html [class^="wp-block-"] figure.song-title-button.song-title-button a img {
-          display: block;
-          width: 154.7px;
-          height: 154.7px;
-          margin: 0; }
-      html figure.image-button a, html figure.song-title-button a, html [class^="wp-block-"] figure.image-button a, html [class^="wp-block-"] figure.song-title-button a {
+      html figure.image-button.song-title-button a img, html figure.song-title-button.song-title-button a img, html [class^="wp-block-"] figure.image-button.song-title-button a img, html [class^="wp-block-"] figure.song-title-button.song-title-button a img, html figure[class^="wp-block-"].image-button.song-title-button a img, html figure[class^="wp-block-"].song-title-button.song-title-button a img {
         display: block;
-        overflow: hidden;
+        width: 154.7px;
+        height: 154.7px;
+        margin: 0;
+        border: 2px solid #0d733a; }
+      html figure.image-button.song-title-button + .wp-block-buttons + *, html figure.song-title-button.song-title-button + .wp-block-buttons + *, html [class^="wp-block-"] figure.image-button.song-title-button + .wp-block-buttons + *, html [class^="wp-block-"] figure.song-title-button.song-title-button + .wp-block-buttons + *, html figure[class^="wp-block-"].image-button.song-title-button + .wp-block-buttons + *, html figure[class^="wp-block-"].song-title-button.song-title-button + .wp-block-buttons + * {
+        clear: both; }
+      html figure.image-button a, html figure.song-title-button a, html [class^="wp-block-"] figure.image-button a, html [class^="wp-block-"] figure.song-title-button a, html figure[class^="wp-block-"].image-button a, html figure[class^="wp-block-"].song-title-button a {
+        display: block;
+        position: relative;
         border-radius: 16px; }
-        html figure.image-button a:after, html figure.song-title-button a:after, html [class^="wp-block-"] figure.image-button a:after, html [class^="wp-block-"] figure.song-title-button a:after {
+        html figure.image-button a:after, html figure.song-title-button a:after, html [class^="wp-block-"] figure.image-button a:after, html [class^="wp-block-"] figure.song-title-button a:after, html figure[class^="wp-block-"].image-button a:after, html figure[class^="wp-block-"].song-title-button a:after {
           display: block;
           content: "";
           position: absolute;
@@ -389,11 +459,13 @@ html {
           right: 0;
           pointer-events: none;
           border-radius: 16px;
-          box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(5, 24, 38, 0.2), 3px 6px 6px 0 rgba(5, 24, 38, 0.1);
+          box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(3, 27, 47, 0.2), 3px 6px 6px 0 rgba(3, 27, 47, 0.1);
           transition: box-shadow 0.15s ease; }
-        html figure.image-button a:hover:after, html figure.song-title-button a:hover:after, html [class^="wp-block-"] figure.image-button a:hover:after, html [class^="wp-block-"] figure.song-title-button a:hover:after {
-          box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2), inset -8px -8px 8px 0 rgba(5, 24, 38, 0.15), 0 3px 3px 0 rgba(5, 24, 38, 0.1); }
-        html figure.image-button a img, html figure.song-title-button a img, html [class^="wp-block-"] figure.image-button a img, html [class^="wp-block-"] figure.song-title-button a img {
+        html figure.image-button a:hover:after, html figure.song-title-button a:hover:after, html [class^="wp-block-"] figure.image-button a:hover:after, html [class^="wp-block-"] figure.song-title-button a:hover:after, html figure[class^="wp-block-"].image-button a:hover:after, html figure[class^="wp-block-"].song-title-button a:hover:after {
+          box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2), inset -8px -8px 8px 0 rgba(3, 27, 47, 0.15), 0 3px 3px 0 rgba(3, 27, 47, 0.1); }
+        html figure.image-button a img, html figure.image-button a video, html figure.song-title-button a img, html figure.song-title-button a video, html [class^="wp-block-"] figure.image-button a img, html [class^="wp-block-"] figure.image-button a video, html [class^="wp-block-"] figure.song-title-button a img, html [class^="wp-block-"] figure.song-title-button a video, html figure[class^="wp-block-"].image-button a img, html figure[class^="wp-block-"].image-button a video, html figure[class^="wp-block-"].song-title-button a img, html figure[class^="wp-block-"].song-title-button a video {
+          border-radius: 16px; }
+        html figure.image-button a img, html figure.song-title-button a img, html [class^="wp-block-"] figure.image-button a img, html [class^="wp-block-"] figure.song-title-button a img, html figure[class^="wp-block-"].image-button a img, html figure[class^="wp-block-"].song-title-button a img {
           display: block;
           width: 238px;
           height: 238px; }
@@ -404,16 +476,16 @@ html {
     margin: 0 0 24px 0;
     width: 100%; }
     html table tr td {
-      border-bottom: 1px solid rgba(5, 24, 38, 0.1);
+      border-bottom: 1px solid rgba(3, 27, 47, 0.1);
       padding: 0.4em; }
     html table tr th {
-      border-top: 1px solid rgba(5, 24, 38, 0.3);
+      border-top: 1px solid rgba(3, 27, 47, 0.3);
       font-weight: bold;
       padding: 0.4em; }
     html table tr:last-child td {
       border: none; }
     html table tr:last-child th {
-      border-bottom: 1px solid rgba(5, 24, 38, 0.3); }
+      border-bottom: 1px solid rgba(3, 27, 47, 0.3); }
     html table thead tr:first-child th {
       border-top-width: 2px; }
     html table tfoot tr:last-child th {
@@ -436,20 +508,12 @@ html {
     html .box.accent-gallery, html .information.accent-gallery, html .appendix.accent-gallery, html .accent-gallery.accent-gallery {
       background: #fdd207;
       border-color: #fab30c; }
-    html .box figure.box-header, html .information figure.box-header, html .appendix figure.box-header, html .accent-gallery figure.box-header {
-      margin: -24px -24px 24px -24px; }
-    html .box :first-child, html .information :first-child, html .appendix :first-child, html .accent-gallery :first-child {
+    html .box .wp-block-group__inner-container > :first-child, html .information .wp-block-group__inner-container > :first-child, html .appendix .wp-block-group__inner-container > :first-child, html .accent-gallery .wp-block-group__inner-container > :first-child {
       margin-top: 0; }
-    html .box :last-child, html .information :last-child, html .appendix :last-child, html .accent-gallery :last-child {
+    html .box .wp-block-group__inner-container > :last-child, html .information .wp-block-group__inner-container > :last-child, html .appendix .wp-block-group__inner-container > :last-child, html .accent-gallery .wp-block-group__inner-container > :last-child {
       margin-bottom: 0; }
-    html .box p, html .information p, html .appendix p, html .accent-gallery p {
-      margin-bottom: 1em; }
-    html .box .wp-block-buttons, html .information .wp-block-buttons, html .appendix .wp-block-buttons, html .accent-gallery .wp-block-buttons {
-      margin-bottom: 1em; }
-      html .box .wp-block-buttons:last-child, html .information .wp-block-buttons:last-child, html .appendix .wp-block-buttons:last-child, html .accent-gallery .wp-block-buttons:last-child {
-        margin-bottom: 0; }
-      html .box .wp-block-buttons .wp-block-button, html .information .wp-block-buttons .wp-block-button, html .appendix .wp-block-buttons .wp-block-button, html .accent-gallery .wp-block-buttons .wp-block-button {
-        margin-bottom: 0; }
+    html .box .wp-block-group__inner-container figure.box-header, html .information .wp-block-group__inner-container figure.box-header, html .appendix .wp-block-group__inner-container figure.box-header, html .accent-gallery .wp-block-group__inner-container figure.box-header {
+      margin: -24px -24px 24px -24px; }
   html .pretix-widget {
     border-radius: 8px;
     border: 2px solid #07375e;
@@ -470,7 +534,7 @@ html {
         html .pretix-widget form button:focus, html .pretix-widget form button:active, html .pretix-widget form button:hover:focus, html .pretix-widget form button:hover:active {
           border: none;
           background: #b5cc92;
-          color: #051826; }
+          color: #031b2f; }
       html .pretix-widget form input[type="number"], html .pretix-widget form input[type="text"] {
         border-radius: 8px; }
     html .pretix-widget .pretix-widget-category {
@@ -508,11 +572,13 @@ html {
     html button:hover, html button:focus, html button:active, html input[type="button"]:hover, html input[type="button"]:focus, html input[type="button"]:active, html input[type="reset"]:hover, html input[type="reset"]:focus, html input[type="reset"]:active, html input[type="submit"]:hover, html input[type="submit"]:focus, html input[type="submit"]:active, html .button:hover, html .button:focus, html .button:active, html .wp-block-button:hover, html .wp-block-button:focus, html .wp-block-button:active, html .wp-block-file__button:hover, html .wp-block-file__button:focus, html .wp-block-file__button:active {
       background: #00adef; }
     html button.call-to-action, html input[type="button"].call-to-action, html input[type="reset"].call-to-action, html input[type="submit"].call-to-action, html .button.call-to-action, html .wp-block-button.call-to-action, html .wp-block-file__button.call-to-action {
-      font-size: 24px;
+      display: block;
       position: relative;
       border-radius: 16px;
+      font-size: 24px;
       padding: 7.2px 24px 4.8px;
-      transition: background 0.15s; }
+      transition: background 0.15s;
+      margin-top: 24px; }
       html button.call-to-action:after, html input[type="button"].call-to-action:after, html input[type="reset"].call-to-action:after, html input[type="submit"].call-to-action:after, html .button.call-to-action:after, html .wp-block-button.call-to-action:after, html .wp-block-file__button.call-to-action:after {
         display: block;
         content: "";
@@ -523,10 +589,12 @@ html {
         right: 0;
         pointer-events: none;
         border-radius: 16px;
-        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(5, 24, 38, 0.2), 3px 6px 6px 0 rgba(5, 24, 38, 0.1);
+        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(3, 27, 47, 0.2), 3px 6px 6px 0 rgba(3, 27, 47, 0.1);
         transition: box-shadow 0.15s ease; }
       html button.call-to-action:hover:after, html input[type="button"].call-to-action:hover:after, html input[type="reset"].call-to-action:hover:after, html input[type="submit"].call-to-action:hover:after, html .button.call-to-action:hover:after, html .wp-block-button.call-to-action:hover:after, html .wp-block-file__button.call-to-action:hover:after {
-        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2), inset -8px -8px 8px 0 rgba(5, 24, 38, 0.15), 0 3px 3px 0 rgba(5, 24, 38, 0.1); }
+        box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2), inset -8px -8px 8px 0 rgba(3, 27, 47, 0.15), 0 3px 3px 0 rgba(3, 27, 47, 0.1); }
+      html button.call-to-action img, html button.call-to-action video, html input[type="button"].call-to-action img, html input[type="button"].call-to-action video, html input[type="reset"].call-to-action img, html input[type="reset"].call-to-action video, html input[type="submit"].call-to-action img, html input[type="submit"].call-to-action video, html .button.call-to-action img, html .button.call-to-action video, html .wp-block-button.call-to-action img, html .wp-block-button.call-to-action video, html .wp-block-file__button.call-to-action img, html .wp-block-file__button.call-to-action video {
+        border-radius: 16px; }
     html button.outline, html button.is-style-outline, html input[type="button"].outline, html input[type="button"].is-style-outline, html input[type="reset"].outline, html input[type="reset"].is-style-outline, html input[type="submit"].outline, html input[type="submit"].is-style-outline, html .button.outline, html .button.is-style-outline, html .wp-block-button.outline, html .wp-block-button.is-style-outline, html .wp-block-file__button.outline, html .wp-block-file__button.is-style-outline {
       background: #edf5d7;
       color: #07375e;
@@ -574,7 +642,7 @@ html {
     html form input, html form textarea {
       max-width: 100%; }
     html form input:not([type="button"], [type="reset"], [type="submit"], [type="range"], [type="file"]), html form textarea {
-      border: 1px solid rgba(5, 24, 38, 0.3);
+      border: 1px solid rgba(3, 27, 47, 0.3);
       background: white;
       font-size: 15px;
       padding: 0.8em;
@@ -622,7 +690,7 @@ html {
         padding: 0;
         border-left-width: 2px;
         border-right-width: 2px;
-        box-shadow: rgba(5, 24, 38, 0.15) 0 0 24px; } }
+        box-shadow: rgba(3, 27, 47, 0.15) 0 0 24px; } }
     html .site header.site-header {
       margin-bottom: 24px; }
       @media screen and (min-width: 810px) {
@@ -802,7 +870,7 @@ html {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background-image: url("/wp-content/themes/klasse-wir-singen/images/footer-horses.svg");
+      background-image: url("/wp-content/themes/klasse-wir-singen/images/footer-notes.svg");
       background-repeat: no-repeat;
       background-position-x: center;
       background-position-y: top;
@@ -852,21 +920,21 @@ html {
       border-radius: 8px;
       overflow: hidden; }
     html .site .site-content .mapp-layout {
-      border: 2px solid rgba(5, 24, 38, 0.3); }
+      border: 2px solid rgba(3, 27, 47, 0.3); }
     html .site .site-content .sharp-corners {
       border-radius: 0; }
       html .site .site-content .sharp-corners figure {
         border-radius: 0; }
-        html .site .site-content .sharp-corners figure img {
-          border-radius: 0; }
+      html .site .site-content .sharp-corners img {
+        border-radius: 0; }
     html .site .site-content .hero {
       padding: 24px;
       max-width: 810px;
       margin: 0 auto; }
       html .site .site-content .hero .entry-thumbnail {
+        display: block;
         position: relative;
-        border-radius: 16px;
-        overflow: hidden; }
+        border-radius: 16px; }
         html .site .site-content .hero .entry-thumbnail:after {
           display: block;
           content: "";
@@ -877,12 +945,15 @@ html {
           right: 0;
           pointer-events: none;
           border-radius: 16px;
-          box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(5, 24, 38, 0.2), 3px 6px 6px 0 rgba(5, 24, 38, 0.1);
+          box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(3, 27, 47, 0.2), 3px 6px 6px 0 rgba(3, 27, 47, 0.1);
           transition: box-shadow 0.15s ease; }
+        html .site .site-content .hero .entry-thumbnail:hover:after {
+          box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.2), inset -8px -8px 8px 0 rgba(3, 27, 47, 0.15), 0 3px 3px 0 rgba(3, 27, 47, 0.1); }
+        html .site .site-content .hero .entry-thumbnail img, html .site .site-content .hero .entry-thumbnail video {
+          border-radius: 16px; }
         html .site .site-content .hero .entry-thumbnail img {
           object-fit: cover;
-          max-height: 50vh;
-          border-radius: 0; }
+          max-height: 50vh; }
     html .site .site-content .content-wrapper {
       padding: 24px;
       position: relative;
@@ -955,7 +1026,7 @@ html {
           html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content .sharing-hidden .inner:before, html .site .site-content .content-wrapper .content-area .entry-content .sharedaddy .sd-content .sharing-hidden .inner:after {
             display: none; }
         html .site .site-content .content-wrapper .content-area .entry-meta, html .site .site-content .content-wrapper .content-area .entry-footer {
-          color: rgba(5, 24, 38, 0.7); }
+          color: rgba(3, 27, 47, 0.7); }
           html .site .site-content .content-wrapper .content-area .entry-meta > span, html .site .site-content .content-wrapper .content-area .entry-footer > span {
             margin-right: 12px;
             display: inline-block; }
@@ -964,51 +1035,6 @@ html {
 
 .h5p-inner {
   border-radius: 8px; }
-
-.post-navigation, .posts-navigation {
-  margin: .8em 0 0;
-  position: relative; }
-  .post-navigation:after, .posts-navigation:after {
-    content: "";
-    background: #f2f2f2;
-    display: block;
-    margin-top: .8em;
-    position: relative;
-    height: 1px; }
-
-[class*="navigation"] .nav-previous {
-  width: 100%; }
-  [class*="navigation"] .nav-previous .meta-nav:before {
-    content: "\2190";
-    margin-right: 5px; }
-[class*="navigation"] .nav-next {
-  border-top: 1px solid #f2f2f2;
-  margin-top: .4em;
-  padding-top: .4em;
-  text-align: right;
-  width: 100%; }
-  [class*="navigation"] .nav-next .meta-nav:after {
-    content: "\2192";
-    margin-left: 5px; }
-
-.post-navigation a, .paging-navigation a {
-  display: inline-block;
-  font-size: 18px;
-  max-width: 100%;
-  word-wrap: break-word;
-  transition: color 0.2s; }
-  .post-navigation a:hover, .post-navigation a:focus, .post-navigation a:active, .paging-navigation a:hover, .paging-navigation a:focus, .paging-navigation a:active {
-    color: #666; }
-
-.post-navigation .title {
-  display: block;
-  color: #a8a6a1;
-  clear: both;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 15px; }
 
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
@@ -1032,8 +1058,7 @@ html {
     text-decoration: none;
     top: 5px;
     width: auto;
-    z-index: 100000;
-    /* Above WP toolbar */ }
+    z-index: 100000; }
 
 .alignleft {
   display: inline;
@@ -1052,22 +1077,6 @@ html {
 
 .display-header-text .site-image {
   margin-bottom: 12px; }
-
-.site-title {
-  font-size: 29px;
-  line-height: 1.2;
-  margin-bottom: 0; }
-  .site-title a {
-    color: #444340;
-    text-decoration: none; }
-
-.site-description {
-  color: #a8a6a1;
-  font-size: 16px;
-  font-weight: normal;
-  margin-bottom: .4em; }
-  .site-description a {
-    text-decoration: none; }
 
 .hentry {
   position: relative;
@@ -1099,9 +1108,6 @@ html {
   height: 1px; }
 
 .entry-thumbnail, .post-thumbnail {
-  background: -webkit-linear-gradient(135deg, white 25%, #f0f2f0 25%, #f0f2f0 50%, white 50%, white 75%, #f0f2f0 75%, #f0f2f0);
-  background: -moz-linear-gradient(135deg, white 25%, #f0f2f0 25%, #f0f2f0 50%, white 50%, white 75%, #f0f2f0 75%, #f0f2f0);
-  background: -o-linear-gradient(135deg, white 25%, #f0f2f0 25%, #f0f2f0 50%, white 50%, white 75%, #f0f2f0 75%, #f0f2f0);
   background: linear-gradient(135deg, white 25%, #f0f2f0 25%, #f0f2f0 50%, white 50%, white 75%, #f0f2f0 75%, #f0f2f0);
   background-size: 4px 4px; }
   .entry-thumbnail img, .post-thumbnail img {
