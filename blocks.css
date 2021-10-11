@@ -86,16 +86,6 @@ blockquote cite {
 	right: -10px;
 }
 
-.rtl .wp-block-quote[style*="text-align:left"] {
-	padding-left: 2.4em;
-	padding-right: 0;
-}
-
-.rtl .wp-block-quote[style*="text-align:left"]::before {
-	left: -10px;
-	right: auto;
-}
-
 .wp-block-quote cite {
 	display: block;
 	font-family: "Source Sans Pro", Helvetica, sans-serif;
@@ -128,23 +118,6 @@ blockquote cite {
 .wp-block-quote.is-large p,
 .wp-block-quote.is-style-large p {
 	margin-bottom: .8em;
-}
-
-.rtl .wp-block-quote {
-	border: 0;
-}
-
-.rtl .wp-block-quote.is-large cite,
-.rtl .wp-block-quote.is-large footer,
-.rtl .wp-block-quote.is-style-large cite,
-.rtl .wp-block-quote.is-style-large footer {
-	text-align: right;
-}
-
-.rtl .wp-block-quote.is-large,
-.rtl .wp-block-quote.is-style-large {
-	padding-left: 0;
-	padding-right: 1.6em;
 }
 
 
@@ -254,12 +227,6 @@ blockquote cite {
 .wp-block-pullquote.alignleft p,
 .wp-block-pullquote.alignright p {
 	font-size: 23px;
-}
-
-.rtl .wp-block-pullquote blockquote {
-	border: 0;
-	padding-right: 1.6em;
-	padding-left: 0;
 }
 
 .wp-block-pullquote p {
