@@ -91,9 +91,7 @@ add_action( 'after_setup_theme', 'dara_setup' );
 function dara_scripts() {
 	wp_enqueue_style( 'dara-style', get_stylesheet_uri() );
 
-	// Gutenberg styles
-	wp_enqueue_style( 'dara-blocks', get_template_directory_uri() . '/blocks.css' );
-
+	// Scripts
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/assets/genericons/genericons.css', array(), '3.4.1' );
 
     wp_enqueue_script( 'dara-h5p', get_template_directory_uri() . '/assets/js/h5p.js', array(), '20151215', true );
@@ -112,7 +110,7 @@ add_action( 'wp_enqueue_scripts', 'dara_scripts' );
  * Gutenberg Editor Styles
  */
 function dara_editor_styles() {
-	wp_enqueue_style( 'dara-editor-block-style', get_template_directory_uri() . '/editor-blocks.css' );
+	wp_enqueue_style( 'dara-editor-block-style', get_template_directory_uri() . '/style-editor.css' );
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.3' );
 }
 add_action( 'enqueue_block_editor_assets', 'dara_editor_styles' );
