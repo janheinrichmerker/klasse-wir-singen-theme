@@ -50,7 +50,9 @@ $block-margin: 32px;
 $border-radius: 8px;
 $border-radius-large: $border-radius * 2;
 $gap-image-button: $block-margin * 1.5;
-$size-image-button: ($content-width - ($block-margin * 2) - ($gap-image-button * 2)) * math.div(1, 3);
+$gap-image-button-memory: $block-margin * 0.5;
+$size-image-button: ($content-width - ($block-margin * 2) - ($gap-image-button * (3 - 1))) * math.div(1, 3);
+$size-image-button-memory: ($content-width - ($block-margin * 2) - ($gap-image-button-memory * (6 - 1))) * math.div(1, 6);
 
 $divider-color: transparentize($text-color, 0.7);
 $secondary-divider-color: transparentize($divider-color, 0.2);
@@ -792,53 +794,102 @@ html {
   .h5p-content {
     color: inherit;
     background: none;
+    border: 0;
 
     .h5p-container {
+      overflow: visible;
+
       ul[role="application"] {
-        margin: 0;
-        overflow: visible;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: space-between;
+        justify-items: center;
+        margin: 0 0 1em !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        gap: $gap-image-button-memory;
+
+        @media screen and (min-width: $site-width * 0.4) {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media screen and (min-width: $site-width * 0.525) {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        @media screen and (min-width: $site-width * 0.625) {
+          grid-template-columns: repeat(5, 1fr);
+        }
+
+        @media screen and (min-width: $content-width) {
+          grid-template-columns: repeat(6, 1fr);
+        }
 
         .h5p-memory-wrap {
+          width: $size-image-button-memory !important;
+          height: $size-image-button-memory !important;
+          float: none;
+
           .h5p-memory-card {
+            display: block;
+            width: 100%;
+            height: 100%;
             margin: 0;
 
             .h5p-front, .h5p-back {
-              color: inherit !important;
-              background-color: $background-box !important;
-              border: 2px solid $primary-color !important;
-              border-radius: $border-radius;
-              overflow: hidden;
+              @include mixins.button-3d;
 
-              &:after {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              color: inherit !important;
+              border: none;
+
+              &:before {
                 display: none;
               }
 
+              &:after {
+                background: none;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transform: none;
+              }
+
               .h5p-memory-audio-button {
-                color: $text-color-inverse;
+                color: $text-color;
+                top: $block-margin * 0.5;
+                right: $block-margin * 0.5;
+              }
+
+              img {
+                display: block !important;
               }
             }
           }
         }
       }
 
-      .h5p-memory-pop {
-        background: $background-box;
-        border: 2px solid $primary-color;
-        border-radius: $border-radius;
-        min-width: $content-width - $block-margin !important;
-        box-shadow: none;
+      .h5p-programatically-focusable {
+        margin-bottom: 1em;
 
-        .h5p-memory-top {
-          background: none;
-          border: 0;
+        .h5p-feedback {
+          margin: 0;
+        }
 
-          .h5p-memory-image {
-            color: inherit !important;
-            background-color: $background-box !important;
-            border: 2px solid $primary-color !important;
-            border-radius: $border-radius;
-            overflow: hidden;
-          }
+        .h5p-status {
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      .h5p-memory-reset {
+        &:hover {
+          margin-top: 0;
         }
       }
     }
@@ -948,7 +999,7 @@ html {
   }
 
   button, input[type="button"], input[type="reset"], input[type="submit"], .button, .wp-block-button,
-  .wp-block-file .wp-block-file__button {
+  .wp-block-file .wp-block-file__button, .h5p-memory-reset {
     display: inline-block;
     background: $secondary-color;
     color: $text-color-inverse;
