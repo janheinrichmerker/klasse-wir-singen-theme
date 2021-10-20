@@ -30,7 +30,6 @@ $border-color-song-button: $palette-dark-green;
 $font-family: "Open Sans", Helvetica, Arial, sans-serif;
 $font-family-heading: "Architects Daughter", Helvetica, Arial, sans-serif;
 $font-family-typewriter: "Courier 10 Pitch", Courier, monospace;
-$font-family-icons: Genericons, monospace;
 
 $font-size: 16px;
 $font-size-desktop: 19px;
@@ -1189,10 +1188,10 @@ html {
 
           &:before {
             display: inline-block;
-            content: "\f419";
-            font-family: $font-family-icons;
-            margin-right: 1em;
-            font-size: 0.65em;
+            content: "≡";
+            margin-right: 0.5em;
+            font-size: 1.5em;
+            line-height: 0.5;
           }
         }
 

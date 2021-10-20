@@ -26,7 +26,6 @@ The theme includes two Custom Menus, one in the header and one in the footer, wh
 - [Theme Components](https://github.com/Automattic/theme-components/), Automattic, Inc., licensed [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 - [normalize.css](http://necolas.github.io/normalize.css/), by Nicolas Gallagher and Jonathan Neal, licensed [MIT](http://opensource.org/licenses/MIT)
 - Image used in screenshot is from [Pexels](https://www.pexels.com/photo/apple-iphone-books-desk-232/) licensed CC0
-- Bundled font, [Genericons](http://github.com/Automattic/genericons/) licensed [GNU GPL v2](https://github.com/Automattic/Genericons/blob/master/LICENSE.txt)
 
 ## License
 
