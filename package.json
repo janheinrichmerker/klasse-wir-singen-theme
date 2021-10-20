@@ -14,7 +14,7 @@
     "build": "yarn-or-npm run build:sass && yarn-or-npm run build:postcss",
     "watch": "chokidar style.scss style-editor.scss assets/css --command 'yarn-or-npm run build'",
     "bundle:clean": "rm klasse-wir-singen.zip",
-    "bundle:zip": "zip -x .\\* -x package.json -x node_modules -x yarn.lock -x yarn-error.log -rq klasse-wir-singen.zip ./",
+    "bundle:zip": "zip -x .\\* -x package.json -x node_modules/\\* -x yarn.lock -x yarn-error.log -rq klasse-wir-singen.zip ./",
     "bundle": "yarn-or-npm run build && yarn-or-npm run bundle:clean && yarn-or-npm run bundle:zip"
   },
   "dependencies": {
