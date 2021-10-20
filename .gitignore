@@ -196,8 +196,10 @@ dist
 .pnp.*
 
 
-klasse-wir-singen.zip
-style-editor.css
-style-editor.css.map
 style.css
 style.css.map
+style-editor.css
+style-editor.css.map
+style-h5p.css
+style-h5p.css.map
+klasse-wir-singen.zip

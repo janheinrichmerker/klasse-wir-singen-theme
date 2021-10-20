@@ -1,0 +1,26 @@
+html.h5p-iframe, html.h5p-iframe > body {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+.h5p-content, .h5p-dragquestion {
+  background-color: transparent;
+  border: none;
+}
+
+.h5p-joubelui-button {
+  background-color: #529d32;
+  border-radius: 8px;
+  transition: background 0.1s ease;
+
+  &:hover {
+    background-color: #00adef;
+  }
+}
+
+.h5p-question-content {
+  > .h5p-inner {
+    position: relative;
+    border-radius: 16px;
+    box-shadow: inset 8px 8px 8px 0 rgba(255, 255, 255, 0.25), inset -8px -8px 8px 0 rgba(3, 27, 47, 0.2);
+  }
+}

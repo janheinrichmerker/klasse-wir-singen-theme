@@ -9,10 +9,10 @@
   "scripts": {
     "sass": "sass",
     "postcss": "postcss",
-    "build:sass": "sass style.scss:style.css style-editor.scss:style-editor.css",
-    "build:postcss": "postcss style.css style-editor.css --replace --use autoprefixer --use cssnano",
+    "build:sass": "sass style.scss:style.css style-editor.scss:style-editor.css style-h5p.scss:style-h5p.css",
+    "build:postcss": "postcss style.css style-editor.css style-h5p.css --replace --use autoprefixer --use cssnano",
     "build": "yarn-or-npm run build:sass && yarn-or-npm run build:postcss",
-    "watch": "chokidar style.scss style-editor.scss assets/css --command 'yarn-or-npm run build'",
+    "watch": "chokidar style.scss style-editor.scss assets/css --ignore \"/.*\\.css/\" --initial --command 'yarn-or-npm run build'",
     "bundle:clean": "rm klasse-wir-singen.zip",
     "bundle:zip": "zip -x .\\* -x package.json -x node_modules/\\* -x yarn.lock -x yarn-error.log -rq klasse-wir-singen.zip ./",
     "bundle": "yarn-or-npm run build && yarn-or-npm run bundle:clean && yarn-or-npm run bundle:zip"
