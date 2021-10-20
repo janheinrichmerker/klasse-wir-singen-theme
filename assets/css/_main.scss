@@ -33,10 +33,12 @@ $font-family-typewriter: "Courier 10 Pitch", Courier, monospace;
 $font-family-icons: Genericons, monospace;
 
 $font-size: 16px;
-$font-size-desktop: 18px;
-$font-size-button: 1.35rem;
+$font-size-desktop: 19px;
+$font-size-button: 1.25rem;
+$font-size-navigation-top: 1.215rem;
 $line-height: 1.4;
-$line-height-button: 1.5;
+$line-height-heading: 1.2;
+$line-height-button: 1.75;
 
 $text-color: $primary-color;
 $text-color-heading: $text-color;
@@ -132,7 +134,7 @@ html {
     }
 
     ol, ul {
-      margin: 0 0 $block-margin;
+      margin: 0 0 1em;
 
       &:first-child {
         margin-bottom: 0;
@@ -239,6 +241,7 @@ html {
         font-weight: bold;
         font-style: normal;
         padding: 1em 1em 1em 5em;
+        hyphens: none;
 
         &:before {
           content: "😂";
@@ -270,9 +273,52 @@ html {
       &.diary {
         font-family: $font-family-heading;
         font-style: normal;
+        padding: $block-margin * 1.75;
+        margin: ($block-margin * 1.5) ($block-margin * 0.5);
+        border: none;
+        background: none;
+        hyphens: none;
+
+        @media screen and (min-width: $site-width * 0.25) {
+          padding: $block-margin * 2;
+          transform: rotate(-2deg);
+        }
+
+        @media screen and (min-width: $site-width * 0.5) {
+          padding: $block-margin * 2;
+          transform: rotate(-4deg);
+        }
 
         cite {
           font-family: $font-family-heading;
+        }
+
+        &:before, &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          border: 2px solid $primary-color;
+          background: linear-gradient(to right, $background-box, lighten($background-box, 5%));
+          z-index: -1;
+          border-radius: $border-radius;
+          box-shadow: 0 0 $block-margin 0 transparentize($text-color, 0.9);
+        }
+
+        &:before {
+          transform: rotate(1deg);
+
+          @media screen and (min-width: $site-width * 0.25) {
+            padding: $block-margin * 2;
+            transform: rotate(1.5deg);
+          }
+
+          @media screen and (min-width: $site-width * 0.5) {
+            transform: rotate(3deg);
+          }
         }
       }
 
@@ -306,7 +352,8 @@ html {
       @media screen and (max-width: $content-width - 1px) {
         @include mixins.horizontal-scroll-glow;
 
-        margin: 0 (-$block-margin) $block-margin (-$block-margin);
+        margin-left: -$block-margin;
+        margin-right: -$block-margin;
       }
 
       .wp-block-columns {
@@ -331,7 +378,9 @@ html {
           }
 
           h2 {
+            font-size: 1.9em;
             margin-top: 0;
+            margin-bottom: 0.25em;
           }
 
           a {
@@ -416,7 +465,7 @@ html {
     }
 
     .song-grid {
-      margin-top: $block-margin * 0.75;
+      margin-top: $block-margin * 1.5;
       margin-bottom: $block-margin;
 
       .grids-section {
@@ -428,10 +477,7 @@ html {
 
           @media screen and (min-width: $content-width) {
             display: grid;
-            -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-            grid-template-columns: repeat( 12, minmax(0px, 1fr) );
-            //noinspection CssInvalidPropertyValue
-            -ms-grid-rows: repeat(4, auto);
+            grid-template-columns:  repeat( 12, minmax(0px, 1fr) );
             grid-template-rows: repeat(4, auto);
           }
 
@@ -525,34 +571,32 @@ html {
       color: $text-color-heading;
     }
 
-    h1 {
+    h1, h2 {
       font-size: 2.25em;
       text-transform: uppercase;
       font-family: $font-family-heading;
-      hyphens: none;
-    }
-
-    h2 {
-      font-size: 2em;
-      text-transform: uppercase;
-      font-family: $font-family-heading;
+      line-height: $line-height-heading;
       hyphens: none;
     }
 
     h3 {
-      font-size: 1.75em;
+      font-size: 1.35em;
+      font-weight: bold;
     }
 
     h4 {
-      font-size: 1.5em;
+      font-size: 1.25em;
+      font-weight: bold;
     }
 
     h5 {
-      font-size: 1.25em;
+      font-size: 1.15em;
+      font-weight: bold;
     }
 
     h6 {
       font-size: 1em;
+      font-weight: bold;
     }
 
     hr {
@@ -638,7 +682,7 @@ html {
 
   figure, [class^="wp-block-"] figure, figure[class^="wp-block-"] {
     clear: both;
-    margin: 0 0 $block-margin;
+    margin: 0 0 1em;
 
     &.wp-block-video {
       @include mixins.button-3d;
@@ -651,7 +695,7 @@ html {
 
     &.wp-block-audio {
       audio {
-        margin-bottom: $block-margin * 0.25;
+        margin-bottom: 0.5em;
       }
 
       figcaption {
@@ -670,12 +714,6 @@ html {
       }
     }
 
-    figcaption {
-      margin: 0;
-      text-align: left;
-      font-size: 1em;
-    }
-
     &.image-button {
       display: inline-block;
       position: relative;
@@ -690,6 +728,20 @@ html {
           height: $size-image-button;
         }
       }
+    }
+
+    &.sharp-corners {
+      border-radius: 0;
+
+      img {
+        border-radius: 0;
+      }
+    }
+
+    figcaption {
+      margin: 0.2em 0 0;
+      text-align: left;
+      font-size: 1em;
     }
   }
 
@@ -798,7 +850,7 @@ html {
     border-radius: $border-radius;
     background: $background-box;
     border: 2px solid $primary-color;
-    padding: $block-margin;
+    padding: $block-margin $block-margin ($block-margin * 1.5);
     margin-bottom: $block-margin;
 
     &.accent-gallery {
@@ -817,7 +869,9 @@ html {
 
       figure {
         &.box-header {
-          margin: (-$block-margin) (-$block-margin) $block-margin (-$block-margin);
+          margin-top: -$block-margin;
+          margin-left: -$block-margin;
+          margin-right: -$block-margin;
           border-bottom-left-radius: 0;
           border-bottom-right-radius: 0;
         }
@@ -890,11 +944,12 @@ html {
     padding: 0 $block-margin * 0.5;
   }
 
-  button, input, select, textarea {
+  input, select, textarea {
     margin: 0;
   }
 
-  button, input[type="button"], input[type="reset"], input[type="submit"], .button, .wp-block-button {
+  button, input[type="button"], input[type="reset"], input[type="submit"], .button, .wp-block-button,
+  .wp-block-file .wp-block-file__button {
     display: inline-block;
     background: $secondary-color;
     color: $text-color-inverse;
@@ -902,11 +957,15 @@ html {
     border: none;
     font-size: $font-size-button;
     text-align: center;
-    vertical-align: middle;
     border-radius: $border-radius;
     line-height: $line-height-button;
     transition: background 0.1s, color 0.1s, box-shadow 0.15s ease;
-    padding: 0 0.75em;
+    margin: 0;
+    padding: 0.2em 0.75em;
+
+    @media screen and (min-width: $content-width) {
+      padding: 0.1em 0.5em;
+    }
 
     &:hover, &:focus, &:active {
       background: $active-color;
@@ -979,6 +1038,25 @@ html {
     }
   }
 
+  .wp-block-file {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 1em;
+
+    .wp-block-file__button {
+      margin-left: 0.5em;
+      font-weight: unset;
+      text-transform: unset;
+      letter-spacing: unset;
+      vertical-align: unset;
+      box-shadow: unset;
+    }
+  }
+
+  .all-caps {
+    text-transform: uppercase;
+  }
+
   form {
     max-width: 100%;
     margin-bottom: $block-margin;
@@ -1026,12 +1104,12 @@ html {
 
     textarea {
       overflow: auto;
-      vertical-align: top;
       width: 100%;
     }
 
     label input, label textarea {
-      margin-bottom: $block-margin * 0.5;
+      margin-top: 0.25em;
+      margin-bottom: 0.5em;
     }
   }
 
@@ -1081,15 +1159,13 @@ html {
 
       nav.main-navigation {
         font-family: $font-family-heading;
-        font-size: $font-size-button;
+        font-size: $font-size-navigation-top;
         line-height: $line-height-button;
-        //padding: 0 $block-margin;
-        margin: ($block-margin * 0.5) $block-margin 0;
+        margin: $block-margin $block-margin 0;
 
         @media screen and (min-width: $content-width) {
           max-width: $content-width;
-          //padding: 0;
-          margin: ($block-margin * 0.5) auto 0;
+          margin: $block-margin auto 0;
         }
 
         button.menu-toggle {
@@ -1196,6 +1272,8 @@ html {
               }
 
               > a {
+                vertical-align: middle;
+
                 @media screen and (min-width: $content-width) {
                   text-align: center;
                   border-top-width: 0;
@@ -1376,6 +1454,7 @@ html {
       background-size: cover;
       height: 60vw;
       font-size: 0.9em;
+      margin-top: $block-margin;
 
       @media screen and (min-width: $site-width * 0.5) {
         height: 40vw;
@@ -1447,18 +1526,6 @@ html {
         border: 2px solid $divider-color;
       }
 
-      .sharp-corners {
-        border-radius: 0;
-
-        figure {
-          border-radius: 0;
-        }
-
-        img {
-          border-radius: 0;
-        }
-      }
-
       .hero {
         padding: $block-margin;
         max-width: $content-width;
@@ -1477,8 +1544,6 @@ html {
       .content-wrapper {
         padding: 0 $block-margin;
         position: relative;
-        -webkit-hyphens: auto;
-        -ms-hyphens: auto;
         hyphens: auto;
 
         @media screen and (min-width: $content-width) {
@@ -1538,7 +1603,6 @@ html {
                       color: $text-color-inverse !important;
                       border: none;
                       text-align: center;
-                      vertical-align: middle;
                       border-radius: $border-radius;
                       transition: background 0.1s;
                       font-size: 1.225em;
