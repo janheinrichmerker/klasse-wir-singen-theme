@@ -879,6 +879,20 @@ html {
         .h5p-status {
           margin: 0;
           padding: 0;
+
+          > dt {
+            float: none;
+            display: inline;
+          }
+
+          > dd {
+            display: inline;
+
+            &:after {
+              content: "";
+              display: block;
+            }
+          }
         }
       }
 
