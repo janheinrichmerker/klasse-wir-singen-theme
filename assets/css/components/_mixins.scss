@@ -1,14 +1,20 @@
 $background-content: white !default;
 $text-color: black !default;
 $text-color-inverse: white !default;
-$block-margin: 32 !default;
-$border-radius-large: 16px !default;
+$block-margin: 32px !default;
+$border-radius: 8px !default;
+$border-radius-large: $border-radius * 2 !default;
 $z-index-glow: 1 !default;
+$site-width: 1080px !default;
 
 @mixin button-3d {
   display: block;
   position: relative;
-  border-radius: $border-radius-large;
+  border-radius: $border-radius * 1.5;
+
+  @media screen and (min-width: $site-width * 0.5) {
+    border-radius: $border-radius-large;
+  }
 
   &:after {
     display: block;
@@ -19,21 +25,38 @@ $z-index-glow: 1 !default;
     bottom: 0;
     right: 0;
     pointer-events: none;
-    border-radius: $border-radius-large;
-    box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.75),
-    inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.8),
-            ($block-margin * 0.125) ($block-margin * 0.25) ($block-margin * 0.25) 0 transparentize($text-color, 0.9);
+    border-radius: $border-radius * 1.5;
+    box-shadow: inset ($border-radius * 0.75) ($border-radius * 0.75) ($border-radius * 0.75) 0 transparentize($text-color-inverse, 0.75),
+    inset (-$border-radius * 0.75) (-$border-radius * 0.75) ($border-radius * 0.75) 0 transparentize($text-color, 0.8),
+            ($block-margin * 0.025) ($block-margin * 0.15) ($block-margin * 0.15) 0 transparentize($text-color, 0.9);
     transition: box-shadow 0.15s ease;
+
+    @media screen and (min-width: $site-width * 0.5) {
+      border-radius: $border-radius-large;
+      box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.75),
+      inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.8),
+              ($block-margin * 0.125) ($block-margin * 0.25) ($block-margin * 0.25) 0 transparentize($text-color, 0.9);
+    }
   }
 
   &:hover:after {
-    box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.8),
-    inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.85),
-    0 ($block-margin * 0.125) ($block-margin * 0.125) 0 transparentize($text-color, 0.9);
+    box-shadow: inset ($border-radius * 0.75) ($border-radius * 0.75) ($border-radius * 0.75) 0 transparentize($text-color-inverse, 0.8),
+    inset (-$border-radius * 0.75) (-$border-radius * 0.75) ($border-radius * 0.75) 0 transparentize($text-color, 0.85),
+    0 ($block-margin * 0.025) ($block-margin * 0.025) 0 transparentize($text-color, 0.9);
+
+    @media screen and (min-width: $site-width * 0.5) {
+      box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.8),
+      inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.85),
+      0 ($block-margin * 0.125) ($block-margin * 0.125) 0 transparentize($text-color, 0.9);
+    }
   }
 
   img, video {
-    border-radius: $border-radius-large;
+    border-radius: $border-radius * 1.5;
+
+    @media screen and (min-width: $site-width * 0.5) {
+      border-radius: $border-radius-large;
+    }
   }
 }
 

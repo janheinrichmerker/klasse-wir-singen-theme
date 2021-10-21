@@ -70,8 +70,10 @@ $theme-base-path: "/wp-content/themes/klasse-wir-singen";
   $text-color: $text-color,
   $text-color-inverse: $text-color-inverse,
   $block-margin: $block-margin,
+  $border-radius: $border-radius,
   $border-radius-large: $border-radius-large,
   $z-index-glow: $z-index-glow,
+  $site-width: $site-width,
 );
 @use "components/google-fonts";
 @use "components/blocks";
