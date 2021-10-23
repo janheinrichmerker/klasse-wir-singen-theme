@@ -671,6 +671,11 @@ html {
       margin: 0.2em 0 0;
       text-align: left;
       font-size: 1em;
+
+      &.blocks-gallery-item__caption {
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+      }
     }
   }
 
