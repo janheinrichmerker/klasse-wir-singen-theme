@@ -279,7 +279,7 @@ html {
       margin: 0 0 $block-margin;
 
       @media screen and (max-width: $content-width - 1px) {
-        @include mixins.horizontal-scroll-glow;
+        //@include mixins.horizontal-scroll-glow;
 
         margin-left: -$block-margin;
         margin-right: -$block-margin;
