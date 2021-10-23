@@ -13,7 +13,7 @@
             link.rel = "stylesheet";
             link.type = "text/css";
 
-            innerDocument.body.appendChild(link);
+            innerDocument.head.appendChild(link);
         })
     })
 })()
