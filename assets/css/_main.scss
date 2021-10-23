@@ -1039,9 +1039,10 @@ html {
     display: flex;
     align-items: baseline;
     margin-bottom: 1em;
+    gap: 0.5em;
+    flex-wrap: wrap;
 
     .wp-block-file__button {
-      margin-left: 0.5em;
       font-weight: unset;
       text-transform: unset;
       letter-spacing: unset;
