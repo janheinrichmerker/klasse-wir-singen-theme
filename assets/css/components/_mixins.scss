@@ -1,11 +1,4 @@
-$background-content: white !default;
-$text-color: black !default;
-$text-color-inverse: white !default;
-$block-margin: 32px !default;
-$border-radius: 8px !default;
-$border-radius-large: $border-radius * 2 !default;
-$z-index-glow: 1 !default;
-$site-width: 1080px !default;
+@import "../variables";
 
 @mixin button-3d {
   display: block;
