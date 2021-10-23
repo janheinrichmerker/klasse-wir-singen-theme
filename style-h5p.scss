@@ -51,9 +51,13 @@ html.h5p-iframe {
 
               .h5p-dropzone {
                 > .h5p-inner.ui-droppable {
-                  border-radius: $border-radius * 0.5;
                   background: transparentize(white, 0.2) !important;
                   border: 1px solid $text-color;
+                  border-radius: $border-radius * 0.5;
+
+                  @media screen and (min-width: $site-width * 0.5) {
+                    border-radius: $border-radius;
+                  }
 
                   &.h5p-over {
                     background: transparentize(mix(white, $color-success, 50%), 0.2) !important;
@@ -65,11 +69,15 @@ html.h5p-iframe {
               .h5p-draggable {
                 &.h5p-advanced-text {
                   color: $text-color !important;
-                  border-radius: $border-radius * 0.5;
                   text-align: center;
                   background: $background-box-accent !important;
                   box-sizing: content-box;
                   border: 1px solid $border-color-box-accent !important;
+                  border-radius: $border-radius * 0.5;
+
+                  @media screen and (min-width: $site-width * 0.5) {
+                    border-radius: $border-radius;
+                  }
 
                   &.h5p-correct {
                     color: darken($color-success, 20%) !important;
