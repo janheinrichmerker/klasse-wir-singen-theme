@@ -279,8 +279,6 @@ html {
       margin: 0 0 $block-margin;
 
       @media screen and (max-width: $content-width - 1px) {
-        //@include mixins.horizontal-scroll-glow;
-
         margin-left: -$block-margin;
         margin-right: -$block-margin;
       }
@@ -609,6 +607,12 @@ html {
     }
   }
 
+  .sharp-corners {
+    img {
+      border-radius: 0;
+    }
+  }
+
   figure, [class^="wp-block-"] figure, figure[class^="wp-block-"] {
     clear: both;
     margin: 0 0 1em;
@@ -656,14 +660,6 @@ html {
           width: $size-image-button;
           height: $size-image-button;
         }
-      }
-    }
-
-    &.sharp-corners {
-      border-radius: 0;
-
-      img {
-        border-radius: 0;
       }
     }
 
