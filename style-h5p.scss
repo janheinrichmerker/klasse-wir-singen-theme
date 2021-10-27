@@ -1,3 +1,5 @@
+@use "assets/css/components/mixins";
+
 @import "assets/css/variables";
 
 html.h5p-iframe {
@@ -35,18 +37,16 @@ html.h5p-iframe {
           border: none;
 
           .h5p-question-content {
+            @include mixins.button-3d-no-drop-shadow;
+
             border: none;
 
             > .h5p-inner {
               position: relative;
               border-radius: $border-radius;
-              box-shadow: inset ($border-radius * 0.75) ($border-radius * 0.75) ($border-radius * 0.75) 0 transparentize($text-color-inverse, 0.75),
-              inset (-$border-radius * 0.75) (-$border-radius * 0.75) ($border-radius * 0.75) 0 transparentize($text-color, 0.8);
 
               @media screen and (min-width: $site-width * 0.5) {
                 border-radius: $border-radius-large;
-                box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.75),
-                inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.8);
               }
 
               .h5p-dropzone {

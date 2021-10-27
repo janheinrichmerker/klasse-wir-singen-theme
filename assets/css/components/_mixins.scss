@@ -53,6 +53,30 @@
   }
 }
 
+@mixin button-3d-no-drop-shadow {
+  @include button-3d;
+
+  &:after {
+    box-shadow: inset ($border-radius * 0.75) ($border-radius * 0.75) ($border-radius * 0.75) 0 transparentize($text-color-inverse, 0.75),
+    inset (-$border-radius * 0.75) (-$border-radius * 0.75) ($border-radius * 0.75) 0 transparentize($text-color, 0.8);
+
+    @media screen and (min-width: $site-width * 0.5) {
+      box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.75),
+      inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.8);
+    }
+  }
+
+  &:hover:after {
+    box-shadow: inset ($border-radius * 0.75) ($border-radius * 0.75) ($border-radius * 0.75) 0 transparentize($text-color-inverse, 0.8),
+    inset (-$border-radius * 0.75) (-$border-radius * 0.75) ($border-radius * 0.75) 0 transparentize($text-color, 0.85);
+
+    @media screen and (min-width: $site-width * 0.5) {
+      box-shadow: inset ($border-radius-large * 0.5) ($border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color-inverse, 0.8),
+      inset (-$border-radius-large * 0.5) (-$border-radius-large * 0.5) ($border-radius-large * 0.5) 0 transparentize($text-color, 0.85);
+    }
+  }
+}
+
 @mixin horizontal-scroll-glow {
   position: relative;
 
