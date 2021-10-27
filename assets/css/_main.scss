@@ -170,7 +170,7 @@ html {
         font-weight: bold;
         font-style: normal;
         padding: 1em 1em 1em 5em;
-        hyphens: none;
+        hyphens: manual;
 
         &:before {
           content: "😂";
@@ -206,7 +206,7 @@ html {
         margin: ($block-margin * 1.5) ($block-margin * 0.5);
         border: none;
         background: none;
-        hyphens: none;
+        hyphens: manual;
 
         @media screen and (min-width: $site-width * 0.25) {
           padding: $block-margin * 2;
@@ -505,7 +505,7 @@ html {
       text-transform: uppercase;
       font-family: $font-family-heading;
       line-height: $line-height-heading;
-      hyphens: none;
+      hyphens: manual;
     }
 
     h3 {
