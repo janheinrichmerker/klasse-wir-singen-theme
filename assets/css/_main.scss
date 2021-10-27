@@ -728,75 +728,192 @@ html {
     .h5p-container {
       overflow: visible;
 
-      ul[role="application"] {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        justify-content: space-between;
-        justify-items: center;
-        margin: 0 0 1em !important;
-        padding: 0 !important;
-        overflow: visible !important;
-        gap: $gap-image-button-memory-small;
+      &.h5p-question {
+        background: none;
 
-        @media screen and (min-width: $site-width * 0.25) {
-          grid-template-columns: repeat(4, 1fr);
+        .h5p-question-feedback {
+          max-height: none;
+          color: inherit;
+          font-weight: inherit;
+          font-size: 1.25em;
         }
 
-        @media screen and (min-width: $site-width * 0.45) {
-          gap: $gap-image-button-memory;
-        }
+        .h5p-question-scorebar {
+          width: 20em;
 
-        @media screen and (min-width: $site-width * 0.6) {
-          grid-template-columns: repeat(6, 1fr);
-        }
+          .h5p-question-scorebar-container {
 
-        .h5p-memory-wrap {
-          width: 100% !important;
-          height: auto !important;
-          float: none;
-          padding-top: 100%;
-          position: relative;
-
-          .h5p-memory-card {
-            display: block;
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-top: 100%;
-            margin: 0;
-
-            .h5p-front, .h5p-back {
-              @include mixins.button-3d;
-
-              position: absolute;
-              top: 0;
-              bottom: 0;
-              left: 0;
-              right: 0;
-              color: inherit !important;
+            .h5p-joubelui-score-bar {
+              gap: 0.75em;
               border: none;
+              background: none;
+              padding: 0;
 
               &:before {
+                content: "Fortschritt: ";
+                display: inline;
+                font-size: 1.25em;
+                line-height: 1em;
+              }
+
+              .h5p-joubelui-score-bar-progress-wrapper {
+                margin-right: 0;
+                height: 1.5em;
+                border-radius: $border-radius;
+                border: 2px solid $text-color;
+                background: transparentize($background-site, 0.5);
+                overflow: hidden;
+
+                .h5p-joubelui-score-bar-progress {
+                  background: $color-success;
+                  border-radius: 0;
+                }
+              }
+
+              .h5p-joubelui-score-bar-star {
                 display: none;
               }
 
-              &:after {
-                background: none;
+              .h5p-joubelui-score-numeric {
+                font-size: 1.25em;
+                line-height: 1em;
+                font-weight: inherit;
+                margin: 0;
+
+                .h5p-joubelui-score-number {
+                  color: inherit;
+                }
+
+                .h5p-joubelui-score-number-separator {
+                  color: inherit;
+                  padding: 0 0.25em;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.h5p-memory-game {
+        ul[role="application"] {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          justify-content: space-between;
+          justify-items: center;
+          margin: 0 0 1em !important;
+          padding: 0 !important;
+          overflow: visible !important;
+          gap: $gap-image-button-memory-small;
+
+          @media screen and (min-width: $site-width * 0.25) {
+            grid-template-columns: repeat(4, 1fr);
+          }
+
+          @media screen and (min-width: $site-width * 0.45) {
+            gap: $gap-image-button-memory;
+          }
+
+          @media screen and (min-width: $site-width * 0.6) {
+            grid-template-columns: repeat(6, 1fr);
+          }
+
+          .h5p-memory-wrap {
+            width: 100% !important;
+            height: auto !important;
+            float: none;
+            padding-top: 100%;
+            position: relative;
+
+            .h5p-memory-card {
+              display: block;
+              position: relative;
+              width: 100%;
+              height: 0;
+              padding-top: 100%;
+              margin: 0;
+
+              .h5p-front, .h5p-back {
+                @include mixins.button-3d;
+
+                position: absolute;
                 top: 0;
+                bottom: 0;
                 left: 0;
-                width: 100%;
-                height: 100%;
-                transform: none;
-              }
+                right: 0;
+                color: inherit !important;
+                border: none;
 
-              .h5p-memory-audio-button {
-                color: $text-color;
-                top: $block-margin * 0.25;
-                right: $block-margin * 0.25;
-              }
+                &:before {
+                  display: none;
+                }
 
-              img {
-                display: block !important;
+                &:after {
+                  background: none;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  transform: none;
+                }
+
+                .h5p-memory-audio-button {
+                  color: $text-color;
+                  top: $block-margin * 0.25;
+                  right: $block-margin * 0.25;
+                }
+
+                img {
+                  display: block !important;
+                }
+              }
+            }
+          }
+        }
+
+        .h5p-memory-reset {
+          &:hover {
+            margin-top: 0;
+          }
+        }
+      }
+
+      &.h5p-image-hotspot-question {
+        .h5p-question-content {
+          @include mixins.button-3d;
+
+          .image-hotspot-question {
+            .image-wrapper {
+              .hotspot-feedback {
+                color: $text-color-inverse;
+                height: 3em;
+                width: 3em;
+                background: $accent-color;
+
+                &:before {
+                  line-height: 1.5em;
+                  font-size: 2em;
+                  height: 100%;
+                }
+
+                &.correct {
+                  background: $color-success;
+
+                  &:before {
+                    content: "";
+                    background: url($theme-base-path + "/images/smiley-happy.svg");
+                    background-size: 100% 100%;
+                  }
+                }
+
+                &.incorrect {
+                  background: $color-failure;
+
+                  &:before {
+                    content: "";
+                    background: url($theme-base-path + "/images/smiley-sad.svg");
+                    background-size: 100% 100%;
+                  }
+                }
               }
             }
           }
@@ -827,12 +944,6 @@ html {
               display: block;
             }
           }
-        }
-      }
-
-      .h5p-memory-reset {
-        &:hover {
-          margin-top: 0;
         }
       }
     }
