@@ -126,6 +126,7 @@ blockquote cite {
 .wp-block-audio audio {
 	display: block;
 	width: 100%;
+	min-width: 0;
 }
 
 /* Cover */
