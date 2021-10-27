@@ -960,6 +960,10 @@ html {
       padding: 0.1em 0.5em;
     }
 
+    &:visited {
+      background: $secondary-color;
+    }
+
     &:hover, &:focus, &:active {
       background: $active-color;
     }
