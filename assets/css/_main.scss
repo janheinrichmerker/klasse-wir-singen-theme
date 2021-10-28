@@ -607,12 +607,6 @@ html {
     }
   }
 
-  .sharp-corners {
-    img {
-      border-radius: 0;
-    }
-  }
-
   figure, [class^="wp-block-"] figure, figure[class^="wp-block-"] {
     clear: both;
     margin: 0 0 1em;
@@ -1629,6 +1623,12 @@ html {
       img, audio, video, .mapp-layout {
         border-radius: $border-radius;
         overflow: hidden;
+      }
+
+      .sharp-corners {
+        img {
+          border-radius: 0;
+        }
       }
 
       .mapp-layout {
