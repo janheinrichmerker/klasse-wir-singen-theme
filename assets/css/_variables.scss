@@ -1,7 +1,9 @@
 @use "sass:math";
 
 $palette-dark-blue: #07375e !default;
+$palette-slightly-dark-blue: #0d5e9c !default;
 $palette-blue: #00adef !default;
+$palette-slightly-light-blue: #4cc4f2 !default;
 $palette-light-blue: #cceffc !default;
 $palette-very-light-blue: #edf5d7 !default;
 $palette-red: #f1471d !default;
@@ -21,6 +23,10 @@ $accent-color: $palette-dark-orange !default;
 $color-success: $palette-bright-green !default;
 $color-failure: $palette-red !default;
 
+$primary-color-musical: magenta !default;
+$secondary-color-musical: magenta !default;
+$active-color-musical: magenta !default;
+
 $background-content: $palette-very-light-green !default;
 $background-content-dark: $palette-light-green !default;
 $background-site: $palette-very-light-blue !default;
@@ -28,8 +34,20 @@ $background-box: $palette-light-blue !default;
 $background-preformatted: darken($background-content, 6%) !default;
 $background-mark: #fff9c0 !default;
 $background-box-accent: $palette-yellow !default;
+
+$background-content-musical: #0d5e9c !default;
+$background-content-dark-musical: #09416f !default;
+$background-site-musical: #1270b8 !default;
+$background-box-musical: #09416f !default;
+$background-preformatted-musical: darken($background-content-musical, 6%) !default;
+$background-mark-musical: #702600 !default;
+$background-box-accent-musical: magenta !default;
+
 $border-color-box-accent: $palette-orange !default;
 $border-color-song-button: $palette-dark-green !default;
+
+$border-color-box-accent-musical: magenta !default;
+$border-color-song-button-musical: magenta !default;
 
 $font-family: "Open Sans", Helvetica, Arial, sans-serif !default;
 $font-family-heading: "Architects Daughter", Helvetica, Arial, sans-serif !default;
@@ -47,6 +65,11 @@ $text-color: $primary-color !default;
 $text-color-heading: $text-color !default;
 $text-color-disabled: transparentize($text-color, 0.3) !default;
 $text-color-inverse: #fff !default;
+
+$text-color-musical: $text-color-inverse !default;
+$text-color-heading-musical: $palette-orange !default;
+$text-color-disabled-musical: transparentize($text-color-musical, 0.3) !default;
+$text-color-inverse-musical: #000 !default;
 
 $site-width: 1080px !default;
 $content-width: $site-width * 0.75 !default;

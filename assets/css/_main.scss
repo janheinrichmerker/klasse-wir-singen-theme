@@ -22,6 +22,213 @@ html {
     font-family: $font-family;
     line-height: $line-height;
 
+    &.tag-musical {
+      background: lighten($palette-slightly-dark-blue, 20%);
+      color: $text-color-inverse;
+
+      h1, h2, h3, h4, h5, h6 {
+        color: $text-color-inverse;
+      }
+
+      h1 {
+        color: $palette-dark-orange;
+        font-weight: bold;
+      }
+
+      .box, .information, .appendix {
+        background: $primary-color;
+        border-color: darken($palette-slightly-dark-blue, 25%);
+
+        &.appendix {
+          background: $palette-dark-orange;
+          border-color: #000;
+          color: #000;
+
+          &[class*="number-"] {
+            position: relative;
+
+            &:before {
+              content: "";
+              display: block;
+              position: absolute;
+              top: $block-margin * 0.25;
+              left: $block-margin * 0.25;
+              width: $block-margin * 1.5;
+              height: $block-margin * 1.5;
+              background-size: contain;
+
+              @media screen and (min-width: $site-width * 0.5) {
+                top: $block-margin * 0.5;
+                left: $block-margin * 0.5;
+                width: $block-margin * 2;
+                height: $block-margin * 2;
+              }
+            }
+          }
+
+          @for $i from 1 through 20 {
+            &.number-#{$i}:before {
+              @if ($i < 10) {
+                background-image: url($theme-base-path + "/images/number-0#{$i}-musical.svg");
+              } @else {
+                background-image: url($theme-base-path + "/images/number-#{$i}-musical.svg");
+              }
+            }
+          }
+        }
+      }
+
+      button, input[type="button"], input[type="reset"], input[type="submit"], .button, .wp-block-button,
+      .wp-block-file .wp-block-file__button, .h5p-memory-reset {
+        background: $active-color;
+        color: $text-color-inverse;
+
+        &:visited {
+          background: $active-color;
+        }
+
+        &:hover, &:focus, &:active {
+          background: $accent-color;
+        }
+
+        &.call-to-action {
+          background: $accent-color;
+
+          &:hover, &:focus, &:active {
+            background: $active-color;
+          }
+        }
+
+        &.outline, &.is-style-outline {
+          background: lighten($palette-slightly-dark-blue, 55%);
+          color: mix($palette-slightly-dark-blue, $text-color, 30%);
+          box-shadow: inset 0 0 0 2px $active-color;
+
+          &:hover, &:focus, &:active {
+            color: $text-color-inverse;
+            background: $accent-color;
+            box-shadow: none;
+          }
+        }
+      }
+
+      .banner-devil {
+        margin: 0 0 1em;
+        position: relative;
+
+        figure {
+          margin: 0;
+
+          &:not(.banner-overlay) {
+            @include mixins.button-3d;
+          }
+
+          &.banner-overlay {
+
+            img {
+              margin-bottom: -12%;
+              position: relative;
+              z-index: $z-index-above-current;
+            }
+          }
+        }
+      }
+
+      .teaser-devil {
+        h1, p {
+          a {
+            color: inherit;
+            text-decoration: none;
+          }
+        }
+      }
+
+      .song-title-header {
+        .wp-block-columns {
+          .wp-block-column {
+            figure {
+              img {
+                border: none;
+              }
+            }
+          }
+        }
+      }
+
+      .song-grid {
+        .grids-section {
+          > div {
+            .grids-area {
+              figure.image-button {
+                &:after {
+                  background-image: url($theme-base-path + "/images/hint-song-musical.svg");
+                }
+
+                a {
+                  img {
+                    border: none;
+                  }
+                }
+              }
+
+              @for $i from 1 through 20 {
+                &:nth-child(#{$i}) figure.image-button:before {
+                  @if ($i < 10) {
+                    background-image: url($theme-base-path + "/images/number-0#{$i}-musical.svg");
+                  } @else {
+                    background-image: url($theme-base-path + "/images/number-#{$i}-musical.svg");
+                  }
+                }
+
+                &.number-#{$i} figure.image-button:before {
+                  @if ($i < 10) {
+                    background-image: url($theme-base-path + "/images/number-0#{$i}-musical.svg");
+                  } @else {
+                    background-image: url($theme-base-path + "/images/number-#{$i}-musical.svg");
+                  }
+                }
+              }
+
+              a {
+                color: $text-color-inverse;
+              }
+            }
+          }
+        }
+      }
+
+      .site {
+        background: linear-gradient(mix($palette-dark-blue, $palette-slightly-dark-blue, 65%), $palette-slightly-dark-blue 648px);
+        border-color: darken($palette-slightly-dark-blue, 25%);
+
+        header.site-header {
+          .site-branding {
+            background-image: url($theme-base-path + "/images/header-devil.svg");
+          }
+        }
+
+        footer.site-footer {
+          background-image: url($theme-base-path + "/images/footer-devil.svg");
+
+          nav.footer-navigation {
+            .menu-footer-container {
+              ul.menu {
+                li {
+                  a {
+                    background: $palette-slightly-dark-blue;
+
+                    &:hover, &:focus, &:active {
+                      background: $active-color;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
     &.home, &.tag-hide-title {
       .site {
         .site-content {
@@ -38,7 +245,7 @@ html {
       }
     }
 
-    $header-tags: "animals", "bells", "coast", "cows", "leafs", "love", "math", "nature", "notes", "sheep", "wolves";
+    $header-tags: "animals", "bells", "coast", "cows", "leafs", "love", "math", "nature", "notes", "sheep", "wolves", "devil";
     @each $tag in $header-tags {
       &.tag-header-#{$tag} {
         .site {
@@ -51,7 +258,7 @@ html {
       }
     }
 
-    $footer-tags: "horses", "notes";
+    $footer-tags: "horses", "notes", "devil";
     @each $tag in $footer-tags {
       &.tag-footer-#{$tag} {
         .site {
@@ -370,7 +577,7 @@ html {
           // Needs !important because WordPress-internal CSS uses !important.
           flex: ($size-image-button * 0.75) 1 !important;
           min-width: $size-image-button * 0.75;
-          margin: 0;
+          margin: 0 !important;
 
           &:first-child {
             // Needs !important because WordPress-internal CSS uses !important.
@@ -607,16 +814,36 @@ html {
     }
   }
 
-  figure, [class^="wp-block-"] figure, figure[class^="wp-block-"] {
+  figure, .wp-block-image, .wp-block-video, .wp-block-audio {
     clear: both;
     margin: 0 0 1em;
+
+    figure {
+      &.aligncenter {
+        text-align: center;
+      }
+    }
+
+    img, audio, video, &:not(.is-style-rounded) img {
+      border-radius: $border-radius;
+      overflow: hidden;
+    }
+
+    &.sharp-corners img {
+      border-radius: 0;
+    }
 
     &.wp-block-video {
       @include mixins.button-3d;
 
       video {
+        border-radius: $border-radius * 1.5;
         display: block;
         margin: 0;
+
+        @media screen and (min-width: $site-width * 0.5) {
+          border-radius: $border-radius-large;
+        }
       }
     }
 
@@ -657,6 +884,55 @@ html {
       }
     }
 
+    &.round-image-button {
+      margin: 0 0 $block-margin;
+
+      figure {
+        position: relative;
+
+        > a {
+          @include mixins.button-3d;
+          border-radius: 50%;
+
+          img {
+            display: block;
+            width: $size-image-button;
+            height: $size-image-button;
+          }
+
+          &:after, > img {
+            border-radius: 50%;
+          }
+        }
+      }
+
+      figcaption {
+        display: inline-block;
+        margin-top: 1em;
+
+        a {
+          background: $background-site;
+          padding: 0.125em 0.5em;
+          border-radius: $border-radius;
+          text-decoration: none;
+          font-style: normal;
+          color: $text-color;
+
+          &:after {
+            display: none;
+          }
+        }
+      }
+
+      &.round-image-button-green figcaption a {
+        background: $palette-bright-green;
+      }
+
+      &.round-image-button-blue figcaption a {
+        background: $palette-slightly-light-blue;
+      }
+    }
+
     figcaption {
       margin: 0.2em 0 0;
       text-align: left;
@@ -667,6 +943,12 @@ html {
         border-bottom-right-radius: $border-radius;
       }
     }
+  }
+
+  .mapp-layout {
+    border-radius: $border-radius;
+    overflow: hidden;
+    border: 2px solid $divider-color;
   }
 
   img {
@@ -1216,22 +1498,6 @@ html {
     }
   }
 
-  .wpcf7 {
-    // TODO Remove?
-    .wpcf7-list-item {
-      margin: 0;
-    }
-
-    .ajax-loader {
-      top: 0.25em;
-    }
-
-    .wpcf7-response-output {
-      border-radius: $border-radius;
-      margin: 0 0 $block-margin;
-    }
-  }
-
   .site {
     max-width: $site-width;
     margin-left: auto;
@@ -1620,20 +1886,6 @@ html {
     }
 
     .site-content {
-      img, audio, video, .mapp-layout {
-        border-radius: $border-radius;
-        overflow: hidden;
-      }
-
-      .sharp-corners {
-        img {
-          border-radius: 0;
-        }
-      }
-
-      .mapp-layout {
-        border: 2px solid $divider-color;
-      }
 
       .hero {
         padding: $block-margin;
