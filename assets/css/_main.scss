@@ -227,6 +227,26 @@ html {
           }
         }
       }
+
+      .pretix-widget {
+        background: $primary-color;
+        border-color: darken($palette-slightly-dark-blue, 25%);
+
+        form {
+          button {
+            background: $active-color;
+            color: $text-color-inverse;
+
+            &:visited {
+              background: $active-color;
+            }
+
+            &:hover, &:focus, &:active {
+              background: $accent-color;
+            }
+          }
+        }
+      }
     }
 
     &.home, &.tag-hide-title {
@@ -738,6 +758,76 @@ html {
       height: 1px;
       margin: 1.5em 0;
       background-color: $divider-color;
+    }
+
+    .pretix-widget {
+      border-radius: $border-radius;
+      border: 2px solid $primary-color;
+      background: $background-box;
+      padding: $block-margin;
+      margin: 0 0 $block-margin;
+      min-height: 0;
+
+      a {
+        color: inherit;
+
+        &:hover, &:active, &:focus {
+          color: inherit;
+        }
+      }
+
+      form {
+        margin-bottom: 0;
+
+        .pretix-widget-action {
+          width: auto;
+          margin: 0;
+        }
+
+        button {
+          border: none;
+          border-radius: $border-radius;
+          font-size: $font-size-button;
+          line-height: $line-height-button;
+          padding: 0;
+          width: auto;
+
+          &:hover, &:focus, &:active, &:hover:focus, &:hover:active {
+            border: none;
+            background: $active-color;
+            color: $text-color-inverse;
+          }
+        }
+
+        input[type="number"], input[type="text"] {
+          border-radius: $border-radius;
+        }
+
+      }
+
+      .pretix-widget-category {
+        margin: 0 0 ($block-margin * 0.5);
+      }
+
+      .pretix-widget-item-info-col, .pretix-widget-item-price-col, .pretix-widget-action {
+        padding-left: 0;
+      }
+
+      .pretix-widget-item-info-col, .pretix-widget-item-availability-col, .pretix-widget-action {
+        padding-right: 0;
+      }
+
+      > .pretix-widget-clear, > .pretix-widget-attribution {
+        display: none;
+      }
+
+      .pretix-widget-event-list-entry {
+        color: inherit;
+
+        &:hover, &:active, &:focus {
+          background: none;
+        }
+      }
     }
   }
 
@@ -1262,60 +1352,6 @@ html {
           }
         }
       }
-    }
-  }
-
-  .pretix-widget {
-    border-radius: $border-radius;
-    border: 2px solid $primary-color;
-    background: $background-box;
-    padding: $block-margin;
-    margin: 0 0 $block-margin;
-    min-height: 0;
-
-    form {
-      margin-bottom: 0;
-
-      .pretix-widget-action {
-        width: auto;
-        margin: 0;
-      }
-
-      button {
-        border: none;
-        border-radius: $border-radius;
-        font-size: $font-size-button;
-        line-height: $line-height-button;
-        padding: 0;
-        width: auto;
-
-        &:hover, &:focus, &:active, &:hover:focus, &:hover:active {
-          border: none;
-          background: $active-color;
-          color: $text-color-inverse;
-        }
-      }
-
-      input[type="number"], input[type="text"] {
-        border-radius: $border-radius;
-      }
-
-    }
-
-    .pretix-widget-category {
-      margin: 0 0 ($block-margin * 0.5);
-    }
-
-    .pretix-widget-item-info-col, .pretix-widget-item-price-col, .pretix-widget-action {
-      padding-left: 0;
-    }
-
-    .pretix-widget-item-info-col, .pretix-widget-item-availability-col, .pretix-widget-action {
-      padding-right: 0;
-    }
-
-    > .pretix-widget-clear, > .pretix-widget-attribution {
-      display: none;
     }
   }
 
