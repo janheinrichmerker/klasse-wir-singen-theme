@@ -1,6 +1,6 @@
 {
   "name": "klasse-wir-singen-theme",
-  "version": "3.1.2",
+  "version": "3.3.1",
   "description": "Klasse! Wir singen WordPress theme.",
   "repository": "https://github.com/heinrichreimer/klasse-wir-singen-theme",
   "author": "Jan Heinrich Reimer <heinrich@reimer.dev>",
@@ -13,7 +13,7 @@
     "build:postcss": "postcss style.css style-editor.css style-h5p.css --replace --use autoprefixer --use cssnano",
     "build": "yarn-or-npm run build:sass && yarn-or-npm run build:postcss",
     "watch": "chokidar style.scss style-editor.scss style-h5p.scss assets/css --ignore \"/.*\\.css/\" --initial --command 'yarn-or-npm run build'",
-    "bundle:clean": "rm klasse-wir-singen.zip",
+    "bundle:clean": "rm -f klasse-wir-singen.zip",
     "bundle:zip": "zip -x .\\* -x package.json -x node_modules/\\* -x yarn.lock -x yarn-error.log -rq klasse-wir-singen.zip ./",
     "bundle": "yarn-or-npm run build && yarn-or-npm run bundle:clean && yarn-or-npm run bundle:zip"
   },
