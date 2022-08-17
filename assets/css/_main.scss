@@ -821,6 +821,18 @@ html {
         display: none;
       }
 
+      .pretix-widget-info-message {
+        padding: 0;
+        margin: 0;
+        background: none;
+        border: none;
+        color: inherit;
+
+        .pretix-widget-resume-button {
+          padding: 0 0.25em;
+        }
+      }
+
       .pretix-widget-event-list-entry {
         color: inherit;
 
