@@ -35,6 +35,14 @@ html {
         font-weight: bold;
       }
 
+      a {
+        color: $text-color-inverse;
+
+        &:hover, &:focus, &:active {
+          color: mix($text-color-inverse, $active-color);
+        }
+      }
+
       .box, .information, .appendix {
         background: $primary-color;
         border-color: darken($palette-slightly-dark-blue, 25%);
