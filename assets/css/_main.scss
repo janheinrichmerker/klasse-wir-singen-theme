@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "components/normalize";
 @use "components/mixins";
 @use "components/google-fonts";
@@ -530,13 +531,18 @@ html {
 
         .wp-block-column {
           // Needs !important because WordPress-internal CSS uses !important.
-          flex: $size-image-button 0 !important;
-          min-width: $size-image-button;
+          flex: $size-image-button-large 0 !important;
+          min-width: $size-image-button-large;
           margin: 0;
           hyphens: none;
 
           figure {
             margin-bottom: 0.5em;
+
+            img {
+              width: math.div($size-image-button + $size-image-button-large, 2);
+              height: math.div($size-image-button + $size-image-button-large, 2);
+            }
           }
 
           h2 {

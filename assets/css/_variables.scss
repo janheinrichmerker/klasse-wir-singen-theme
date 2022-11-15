@@ -80,6 +80,7 @@ $gap-image-button: $block-margin * 1.5 !default;
 $gap-image-button-memory: $block-margin * 0.5 !default;
 $gap-image-button-memory-small: $gap-image-button-memory * 0.6 !default;
 $size-image-button: ($content-width - ($block-margin * 2) - ($gap-image-button * (3 - 1))) * math.div(1, 3) !default;
+$size-image-button-large: ($content-width - ($block-margin * 2) - ($gap-image-button * (2 - 1))) * math.div(1, 2) !default;
 
 $divider-color: transparentize($text-color, 0.7) !default;
 $secondary-divider-color: transparentize($divider-color, 0.2) !default;
