@@ -730,6 +730,34 @@ html {
           }
         }
       }
+
+      &.song-grid-unnumbered {
+        .grids-section {
+          > div {
+            .grids-area {
+              @for $i from 1 through 10 {
+                &:nth-child(#{$i}) figure.image-button:before {
+                  background: none;
+                }
+              }
+
+              h3 {
+                margin-top: $block-margin * 0.5;
+                margin-bottom: 0;
+                hyphens: none;
+                font-size: 1.35em;
+                font-weight: bold;
+              }
+
+              a {
+                text-decoration: none;
+                color: $palette-dark-green;
+                display: block;
+              }
+            }
+          }
+        }
+      }
     }
 
     h1, h2, h3, h4, h5, h6 {
