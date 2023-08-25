@@ -44,9 +44,18 @@ html {
         }
       }
 
-      .box, .information, .appendix {
+      .box, .information, .appendix, .accent-gallery {
         background: $primary-color;
         border-color: darken($palette-slightly-dark-blue, 25%);
+
+        h1 {
+          color: $palette-red;
+        }
+
+        &.accent-gallery {
+          background: $primary-color;
+          border-color: darken($palette-slightly-dark-blue, 25%);
+        }
 
         &.appendix {
           background: $palette-dark-orange;
@@ -83,6 +92,32 @@ html {
                 background-image: url($theme-base-path + "/images/number-#{$i}-musical.svg");
               }
             }
+          }
+        }
+
+        &.devils-horns {
+          position: relative;
+
+          &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 2 * $block-margin;
+            height: 2 * $block-margin;
+            top: -$block-margin;
+            left: -$block-margin;
+            background-image: url($theme-base-path + "/images/devil-horn-left.svg");
+          }
+
+          &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 2 * $block-margin;
+            height: 2 * $block-margin;
+            top: -$block-margin;
+            right: -$block-margin;
+            background-image: url($theme-base-path + "/images/devil-horn-right.svg");
           }
         }
       }
@@ -735,10 +770,8 @@ html {
         .grids-section {
           > div {
             .grids-area {
-              @for $i from 1 through 10 {
-                &:nth-child(#{$i}) figure.image-button:before {
-                  background: none;
-                }
+              figure.image-button:before {
+                content: none;
               }
 
               h3 {
@@ -1100,12 +1133,13 @@ html {
     height: auto;
   }
 
-  table {
+  table, .wp-block-table table {
     margin: 0 0 $block-margin 0;
     width: 100%;
 
     tr {
       td {
+        border: 0;
         border-bottom: 1px solid $secondary-divider-color;
         padding: 0.4em;
       }
