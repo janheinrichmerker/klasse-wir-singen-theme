@@ -991,7 +991,7 @@ html {
     }
   }
 
-  figure, .wp-block-image, .wp-block-video, .wp-block-audio {
+  figure, .wp-block-image, .wp-block-video, .wp-block-embed-youtube, .wp-block-audio {
     clear: both;
     margin: 0 0 1em;
 
@@ -1010,7 +1010,7 @@ html {
       border-radius: 0;
     }
 
-    &.wp-block-video {
+    &.wp-block-video, .wp-block-embed-youtube {
       @include mixins.button-3d;
 
       video {
@@ -1434,7 +1434,7 @@ html {
           border-bottom-right-radius: 0;
         }
 
-        &.wp-block-video {
+        &.wp-block-video, .wp-block-embed-youtube {
           @media screen and (min-width: $content-width) {
             margin: $block-margin * 0.5;
           }
@@ -1549,9 +1549,19 @@ html {
   .wp-block-file {
     display: flex;
     align-items: baseline;
-    margin-bottom: 1em;
+    margin-top: 0;
+    margin-bottom: $block-margin;
     gap: 0.5em;
     flex-wrap: wrap;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+
+    &:not(.wp-element-button) {
+      font-size: unset;
+    }
 
     .wp-block-file__button {
       font-weight: unset;
