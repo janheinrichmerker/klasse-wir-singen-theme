@@ -18,7 +18,7 @@
     "bundle": "yarn-or-npm run build && yarn-or-npm run bundle:clean && yarn-or-npm run bundle:zip"
   },
   "dependencies": {
-    "autoprefixer": "^10.3.7",
+    "autoprefixer": "^10.4.18",
     "chokidar": "^3.6.0",
     "chokidar-cli": "^3.0.0",
     "cssnano": "^6.0.5",
